@@ -44,10 +44,10 @@ def generate_atom_feed(hist, info):
     name.text = 'OCGN Stock Feed Bot'
     
     # Add entries for each data point (most recent first)
-    for idx, (timestamp, row) in enumerate(hist.iterrows()):
-        if idx >= 20:  # Limit to 20 most recent entries
-            break
-            
+    # Reverse the DataFrame to get most recent entries first, limit to 20
+    recent_data = hist.iloc[::-1].head(20)
+    
+    for timestamp, row in recent_data.iterrows():
         entry = ET.SubElement(feed, 'entry')
         
         entry_title = ET.SubElement(entry, 'title')
@@ -63,17 +63,13 @@ def generate_atom_feed(hist, info):
         
         # Summary with stock details
         summary = ET.SubElement(entry, 'summary', type='html')
-        summary_text = f"""
-        <![CDATA[
-        <h3>OCGN Stock Data</h3>
-        <p><strong>Time:</strong> {timestamp.strftime('%Y-%m-%d %H:%M:%S %Z')}</p>
-        <p><strong>Open:</strong> ${row['Open']:.2f}</p>
-        <p><strong>High:</strong> ${row['High']:.2f}</p>
-        <p><strong>Low:</strong> ${row['Low']:.2f}</p>
-        <p><strong>Close:</strong> ${row['Close']:.2f}</p>
-        <p><strong>Volume:</strong> {int(row['Volume']):,}</p>
-        ]]>
-        """
+        summary_text = f"""<h3>OCGN Stock Data</h3>
+<p><strong>Time:</strong> {timestamp.strftime('%Y-%m-%d %H:%M:%S %Z')}</p>
+<p><strong>Open:</strong> ${row['Open']:.2f}</p>
+<p><strong>High:</strong> ${row['High']:.2f}</p>
+<p><strong>Low:</strong> ${row['Low']:.2f}</p>
+<p><strong>Close:</strong> ${row['Close']:.2f}</p>
+<p><strong>Volume:</strong> {int(row['Volume']):,}</p>"""
         summary.text = summary_text.strip()
     
     return feed
