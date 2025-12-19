@@ -40,6 +40,18 @@ Visit the web page: [https://cm-fy.github.io/ocgn-stock-feed/](https://cm-fy.git
 
 ## 🚀 Setup Instructions
 
+### ⚠️ CRITICAL: Enable GitHub Pages First
+
+**The feed will NOT be accessible until you enable GitHub Pages in repository settings:**
+
+1. Go to your repository on GitHub: `https://github.com/cm-fy/ocgn-stock-feed`
+2. Click **Settings** (top menu)
+3. Click **Pages** (left sidebar under "Code and automation")
+4. Under "Build and deployment":
+   - **Source**: Select **"GitHub Actions"** (NOT "Deploy from a branch")
+5. Click **Save**
+6. The feed will be live at `https://cm-fy.github.io/ocgn-stock-feed/feed.atom` within 1-2 minutes
+
 ### Prerequisites
 
 - Python 3.11 or higher
@@ -65,22 +77,15 @@ Visit the web page: [https://cm-fy.github.io/ocgn-stock-feed/](https://cm-fy.git
 
 4. Check the generated `feed.atom` file
 
-### GitHub Actions Setup
-
-The workflows are already configured. To enable:
-
-1. **Enable GitHub Actions**: Ensure Actions are enabled in repository settings
-2. **Enable GitHub Pages**: 
-   - Go to Settings → Pages
-   - Source: GitHub Actions
-3. **Permissions**: The workflows have the necessary permissions configured
-
 ### Manual Trigger
 
-You can manually trigger the feed update:
+After enabling GitHub Pages, you can manually trigger the feed update:
 1. Go to Actions tab
 2. Select "Update OCGN Stock Feed" workflow
 3. Click "Run workflow"
+4. Wait for it to complete (about 30 seconds)
+5. The "Deploy GitHub Pages" workflow will automatically trigger
+6. Your feed will be live at `https://cm-fy.github.io/ocgn-stock-feed/feed.atom`
 
 ## 📡 Using the Feed
 
