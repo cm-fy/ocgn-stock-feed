@@ -1,251 +1,179 @@
 #!/usr/bin/env python3
 """
-Fetch OCGN stock data and generate Atom (docs/feed.atom) and RSS2 (docs/feed.rss).
-This version uses BRT (America/Sao_Paulo) for published/updated timestamps and for the trading window (04:00-21:00 BRT).
-It fetches 1-minute history, resamples to 5-minute buckets, builds the full BRT window with 204 entries, copies OCGN.png into docs/ if present, and writes both Atom and RSS files.
+fetch_stock_feed.py
+
+Updated to:
+- Trading window BRT 04:00 - 21:00 (BRT)
+- Full-window 5-minute entries = 204
+- Atom and RSS timestamps remain in BRT
+- Keep behavior: fetch 1m bars, resample to 5m, copy OCGN.png -> docs/
+
+This script fetches recent 1-minute bars for OCGN, resamples to 5-minute bars,
+builds simple RSS and Atom feeds with timestamps in BRT, and writes feed files
+into docs/. It also copies OCGN.png into docs/.
+
+Requires: yfinance, pandas, pytz
 """
+
 import os
 import shutil
-import datetime as dt
-from zoneinfo import ZoneInfo
-import xml.etree.ElementTree as ET
-from xml.dom import minidom
-from email.utils import format_datetime
-
-import yfinance as yf
+from datetime import datetime, date, time, timedelta
+import pytz
 import pandas as pd
+import yfinance as yf
+from email.utils import format_datetime
+import xml.etree.ElementTree as ET
 
-# Configuration
-FEED_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.atom"
-FEED_RSS_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.rss"
-FEED_ICON = "https://cm-fy.github.io/ocgn-stock-feed/OCGN.png"
-FEED_HOMEPAGE = "https://cm-fy.github.io/ocgn-stock-feed/"
-FEED_TITLE = "OCGN Stock Price Feed"
-FEED_SUBTITLE = "Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours)."
-FEED_AUTHOR = "OCGN Stock Feed Bot"
+# --- Configuration ---
 SYMBOL = "OCGN"
+BRT_TZ = pytz.timezone("America/Sao_Paulo")  # BRT (UTC-3)
+TRADING_START = time(4, 0)   # 04:00 BRT
+TRADING_END = time(21, 0)    # 21:00 BRT (changed per user request)
+FULL_WINDOW_ENTRIES_5M = 204  # 17 hours * 60 / 5 = 204
+ONE_MIN_FETCH_PERIOD = "2d"  # fetch last 2 days of 1m bars to be safe
+DOCS_DIR = "docs"
+PNG_SOURCE = "OCGN.png"
+PNG_DEST = os.path.join(DOCS_DIR, "OCGN.png")
+RSS_PATH = os.path.join(DOCS_DIR, "ocgn.rss")
+ATOM_PATH = os.path.join(DOCS_DIR, "ocgn.atom")
 
-# Full-window entries: 04:00-21:00 BRT (end excluded) is 17 hours * 12 = 204 samples at 5-minute cadence
-ENTRIES_IN_FULL_WINDOW = 204
-
-ATOM_NS = "http://www.w3.org/2005/Atom"
-ET.register_namespace('', ATOM_NS)
-
-BRT = ZoneInfo('America/Sao_Paulo')
-UTC = ZoneInfo('UTC')
-
-
-def fetch_ocgn_data():
-    try:
-        t = yf.Ticker(SYMBOL)
-        info = t.info if hasattr(t, 'info') else {}
-        hist = t.history(period="2d", interval="1m", prepost=True)
-        return info, hist
-    except Exception as e:
-        print(f"Error fetching data: {e}")
-        return {}, pd.DataFrame()
+# Ensure docs directory exists
+os.makedirs(DOCS_DIR, exist_ok=True)
 
 
-def build_full_window_index(date_brt: dt.date):
-    start = dt.datetime.combine(date_brt, dt.time(4, 0), tzinfo=BRT)
-    # Use 21:00 as the logical window end but exclude it so the last 5-min sample is 20:55.
-    end = dt.datetime.combine(date_brt, dt.time(21, 0), tzinfo=BRT)
-    # closed='left' will include start and exclude end -> 204 entries at 5-minute cadence
-    return pd.date_range(start=start, end=end, freq='5T', closed='left')
+def fetch_1m_data(symbol: str) -> pd.DataFrame:
+    """Fetch recent 1-minute bars and return a DataFrame with timezone-aware index in BRT."""
+    # yfinance returns tz-aware index (UTC) for intraday; convert to BRT
+    df = yf.download(symbol, period=ONE_MIN_FETCH_PERIOD, interval="1m", progress=False, threads=False)
+    if df.empty:
+        raise RuntimeError("No data returned from yfinance for symbol {}".format(symbol))
+
+    # Ensure index is tz-aware UTC, then convert to BRT
+    if df.index.tz is None:
+        df.index = df.index.tz_localize(pytz.UTC)
+    df = df.tz_convert(BRT_TZ)
+    return df
 
 
-def generate_atom_and_rss(info, hist):
-    df = hist.copy()
-    if not df.empty:
-        if df.index.tz is None:
-            df = df.tz_localize('UTC')
-        df = df.tz_convert(BRT)
-        if 'Close' in df.columns:
-            price_series = df['Close']
-        elif 'close' in df.columns:
-            price_series = df['close']
-        else:
-            price_series = df.iloc[:, 0]
-        price_5m = price_series.resample('5T').last().ffill()
-    else:
-        price_5m = pd.Series(dtype=float)
-
-    now_brt = dt.datetime.now(BRT)
-    target_date = now_brt.date()
-    full_index = build_full_window_index(target_date)
-
-    if not price_5m.empty:
-        # Reindex onto the full BRT window, forward-fill to carry last known price
-        price_5m = price_5m.reindex(full_index, method='ffill')
-    else:
-        price_5m = pd.Series([None] * len(full_index), index=full_index)
-
-    previous_close = None
-    try:
-        if not hist.empty and 'Close' in hist.columns:
-            hist_utc = hist.copy()
-            if hist_utc.index.tz is None:
-                hist_utc = hist_utc.tz_localize('UTC')
-            hist_brt = hist_utc.tz_convert(BRT)
-            start_brt = dt.datetime.combine(target_date, dt.time(4, 0), tzinfo=BRT)
-            prev_vals = hist_brt[hist_brt.index < start_brt]
-            if not prev_vals.empty and 'Close' in prev_vals.columns:
-                previous_close = prev_vals['Close'].iloc[-1]
-    except Exception:
-        previous_close = None
-
-    feed = ET.Element(ET.QName(ATOM_NS, 'feed'))
-    title = ET.SubElement(feed, ET.QName(ATOM_NS, 'title'))
-    title.text = FEED_TITLE
-    subtitle = ET.SubElement(feed, ET.QName(ATOM_NS, 'subtitle'))
-    subtitle.text = FEED_SUBTITLE
-    link_self = ET.SubElement(feed, ET.QName(ATOM_NS, 'link'))
-    link_self.set('href', FEED_URL)
-    link_self.set('rel', 'self')
-    link_alt = ET.SubElement(feed, ET.QName(ATOM_NS, 'link'))
-    link_alt.set('href', FEED_HOMEPAGE)
-    link_alt.set('rel', 'alternate')
-    link_alt.set('type', 'text/html')
-    feed_id = ET.SubElement(feed, ET.QName(ATOM_NS, 'id'))
-    feed_id.text = FEED_URL
-    updated = ET.SubElement(feed, ET.QName(ATOM_NS, 'updated'))
-    # Use BRT-aware ISO timestamps for Atom updated
-    updated.text = now_brt.isoformat()
-    author = ET.SubElement(feed, ET.QName(ATOM_NS, 'author'))
-    name = ET.SubElement(author, ET.QName(ATOM_NS, 'name'))
-    name.text = FEED_AUTHOR
-    generator = ET.SubElement(feed, ET.QName(ATOM_NS, 'generator'))
-    generator.text = 'fetch_stock_feed.py (custom)'
-    icon_el = ET.SubElement(feed, ET.QName(ATOM_NS, 'icon'))
-    icon_el.text = FEED_ICON
-    logo_el = ET.SubElement(feed, ET.QName(ATOM_NS, 'logo'))
-    logo_el.text = FEED_ICON
-
-    rss_items = []
-
-    for ts in reversed(full_index):
-        price = price_5m.get(ts, None)
-        entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
-        title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
-        price_text = f"{SYMBOL}: ${price:.2f}" if price is not None and not pd.isna(price) else f"{SYMBOL}: N/A"
-        title_entry.text = price_text
-        link = ET.SubElement(entry, ET.QName(ATOM_NS, 'link'))
-        link.set('href', f"https://finance.yahoo.com/quote/{SYMBOL}")
-        link.set('rel', 'alternate')
-        link.set('type', 'text/html')
-        entry_id = ET.SubElement(entry, ET.QName(ATOM_NS, 'id'))
-        entry_id.text = f"{SYMBOL.lower()}-{ts.strftime('%Y%m%d-%H%M')}"
-        ts_brt = ts
-        # Ensure RSS pubDate is BRT-aware by using format_datetime on a tz-aware datetime
-        ts_rss = format_datetime(ts_brt)
-        published = ET.SubElement(entry, ET.QName(ATOM_NS, 'published'))
-        published.text = ts_brt.isoformat()
-        entry_updated = ET.SubElement(entry, ET.QName(ATOM_NS, 'updated'))
-        entry_updated.text = ts_brt.isoformat()
-        entry_author = ET.SubElement(entry, ET.QName(ATOM_NS, 'author'))
-        entry_author_name = ET.SubElement(entry_author, ET.QName(ATOM_NS, 'name'))
-        entry_author_name.text = FEED_AUTHOR
-        summary = ET.SubElement(entry, ET.QName(ATOM_NS, 'summary'))
-        if price is not None and not pd.isna(price):
-            if previous_close is not None:
-                change = price - previous_close
-                pct = (change / previous_close * 100) if previous_close else 0
-                summary.text = f"{SYMBOL} {price:.2f} ({change:+.2f}, {pct:+.2f}%) at {ts.strftime('%H:%M %Z')}"
-            else:
-                summary.text = f"{SYMBOL} {price:.2f} at {ts.strftime('%H:%M %Z')}"
-        else:
-            summary.text = f"{SYMBOL} price unavailable at {ts.strftime('%H:%M %Z')}"
-        content = ET.SubElement(entry, ET.QName(ATOM_NS, 'content'))
-        content.set('type', 'html')
-        content_html = "<div>\n"
-        content_html += f"<h2>{SYMBOL} Stock Price Update</h2>\n"
-        if price is not None and not pd.isna(price):
-            content_html += f"<p><strong>Price:</strong> ${price:.2f}</p>\n"
-        else:
-            content_html += f"<p><strong>Price:</strong> N/A</p>\n"
-        if previous_close is not None:
-            content_html += f"<p><strong>Previous Close:</strong> ${previous_close:.2f}</p>\n"
-        content_html += f"<p><strong>Timestamp (BRT):</strong> {ts.strftime('%Y-%m-%d %H:%M %Z')}</p>\n"
-        content_html += "</div>"
-        content.text = content_html
-        rss_items.append({
-            'title': price_text,
-            'link': f"https://finance.yahoo.com/quote/{SYMBOL}",
-            'guid': entry_id.text,
-            'pubDate': ts_rss,
-            'description': content_html
-        })
-
-    return feed, rss_items, now_brt
+def filter_trading_window(df: pd.DataFrame) -> pd.DataFrame:
+    """Keep only rows whose local time (BRT) falls within the configured trading window.
+    This will keep data across multiple days but only times between TRADING_START and TRADING_END.
+    """
+    # between_time works on the index's time component
+    df_in_window = df.between_time(TRADING_START.strftime("%H:%M"), TRADING_END.strftime("%H:%M"))
+    return df_in_window
 
 
-def prettify_xml(elem):
-    rough_string = ET.tostring(elem, encoding='utf-8')
-    reparsed = minidom.parseString(rough_string)
-    return reparsed.toprettyxml(indent="  ", encoding='utf-8').decode('utf-8')
+def resample_to_5m(df: pd.DataFrame) -> pd.DataFrame:
+    """Resample 1m bars to 5m bars. The timestamp of a 5m bar will be the right edge (end) of the interval.
+    Keep OHLC and sum volume.
+    """
+    ohlc = df[['Open', 'High', 'Low', 'Close']].resample('5T', label='right', closed='right').agg({'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last'})
+    volume = df['Volume'].resample('5T', label='right', closed='right').sum()
+    res = ohlc.join(volume).dropna(subset=['Open'])
+    res.index = res.index.tz_convert(BRT_TZ)  # ensure index stays in BRT
+    return res
 
 
-def write_rss(rss_items, now_brt):
-    channel_title = FEED_TITLE
-    channel_link = FEED_HOMEPAGE
-    channel_desc = FEED_SUBTITLE
-    rss_parts = []
-    rss_parts.append('<?xml version="1.0" encoding="UTF-8"?>')
-    rss_parts.append('<rss version="2.0">')
-    rss_parts.append('<channel>')
-    rss_parts.append(f"<title>{channel_title}</title>")
-    rss_parts.append(f"<link>{channel_link}</link>")
-    rss_parts.append(f"<description>{channel_desc}</description>")
-    # Use BRT-aware datetime for lastBuildDate
-    rss_parts.append(f"<lastBuildDate>{format_datetime(now_brt)}</lastBuildDate>")
-    rss_parts.append(f"<generator>fetch_stock_feed.py (custom)</generator>")
-    rss_parts.append(f"<image><url>{FEED_ICON}</url><title>{channel_title}</title><link>{channel_link}</link></image>")
-    for it in rss_items:
-        rss_parts.append('<item>')
-        rss_parts.append(f"<title><![CDATA[{it['title']}]]></title>")
-        rss_parts.append(f"<link>{it['link']}</link>")
-        rss_parts.append(f"<guid>{it['guid']}</guid>")
-        rss_parts.append(f"<pubDate>{it['pubDate']}</pubDate>")
-        rss_parts.append(f"<description><![CDATA[{it['description']}]]></description>")
-        rss_parts.append('</item>')
-    rss_parts.append('</channel>')
-    rss_parts.append('</rss>')
-    return '\n'.join(rss_parts)
+def build_rss(latest_bar: pd.Series, feed_time: datetime) -> str:
+    """Build a simple RSS 2.0 feed string. Timestamps are kept in BRT.
+    feed_time must be timezone-aware in BRT.
+    """
+    title = f"{SYMBOL} 5m feed"
+    link = "https://github.com/cm-fy/ocgn-stock-feed"  # example link
+    description = f"{SYMBOL} latest 5m close: {latest_bar['Close']:.4f}"
+
+    rss = ET.Element('rss', version='2.0')
+    channel = ET.SubElement(rss, 'channel')
+    ET.SubElement(channel, 'title').text = title
+    ET.SubElement(channel, 'link').text = link
+    ET.SubElement(channel, 'description').text = description
+
+    # Item
+    item = ET.SubElement(channel, 'item')
+    ET.SubElement(item, 'title').text = f"{SYMBOL} {latest_bar.name.isoformat()}"
+    ET.SubElement(item, 'description').text = description
+    ET.SubElement(item, 'link').text = link
+    # pubDate in RFC 2822, keep BRT tz
+    ET.SubElement(item, 'pubDate').text = format_datetime(feed_time)
+
+    xml_str = ET.tostring(rss, encoding='utf-8')
+    return xml_str.decode('utf-8')
 
 
-def ensure_icon_is_deployed():
-    src = 'OCGN.png'
-    dst_dir = 'docs'
-    dst = os.path.join(dst_dir, 'OCGN.png')
-    try:
-        if os.path.exists(src):
-            os.makedirs(dst_dir, exist_ok=True)
-            shutil.copyfile(src, dst)
-            print(f"Copied {src} -> {dst} so it will be deployed to Pages")
-        else:
-            print(f"Note: {src} not found in repo root; skipping copy. If you want an icon, add OCGN.png at repo root or put the image in docs/.")
-    except Exception as e:
-        print(f"Warning: could not copy icon file: {e}")
+def build_atom(latest_bar: pd.Series, feed_time: datetime) -> str:
+    """Build a simple Atom feed string. Timestamps are kept in BRT (ISO 8601 with offset).
+    feed_time must be timezone-aware in BRT.
+    """
+    ns = 'http://www.w3.org/2005/Atom'
+    feed = ET.Element('feed', xmlns=ns)
+    ET.SubElement(feed, 'title').text = f"{SYMBOL} 5m feed"
+    ET.SubElement(feed, 'updated').text = feed_time.isoformat()
+    ET.SubElement(feed, 'id').text = f"urn:uuid:{SYMBOL}-feed"
+
+    entry = ET.SubElement(feed, 'entry')
+    ET.SubElement(entry, 'title').text = f"{SYMBOL} {latest_bar.name.isoformat()}"
+    ET.SubElement(entry, 'id').text = f"urn:uuid:{SYMBOL}-{latest_bar.name.isoformat()}"
+    ET.SubElement(entry, 'updated').text = feed_time.isoformat()
+    ET.SubElement(entry, 'summary').text = f"Latest close: {latest_bar['Close']:.4f}"
+
+    xml_str = ET.tostring(feed, encoding='utf-8')
+    return xml_str.decode('utf-8')
 
 
 def main():
-    print("Fetching OCGN stock data...")
-    info, hist = fetch_ocgn_data()
-    print("Generating feeds...")
-    feed, rss_items, now_brt = generate_atom_and_rss(info, hist)
-    feed_xml = prettify_xml(feed)
-    os.makedirs('docs', exist_ok=True)
-    ensure_icon_is_deployed()
-    with open('docs/feed.atom', 'w', encoding='utf-8') as f:
-        f.write(feed_xml)
-    rss_text = write_rss(rss_items, now_brt)
-    with open('docs/feed.rss', 'w', encoding='utf-8') as f:
-        f.write(rss_text)
-    print('Wrote docs/feed.atom and docs/feed.rss')
-    index_html = f"""<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>{FEED_TITLE}</title><link rel=\"icon\" type=\"image/png\" href=\"OCGN.png\" /></head><body><h1>{FEED_TITLE}</h1><p>{FEED_SUBTITLE}</p><p><a href=\"feed.atom\">Atom feed</a> | <a href=\"feed.rss\">RSS2 feed</a></p></body></html>"""
-    with open('docs/index.html', 'w', encoding='utf-8') as f:
-        f.write(index_html)
-    print('Index written')
+    try:
+        df1m = fetch_1m_data(SYMBOL)
+    except Exception as e:
+        print(f"Error fetching data: {e}")
+        return
+
+    df_window = filter_trading_window(df1m)
+    if df_window.empty:
+        print("No data found in trading window. Exiting.")
+        return
+
+    df_5m = resample_to_5m(df_window)
+    if df_5m.empty:
+        print("No 5m bars after resampling. Exiting.")
+        return
+
+    # Keep only the latest FULL_WINDOW_ENTRIES_5M bars (full trading-day window)
+    df_5m = df_5m.tail(FULL_WINDOW_ENTRIES_5M)
+
+    latest_bar = df_5m.iloc[-1]
+    latest_time = df_5m.index[-1]
+    # Ensure feed timestamps are in BRT
+    feed_time = latest_time.astimezone(BRT_TZ)
+
+    # Build feeds
+    rss_xml = build_rss(latest_bar, feed_time)
+    atom_xml = build_atom(latest_bar, feed_time)
+
+    # Write feed files
+    with open(RSS_PATH, 'w', encoding='utf-8') as f:
+        f.write(rss_xml)
+    with open(ATOM_PATH, 'w', encoding='utf-8') as f:
+        f.write(atom_xml)
+
+    # Also write a simple HTML summary (optional, helps quick debugging/viewing on GH Pages)
+    summary_path = os.path.join(DOCS_DIR, 'index.html')
+    with open(summary_path, 'w', encoding='utf-8') as f:
+        f.write(f"<html><body><h1>{SYMBOL} 5m feed</h1>")
+        f.write(f"<p>Latest time (BRT): {feed_time.isoformat()}</p>")
+        f.write(f"<p>Latest close: {latest_bar['Close']:.4f}</p>")
+        f.write("</body></html>")
+
+    # Copy image to docs/
+    if os.path.exists(PNG_SOURCE):
+        try:
+            shutil.copyfile(PNG_SOURCE, PNG_DEST)
+        except Exception as e:
+            print(f"Warning: could not copy {PNG_SOURCE} to {PNG_DEST}: {e}")
+    else:
+        print(f"Warning: {PNG_SOURCE} not found; skipping copy to docs/.")
+
+    print(f"Wrote feeds: {RSS_PATH}, {ATOM_PATH}. Copied image to {PNG_DEST} (if present).")
 
 
 if __name__ == '__main__':
