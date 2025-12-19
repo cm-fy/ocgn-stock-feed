@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCGN Stock Feed</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .feed-link {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        .feed-link:hover {
+            background: #2980b9;
+        }
+        .info {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>OCGN Stock Feed</h1>
+    
+    <p>This is an automated Atom feed for OCGN (Ocugen, Inc.) stock prices, updated every 15 minutes.</p>
+    
+    <a href="feed.atom" class="feed-link">📡 Subscribe to Feed</a>
+    
+    <div class="info">
+        <h2>About This Feed</h2>
+        <p>This feed provides real-time OCGN stock data including:</p>
+        <ul>
+            <li>Regular trading hours prices</li>
+            <li>Extended hours (pre-market and after-hours) data</li>
+            <li>Open, High, Low, Close prices</li>
+            <li>Trading volume</li>
+        </ul>
+        <p>The feed is automatically updated every 15 minutes during market hours and beyond.</p>
+    </div>
+    
+    <div class="info">
+        <h2>How to Use</h2>
+        <p>To subscribe to this feed in your favorite RSS/Atom reader, use this URL:</p>
+        <code>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</code>
+    </div>
+    
+    <div class="info">
+        <h2>Technical Details</h2>
+        <p>This feed is generated using:</p>
+        <ul>
+            <li>Python with yfinance library for data fetching</li>
+            <li>GitHub Actions for automation</li>
+            <li>GitHub Pages for hosting</li>
+        </ul>
+        <p>Source code: <a href="https://github.com/cm-fy/ocgn-stock-feed">GitHub Repository</a></p>
+    </div>
+    
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; color: #777; font-size: 0.9em;">
+        <p>Data provided by Yahoo Finance. This is not financial advice.</p>
+    </footer>
+</body>
+</html>

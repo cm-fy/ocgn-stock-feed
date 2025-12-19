@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>OCGN Stock Feed</title>
+  <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self" />
+  <id>https://cm-fy.github.io/ocgn-stock-feed/</id>
+  <updated>2025-12-19T18:28:00+00:00</updated>
+  <author>
+    <name>OCGN Stock Feed Bot</name>
+  </author>
+  <entry>
+    <title>OCGN: $0.00</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" />
+    <id>https://cm-fy.github.io/ocgn-stock-feed/sample</id>
+    <updated>2025-12-19T18:28:00+00:00</updated>
+    <summary type="html">
+        <![CDATA[
+        <h3>OCGN Stock Data</h3>
+        <p><strong>Note:</strong> This is a placeholder feed. Real data will be populated by the automated workflow.</p>
+        ]]>
+    </summary>
+  </entry>
+</feed>
