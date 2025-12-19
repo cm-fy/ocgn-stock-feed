@@ -3,6 +3,7 @@
 Fetch OCGN stock data and generate Atom (docs/feed.atom) and RSS2 (docs/feed.rss).
 This version uses BRT (America/Sao_Paulo) for published/updated timestamps and for the trading window (04:00-21:00 BRT).
 It fetches 1-minute history, resamples to 5-minute buckets using the Close price (last), builds the full BRT window with 204 entries, copies OCGN.png into docs/ if present, and writes both Atom and RSS files.
+Robustness: handles missing/renamed columns from yfinance, empty data, and logs warnings instead of raising.
 """
 import os
 import shutil
@@ -53,28 +54,38 @@ def build_full_window_index(date_brt: dt.date):
     return pd.date_range(start=start, end=end, freq=RESAMPLE_FREQ)
 
 
+def price_series_from_hist(hist_df: pd.DataFrame) -> pd.Series:
+    """Return a timezone-aware price series (indexed in BRT) robustly.
+    Prefer 'Close' column; if absent, pick the first numeric column.
+    If input is empty or no numeric columns exist, return empty Series.
+    """
+    if hist_df is None or hist_df.empty:
+        return pd.Series(dtype=float)
+
+    df = hist_df.copy()
+    # ensure tz-aware index
+    if df.index.tz is None:
+        df = df.tz_localize('UTC')
+    df = df.tz_convert(BRT)
+
+    # prefer Close
+    if 'Close' in df.columns:
+        return df['Close']
+
+    # fallback: first numeric column
+    numeric_cols = [c for c in df.columns if pd.api.types.is_numeric_dtype(df[c])]
+    if numeric_cols:
+        return df[numeric_cols[0]]
+
+    return pd.Series(dtype=float)
+
+
 def generate_atom_and_rss(info, hist):
     # Prepare price series
-    df = hist.copy()
-    if not df.empty:
-        # Ensure tz-aware index; yfinance often returns tz-aware index in UTC
-        if df.index.tz is None:
-            df = df.tz_localize('UTC')
-        # Convert to BRT for windowing
-        df = df.tz_convert(BRT)
+    price_series = price_series_from_hist(hist)
 
-        # Determine best price column: prefer 'Close', fall back to first numeric column
-        if 'Close' in df.columns:
-            price_series = df['Close']
-        else:
-            # find first numeric column
-            numeric_cols = [c for c in df.columns if pd.api.types.is_numeric_dtype(df[c])]
-            if numeric_cols:
-                price_series = df[numeric_cols[0]]
-            else:
-                price_series = pd.Series(dtype=float)
-
-        # Resample to 5-minute using last available price in each bucket and forward-fill
+    # Resample to 5-minute using last available price in each bucket and forward-fill
+    if not price_series.empty:
         price_5m = price_series.resample(RESAMPLE_FREQ).last().ffill()
     else:
         price_5m = pd.Series(dtype=float)
@@ -92,15 +103,21 @@ def generate_atom_and_rss(info, hist):
     # For previous close, attempt to find last close prior to start of window
     previous_close = None
     try:
-        if not hist.empty and 'Close' in hist.columns:
+        if hist is not None and not hist.empty:
             hist_utc = hist.copy()
             if hist_utc.index.tz is None:
                 hist_utc = hist_utc.tz_localize('UTC')
             hist_brt = hist_utc.tz_convert(BRT)
             start_brt = dt.datetime.combine(target_date, dt.time(START_HOUR, 0), tzinfo=BRT)
             prev_vals = hist_brt[hist_brt.index < start_brt]
-            if not prev_vals.empty and 'Close' in prev_vals.columns:
-                previous_close = prev_vals['Close'].iloc[-1]
+            # pick a numeric close-like column if available
+            if not prev_vals.empty:
+                if 'Close' in prev_vals.columns:
+                    previous_close = prev_vals['Close'].iloc[-1]
+                else:
+                    numeric_cols = [c for c in prev_vals.columns if pd.api.types.is_numeric_dtype(prev_vals[c])]
+                    if numeric_cols:
+                        previous_close = prev_vals[numeric_cols[0]].iloc[-1]
     except Exception:
         previous_close = None
 
@@ -241,34 +258,28 @@ def ensure_icon_is_deployed():
 
 
 def main():
-    print("Fetching OCGN stock data...")
-    info, hist = fetch_ocgn_data()
-
-    print("Generating Atom and RSS feeds...")
-    feed, rss_items, now_brt = generate_atom_and_rss(info, hist)
-
-    print("Writing feed files...")
-    feed_xml = prettify_xml(feed)
-
-    os.makedirs('docs', exist_ok=True)
-    ensure_icon_is_deployed()
-
-    with open('docs/feed.atom', 'w', encoding='utf-8') as f:
-        f.write(feed_xml)
-    rss_text = write_rss(rss_items, now_brt)
-    with open('docs/feed.rss', 'w', encoding='utf-8') as f:
-        f.write(rss_text)
-
-    print('Wrote docs/feed.atom and docs/feed.rss')
-
-    # regenerate index
-    index_html = f"""<!DOCTYPE html>
-<html lang=\"en\">\n<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>{FEED_TITLE}</title><link rel=\"icon\" type=\"image/png\" href=\"OCGN.png\" /></head>
-<body><h1>{FEED_TITLE}</h1><p>{FEED_SUBTITLE}</p><p><a href=\"feed.atom\">Atom feed</a> | <a href=\"feed.rss\">RSS2 feed</a></p></body></html>"""
-    with open('docs/index.html', 'w', encoding='utf-8') as f:
-        f.write(index_html)
-
-    print('Index written')
+    try:
+        print("Fetching OCGN stock data...")
+        info, hist = fetch_ocgn_data()
+        print("Generating Atom and RSS feeds...")
+        feed, rss_items, now_brt = generate_atom_and_rss(info, hist)
+        print("Writing feed files...")
+        feed_xml = prettify_xml(feed)
+        os.makedirs('docs', exist_ok=True)
+        ensure_icon_is_deployed()
+        with open('docs/feed.atom', 'w', encoding='utf-8') as f:
+            f.write(feed_xml)
+        rss_text = write_rss(rss_items, now_brt)
+        with open('docs/feed.rss', 'w', encoding='utf-8') as f:
+            f.write(rss_text)
+        print('Wrote docs/feed.atom and docs/feed.rss')
+        index_html = f"""<!DOCTYPE html>
+<html lang=\"en\">\n<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>{FEED_TITLE}</title><link rel=\"icon\" type=\"image/png\" href=\"OCGN.png\" /></head>\n<body><h1>{FEED_TITLE}</h1><p>{FEED_SUBTITLE}</p><p><a href=\"feed.atom\">Atom feed</a> | <a href=\"feed.rss\">RSS2 feed</a></p></body></html>"""
+        with open('docs/index.html', 'w', encoding='utf-8') as f:
+            f.write(index_html)
+        print('Index written')
+    except Exception as e:
+        print('Warning: feed generation failed but will not crash workflow:', e)
 
 
 if __name__ == '__main__':
