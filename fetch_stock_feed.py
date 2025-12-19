@@ -9,6 +9,10 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 import os
 
+# Configuration
+GITHUB_PAGES_BASE_URL = os.environ.get('GITHUB_PAGES_URL', 'https://cm-fy.github.io/ocgn-stock-feed')
+FEED_URL = f"{GITHUB_PAGES_BASE_URL}/feed.atom"
+
 
 def fetch_ocgn_data():
     """Fetch OCGN stock data including extended hours trading."""
@@ -23,7 +27,8 @@ def fetch_ocgn_data():
         
         return info, hist
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        # Log the error for debugging
+        print(f"Error fetching data from yfinance: {type(e).__name__}: {e}")
         # Return empty data structures on error
         return {}, None
 
@@ -37,10 +42,10 @@ def generate_atom_feed(info, hist):
     title = ET.SubElement(feed, 'title')
     title.text = 'OCGN Stock Price Feed'
     
-    link = ET.SubElement(feed, 'link', href='https://cm-fy.github.io/ocgn-stock-feed/feed.atom', rel='self')
+    link = ET.SubElement(feed, 'link', href=FEED_URL, rel='self')
     
     feed_id = ET.SubElement(feed, 'id')
-    feed_id.text = 'https://cm-fy.github.io/ocgn-stock-feed/feed.atom'
+    feed_id.text = FEED_URL
     
     updated = ET.SubElement(feed, 'updated')
     updated.text = datetime.now(timezone.utc).isoformat()
@@ -122,9 +127,10 @@ def generate_atom_feed(info, hist):
 """
     
     # Add extended hours info if available
-    if hist is not None and not hist.empty:
-        latest_row = hist.iloc[-1]
-        content_html += f"""
+    if hist is not None and not hist.empty and len(hist) > 0:
+        try:
+            latest_row = hist.iloc[-1]
+            content_html += f"""
     <h3>Latest Trading Data (Including Extended Hours)</h3>
     <p><strong>Open:</strong> ${latest_row['Open']:.2f}</p>
     <p><strong>High:</strong> ${latest_row['High']:.2f}</p>
@@ -133,6 +139,8 @@ def generate_atom_feed(info, hist):
     <p><strong>Volume:</strong> {int(latest_row['Volume']):,}</p>
     <p><strong>Timestamp:</strong> {latest_row.name.strftime('%Y-%m-%d %H:%M:%S %Z')}</p>
 """
+        except (KeyError, IndexError, ValueError) as e:
+            print(f"Warning: Could not extract historical data: {type(e).__name__}: {e}")
     
     content_html += """
 </div>"""
@@ -169,33 +177,33 @@ def main():
     print(f"Feed generated successfully: {output_path}")
     
     # Also create an index.html for GitHub Pages
-    index_html = """<!DOCTYPE html>
+    index_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OCGN Stock Feed</title>
     <style>
-        body {
+        body {{
             font-family: Arial, sans-serif;
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
             line-height: 1.6;
-        }
-        h1 { color: #333; }
-        .feed-link {
+        }}
+        h1 {{ color: #333; }}
+        .feed-link {{
             background-color: #f4f4f4;
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
-        }
-        code {
+        }}
+        code {{
             background-color: #e8e8e8;
             padding: 2px 6px;
             border-radius: 3px;
             font-family: monospace;
-        }
+        }}
     </style>
 </head>
 <body>
@@ -204,7 +212,7 @@ def main():
     
     <div class="feed-link">
         <h2>Atom Feed URL</h2>
-        <p><code>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</code></p>
+        <p><code>{FEED_URL}</code></p>
         <p><a href="feed.atom">View Feed</a></p>
     </div>
     
