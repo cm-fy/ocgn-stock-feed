@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Fetch OCGN stock data and generate an Atom feed (docs/feed.atom) and index page.
-This version fetches 1m history, resamples to 5m, builds a full ET trading-window (04:00-20:00 ET) with 192 entries
-and copies OCGN.png into docs/ so GitHub Pages serves it.
+Fetch OCGN stock data and generate Atom (docs/feed.atom) and RSS2 (docs/feed.rss).
+This version uses BRT (America/Sao_Paulo) for published/updated timestamps and for the trading window (04:00-20:00 BRT).
+It fetches 1-minute history, resamples to 5-minute buckets, builds the full BRT window with 192 entries, copies OCGN.png into docs/ if present, and writes both Atom and RSS files.
 """
 import os
 import shutil
@@ -10,13 +10,14 @@ import datetime as dt
 from zoneinfo import ZoneInfo
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+from email.utils import format_datetime
 
 import yfinance as yf
 import pandas as pd
 
 # Configuration
 FEED_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.atom"
-# Public URL for the icon (served from docs/ after the script copies the image)
+FEED_RSS_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.rss"
 FEED_ICON = "https://cm-fy.github.io/ocgn-stock-feed/OCGN.png"
 FEED_HOMEPAGE = "https://cm-fy.github.io/ocgn-stock-feed/"
 FEED_TITLE = "OCGN Stock Price Feed"
@@ -24,22 +25,20 @@ FEED_SUBTITLE = "Near-real-time OCGN (Ocugen Inc.) stock price updates (includin
 FEED_AUTHOR = "OCGN Stock Feed Bot"
 SYMBOL = "OCGN"
 
-# How many entries to include across the full 04:00-20:00 ET window at 5-minute cadence
+# How many entries to include across the full 04:00-20:00 BRT window at 5-minute cadence
 ENTRIES_IN_FULL_WINDOW = 192  # 16 hours * 12 samples/hour
 
 ATOM_NS = "http://www.w3.org/2005/Atom"
 ET.register_namespace('', ATOM_NS)
 
-ET_TZ = ZoneInfo('UTC')
-LOCAL_TZ = ZoneInfo('America/New_York')
+BRT = ZoneInfo('America/Sao_Paulo')
+UTC = ZoneInfo('UTC')
 
 
 def fetch_ocgn_data():
-    """Return info dict and recent history DataFrame for OCGN using yfinance (1m resolution)."""
     try:
         t = yf.Ticker(SYMBOL)
         info = t.info if hasattr(t, 'info') else {}
-        # Get last 2 days with 1m resolution including pre/post market
         hist = t.history(period="2d", interval="1m", prepost=True)
         return info, hist
     except Exception as e:
@@ -47,155 +46,114 @@ def fetch_ocgn_data():
         return {}, pd.DataFrame()
 
 
-def build_full_window_index(date_et: dt.date):
-    """Return a DatetimeIndex in ET for the full 04:00-20:00 window at 5-minute cadence for the given date."""
-    start = dt.datetime.combine(date_et, dt.time(4, 0), tzinfo=LOCAL_TZ)
-    end = dt.datetime.combine(date_et, dt.time(20, 0), tzinfo=LOCAL_TZ)
+def build_full_window_index(date_brt: dt.date):
+    start = dt.datetime.combine(date_brt, dt.time(4, 0), tzinfo=BRT)
+    end = dt.datetime.combine(date_brt, dt.time(20, 0), tzinfo=BRT)
     return pd.date_range(start=start, end=end, freq='5T')
 
 
-def generate_atom_feed(info, hist):
-    """Build an ElementTree Element for the Atom feed including icon/logo and full-window entries."""
-    feed = ET.Element(ET.QName(ATOM_NS, 'feed'))
-
-    # Basic feed metadata
-    title = ET.SubElement(feed, ET.QName(ATOM_NS, 'title'))
-    title.text = FEED_TITLE
-
-    subtitle = ET.SubElement(feed, ET.QName(ATOM_NS, 'subtitle'))
-    subtitle.text = FEED_SUBTITLE
-
-    link_self = ET.SubElement(feed, ET.QName(ATOM_NS, 'link'))
-    link_self.set('href', FEED_URL)
-    link_self.set('rel', 'self')
-
-    # Alternate link pointing to human-readable site
-    link_alt = ET.SubElement(feed, ET.QName(ATOM_NS, 'link'))
-    link_alt.set('href', FEED_HOMEPAGE)
-    link_alt.set('rel', 'alternate')
-    link_alt.set('type', 'text/html')
-
-    feed_id = ET.SubElement(feed, ET.QName(ATOM_NS, 'id'))
-    feed_id.text = FEED_URL
-
-    updated = ET.SubElement(feed, ET.QName(ATOM_NS, 'updated'))
-    updated.text = dt.datetime.utcnow().replace(tzinfo=ET_TZ).isoformat()
-
-    author = ET.SubElement(feed, ET.QName(ATOM_NS, 'author'))
-    name = ET.SubElement(author, ET.QName(ATOM_NS, 'name'))
-    name.text = FEED_AUTHOR
-
-    # Generator element
-    generator = ET.SubElement(feed, ET.QName(ATOM_NS, 'generator'))
-    generator.text = 'fetch_stock_feed.py (custom)'
-
-    # Add icon and logo elements so readers can show a feed image
-    icon_el = ET.SubElement(feed, ET.QName(ATOM_NS, 'icon'))
-    icon_el.text = FEED_ICON
-
-    logo_el = ET.SubElement(feed, ET.QName(ATOM_NS, 'logo'))
-    logo_el.text = FEED_ICON
-
-    # Prepare history: ensure tz-aware index and resample to 5-minute buckets
+def generate_atom_and_rss(info, hist):
+    # Prepare price series
     df = hist.copy()
     if not df.empty:
-        # Make sure index has tzinfo; yfinance often returns tz-aware index
         if df.index.tz is None:
-            # assume UTC if no tz provided
             df = df.tz_localize('UTC')
-        # Convert to ET local time for windowing
-        df = df.tz_convert(LOCAL_TZ)
-
-        # Use the Close column if present
+        df = df.tz_convert(BRT)
         if 'Close' in df.columns:
             price_series = df['Close']
         elif 'close' in df.columns:
             price_series = df['close']
         else:
-            # try to find a close-like column
             price_series = df.iloc[:, 0]
-
-        # Resample to 5-minute using last available observation in each bucket
-        price_5m = price_series.resample('5T').last()
-        # Forward-fill small gaps so the full window has values where possible
-        price_5m = price_5m.ffill()
+        price_5m = price_series.resample('5T').last().ffill()
     else:
         price_5m = pd.Series(dtype=float)
 
-    # Determine target date in ET to build the full window
-    now_et = dt.datetime.now(LOCAL_TZ)
-    target_date = now_et.date()
-
+    now_brt = dt.datetime.now(BRT)
+    target_date = now_brt.date()
     full_index = build_full_window_index(target_date)
 
-    # Reindex price_5m to the full window (index in ET), keeping UTC-aware index for outputs
     if not price_5m.empty:
-        # price_5m index is ET tz-aware; reindex
         price_5m = price_5m.reindex(full_index, method='ffill')
     else:
-        # create empty series indexed by full_index
         price_5m = pd.Series([None] * len(full_index), index=full_index)
 
-    # For previous close, attempt to find last close prior to start of window
+    # previous close: last close before start of window
     previous_close = None
     try:
         if not hist.empty and 'Close' in hist.columns:
-            # Use hist in UTC, convert to ET for comparison
             hist_utc = hist.copy()
             if hist_utc.index.tz is None:
                 hist_utc = hist_utc.tz_localize('UTC')
-            hist_et = hist_utc.tz_convert(LOCAL_TZ)
-            # find last close before 04:00 ET of target_date
-            start_et = dt.datetime.combine(target_date, dt.time(4, 0), tzinfo=LOCAL_TZ)
-            prev_vals = hist_et[hist_et.index < start_et]
+            hist_brt = hist_utc.tz_convert(BRT)
+            start_brt = dt.datetime.combine(target_date, dt.time(4, 0), tzinfo=BRT)
+            prev_vals = hist_brt[hist_brt.index < start_brt]
             if not prev_vals.empty and 'Close' in prev_vals.columns:
                 previous_close = prev_vals['Close'].iloc[-1]
     except Exception:
         previous_close = None
 
-    # Build entries for each timestamp in full_index (most recent first per Atom convention)
+    # Build Atom feed
+    feed = ET.Element(ET.QName(ATOM_NS, 'feed'))
+    title = ET.SubElement(feed, ET.QName(ATOM_NS, 'title'))
+    title.text = FEED_TITLE
+    subtitle = ET.SubElement(feed, ET.QName(ATOM_NS, 'subtitle'))
+    subtitle.text = FEED_SUBTITLE
+    link_self = ET.SubElement(feed, ET.QName(ATOM_NS, 'link'))
+    link_self.set('href', FEED_URL)
+    link_self.set('rel', 'self')
+    link_alt = ET.SubElement(feed, ET.QName(ATOM_NS, 'link'))
+    link_alt.set('href', FEED_HOMEPAGE)
+    link_alt.set('rel', 'alternate')
+    link_alt.set('type', 'text/html')
+    feed_id = ET.SubElement(feed, ET.QName(ATOM_NS, 'id'))
+    feed_id.text = FEED_URL
+    updated = ET.SubElement(feed, ET.QName(ATOM_NS, 'updated'))
+    updated.text = now_brt.isoformat()
+    author = ET.SubElement(feed, ET.QName(ATOM_NS, 'author'))
+    name = ET.SubElement(author, ET.QName(ATOM_NS, 'name'))
+    name.text = FEED_AUTHOR
+    generator = ET.SubElement(feed, ET.QName(ATOM_NS, 'generator'))
+    generator.text = 'fetch_stock_feed.py (custom)'
+    icon_el = ET.SubElement(feed, ET.QName(ATOM_NS, 'icon'))
+    icon_el.text = FEED_ICON
+    logo_el = ET.SubElement(feed, ET.QName(ATOM_NS, 'logo'))
+    logo_el.text = FEED_ICON
+
+    # Build RSS channel
+    rss_items = []
+
     for ts in reversed(full_index):
         price = price_5m.get(ts, None)
-        # Compose entry
         entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
-
         title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
         price_text = f"{SYMBOL}: ${price:.2f}" if price is not None and not pd.isna(price) else f"{SYMBOL}: N/A"
         title_entry.text = price_text
-
         link = ET.SubElement(entry, ET.QName(ATOM_NS, 'link'))
         link.set('href', f"https://finance.yahoo.com/quote/{SYMBOL}")
         link.set('rel', 'alternate')
         link.set('type', 'text/html')
-
         entry_id = ET.SubElement(entry, ET.QName(ATOM_NS, 'id'))
-        entry_id.text = f"ocgn-{ts.strftime('%Y%m%d-%H%M')}-{SYMBOL.lower()}"
-
-        # published and updated timestamps in UTC
-        ts_utc = ts.astimezone(ET_TZ)
+        entry_id.text = f"{SYMBOL.lower()}-{ts.strftime('%Y%m%d-%H%M')}"
+        ts_brt = ts
+        ts_rss = format_datetime(ts_brt)
         published = ET.SubElement(entry, ET.QName(ATOM_NS, 'published'))
-        published.text = ts_utc.isoformat()
-
+        published.text = ts_brt.isoformat()
         entry_updated = ET.SubElement(entry, ET.QName(ATOM_NS, 'updated'))
-        entry_updated.text = ts_utc.isoformat()
-
-        # Entry author
+        entry_updated.text = ts_brt.isoformat()
         entry_author = ET.SubElement(entry, ET.QName(ATOM_NS, 'author'))
         entry_author_name = ET.SubElement(entry_author, ET.QName(ATOM_NS, 'name'))
         entry_author_name.text = FEED_AUTHOR
-
-        # Entry summary
         summary = ET.SubElement(entry, ET.QName(ATOM_NS, 'summary'))
         if price is not None and not pd.isna(price):
             if previous_close is not None:
                 change = price - previous_close
                 pct = (change / previous_close * 100) if previous_close else 0
-                summary.text = f"{SYMBOL} {price:.2f} ({change:+.2f}, {pct:+.2f}%) at {ts.strftime('%H:%M %Z')}."
+                summary.text = f"{SYMBOL} {price:.2f} ({change:+.2f}, {pct:+.2f}%) at {ts.strftime('%H:%M %Z')}"
             else:
                 summary.text = f"{SYMBOL} {price:.2f} at {ts.strftime('%H:%M %Z')}"
         else:
             summary.text = f"{SYMBOL} price unavailable at {ts.strftime('%H:%M %Z')}"
-
         content = ET.SubElement(entry, ET.QName(ATOM_NS, 'content'))
         content.set('type', 'html')
         content_html = "<div>\n"
@@ -206,22 +164,58 @@ def generate_atom_feed(info, hist):
             content_html += f"<p><strong>Price:</strong> N/A</p>\n"
         if previous_close is not None:
             content_html += f"<p><strong>Previous Close:</strong> ${previous_close:.2f}</p>\n"
-        content_html += f"<p><strong>Timestamp (ET):</strong> {ts.strftime('%Y-%m-%d %H:%M %Z')}</p>\n"
+        content_html += f"<p><strong>Timestamp (BRT):</strong> {ts.strftime('%Y-%m-%d %H:%M %Z')}</p>\n"
         content_html += "</div>"
         content.text = content_html
 
-    return feed
+        # Prepare RSS item dict
+        rss_items.append({
+            'title': price_text,
+            'link': f"https://finance.yahoo.com/quote/{SYMBOL}",
+            'guid': entry_id.text,
+            'pubDate': ts_rss,
+            'description': content_html
+        })
+
+    return feed, rss_items, now_brt
 
 
 def prettify_xml(elem):
-    """Return a pretty-printed XML string for the Element."""
     rough_string = ET.tostring(elem, encoding='utf-8')
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ", encoding='utf-8').decode('utf-8')
 
 
+def write_rss(rss_items, now_brt):
+    channel_title = FEED_TITLE
+    channel_link = FEED_HOMEPAGE
+    channel_desc = FEED_SUBTITLE
+    rss_parts = []
+    rss_parts.append('<?xml version="1.0" encoding="UTF-8"?>')
+    rss_parts.append('<rss version="2.0">')
+    rss_parts.append('<channel>')
+    rss_parts.append(f"<title>{channel_title}</title>")
+    rss_parts.append(f"<link>{channel_link}</link>")
+    rss_parts.append(f"<description>{channel_desc}</description>")
+    rss_parts.append(f"<lastBuildDate>{format_datetime(now_brt)}</lastBuildDate>")
+    rss_parts.append(f"<generator>fetch_stock_feed.py (custom)</generator>")
+    rss_parts.append(f"<image><url>{FEED_ICON}</url><title>{channel_title}</title><link>{channel_link}</link></image>")
+
+    for it in rss_items:
+        rss_parts.append('<item>')
+        rss_parts.append(f"<title><![CDATA[{it['title']}]]></title>")
+        rss_parts.append(f"<link>{it['link']}</link>")
+        rss_parts.append(f"<guid>{it['guid']}</guid>")
+        rss_parts.append(f"<pubDate>{it['pubDate']}</pubDate>")
+        rss_parts.append(f"<description><![CDATA[{it['description']}]]></description>")
+        rss_parts.append('</item>')
+
+    rss_parts.append('</channel>')
+    rss_parts.append('</rss>')
+    return '\n'.join(rss_parts)
+
+
 def ensure_icon_is_deployed():
-    """If OCGN.png exists at repo root, copy it into docs/ so Pages serves it."""
     src = 'OCGN.png'
     dst_dir = 'docs'
     dst = os.path.join(dst_dir, 'OCGN.png')
@@ -237,68 +231,25 @@ def ensure_icon_is_deployed():
 
 
 def main():
-    """Main function to fetch data and generate feed."""
     print("Fetching OCGN stock data...")
     info, hist = fetch_ocgn_data()
-
-    print("Generating Atom feed...")
-    feed = generate_atom_feed(info, hist)
-
-    print("Writing feed to file...")
+    print("Generating feeds...")
+    feed, rss_items, now_brt = generate_atom_and_rss(info, hist)
     feed_xml = prettify_xml(feed)
-
-    # Ensure output directory exists
     os.makedirs('docs', exist_ok=True)
-
-    # Ensure icon is deployed by copying the repo-root OCGN.png into docs/
     ensure_icon_is_deployed()
-
-    output_path = 'docs/feed.atom'
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open('docs/feed.atom', 'w', encoding='utf-8') as f:
         f.write(feed_xml)
-
-    print(f"Feed generated successfully: {output_path}")
-
-    # Also create an index.html for GitHub Pages
+    rss_text = write_rss(rss_items, now_brt)
+    with open('docs/feed.rss', 'w', encoding='utf-8') as f:
+        f.write(rss_text)
+    print('Wrote docs/feed.atom and docs/feed.rss')
+    # regenerate index
     index_html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{FEED_TITLE}</title>
-    <link rel="icon" type="image/png" href="OCGN.png" />
-    <style>
-        body {{ font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; line-height: 1.6; }}
-        h1 {{ color: #333; }}
-        .feed-link {{ background-color: #f4f4f4; padding: 15px; border-radius: 5px; margin: 20px 0; }}
-        code {{ background-color: #e8e8e8; padding: 2px 6px; border-radius: 3px; font-family: monospace; }}
-    </style>
-</head>
-<body>
-    <h1>{FEED_TITLE}</h1>
-    <p>{FEED_SUBTITLE}</p>
-
-    <div class="feed-link">
-        <h2>Atom Feed URL</h2>
-        <p><code>{FEED_URL}</code></p>
-        <p><a href="feed.atom">View Feed</a></p>
-    </div>
-
-    <h2>About</h2>
-    <p>The feed is automatically updated on a schedule and includes extended hours trading data when available.</p>
-    <p>Stock data is fetched from Yahoo Finance using the yfinance Python library.</p>
-
-    <h2>How to Use</h2>
-    <p>Subscribe to the feed in your favorite RSS/Atom reader using the feed URL above.</p>
-</body>
-</html>
-"""
-
-    index_path = 'docs/index.html'
-    with open(index_path, 'w', encoding='utf-8') as f:
+<html lang=\"en\">\n<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>{FEED_TITLE}</title><link rel=\"icon\" type=\"image/png\" href=\"OCGN.png\" /></head><body><h1>{FEED_TITLE}</h1><p>{FEED_SUBTITLE}</p><p><a href=\"feed.atom\">Atom feed</a> | <a href=\"feed.rss\">RSS2 feed</a></p></body></html>"""
+    with open('docs/index.html', 'w', encoding='utf-8') as f:
         f.write(index_html)
-
-    print(f"Index page generated: {index_path}")
+    print('Index written')
 
 
 if __name__ == '__main__':
