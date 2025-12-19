@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCGN Stock Feed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 { color: #333; }
+        .feed-link {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        code {
+            background-color: #e8e8e8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>OCGN Stock Price Feed</h1>
+    <p>This feed provides real-time OCGN stock price updates, including extended hours trading data.</p>
+    
+    <div class="feed-link">
+        <h2>Atom Feed URL</h2>
+        <p><code>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</code></p>
+        <p><a href="feed.atom">View Feed</a></p>
+    </div>
+    
+    <h2>About</h2>
+    <p>The feed is automatically updated every 15 minutes during market hours and extended trading hours.</p>
+    <p>Stock data is fetched from Yahoo Finance using the yfinance Python library.</p>
+    
+    <h2>How to Use</h2>
+    <p>Subscribe to the feed in your favorite RSS/Atom reader using the feed URL above.</p>
+</body>
+</html>
