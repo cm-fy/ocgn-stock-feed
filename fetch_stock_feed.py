@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Fetch OCGN stock data and generate Atom (docs/feed.atom) and RSS2 (docs/feed.rss).
-This version uses BRT (America/Sao_Paulo) for published/updated timestamps and for the trading window (04:00-20:00 BRT).
-It fetches 1-minute history, resamples to 5-minute buckets, builds the full BRT window with 192 entries, copies OCGN.png into docs/ if present, and writes both Atom and RSS files.
+This version uses BRT (America/Sao_Paulo) for published/updated timestamps and for the trading window (04:00-21:00 BRT).
+It fetches 1-minute history, resamples to 5-minute buckets, builds the full BRT window with 204 entries, copies OCGN.png into docs/ if present, and writes both Atom and RSS files.
 """
 import os
 import shutil
@@ -25,8 +25,8 @@ FEED_SUBTITLE = "Near-real-time OCGN (Ocugen Inc.) stock price updates (includin
 FEED_AUTHOR = "OCGN Stock Feed Bot"
 SYMBOL = "OCGN"
 
-# How many entries to include across the full 04:00-20:00 BRT window at 5-minute cadence
-ENTRIES_IN_FULL_WINDOW = 192  # 16 hours * 12 samples/hour
+# Full-window entries: 04:00-21:00 BRT (end excluded) is 17 hours * 12 = 204 samples at 5-minute cadence
+ENTRIES_IN_FULL_WINDOW = 204
 
 ATOM_NS = "http://www.w3.org/2005/Atom"
 ET.register_namespace('', ATOM_NS)
@@ -48,12 +48,13 @@ def fetch_ocgn_data():
 
 def build_full_window_index(date_brt: dt.date):
     start = dt.datetime.combine(date_brt, dt.time(4, 0), tzinfo=BRT)
-    end = dt.datetime.combine(date_brt, dt.time(20, 0), tzinfo=BRT)
-    return pd.date_range(start=start, end=end, freq='5T')
+    # Use 21:00 as the logical window end but exclude it so the last 5-min sample is 20:55.
+    end = dt.datetime.combine(date_brt, dt.time(21, 0), tzinfo=BRT)
+    # closed='left' will include start and exclude end -> 204 entries at 5-minute cadence
+    return pd.date_range(start=start, end=end, freq='5T', closed='left')
 
 
 def generate_atom_and_rss(info, hist):
-    # Prepare price series
     df = hist.copy()
     if not df.empty:
         if df.index.tz is None:
@@ -74,11 +75,11 @@ def generate_atom_and_rss(info, hist):
     full_index = build_full_window_index(target_date)
 
     if not price_5m.empty:
+        # Reindex onto the full BRT window, forward-fill to carry last known price
         price_5m = price_5m.reindex(full_index, method='ffill')
     else:
         price_5m = pd.Series([None] * len(full_index), index=full_index)
 
-    # previous close: last close before start of window
     previous_close = None
     try:
         if not hist.empty and 'Close' in hist.columns:
@@ -93,7 +94,6 @@ def generate_atom_and_rss(info, hist):
     except Exception:
         previous_close = None
 
-    # Build Atom feed
     feed = ET.Element(ET.QName(ATOM_NS, 'feed'))
     title = ET.SubElement(feed, ET.QName(ATOM_NS, 'title'))
     title.text = FEED_TITLE
@@ -109,6 +109,7 @@ def generate_atom_and_rss(info, hist):
     feed_id = ET.SubElement(feed, ET.QName(ATOM_NS, 'id'))
     feed_id.text = FEED_URL
     updated = ET.SubElement(feed, ET.QName(ATOM_NS, 'updated'))
+    # Use BRT-aware ISO timestamps for Atom updated
     updated.text = now_brt.isoformat()
     author = ET.SubElement(feed, ET.QName(ATOM_NS, 'author'))
     name = ET.SubElement(author, ET.QName(ATOM_NS, 'name'))
@@ -120,7 +121,6 @@ def generate_atom_and_rss(info, hist):
     logo_el = ET.SubElement(feed, ET.QName(ATOM_NS, 'logo'))
     logo_el.text = FEED_ICON
 
-    # Build RSS channel
     rss_items = []
 
     for ts in reversed(full_index):
@@ -136,6 +136,7 @@ def generate_atom_and_rss(info, hist):
         entry_id = ET.SubElement(entry, ET.QName(ATOM_NS, 'id'))
         entry_id.text = f"{SYMBOL.lower()}-{ts.strftime('%Y%m%d-%H%M')}"
         ts_brt = ts
+        # Ensure RSS pubDate is BRT-aware by using format_datetime on a tz-aware datetime
         ts_rss = format_datetime(ts_brt)
         published = ET.SubElement(entry, ET.QName(ATOM_NS, 'published'))
         published.text = ts_brt.isoformat()
@@ -167,8 +168,6 @@ def generate_atom_and_rss(info, hist):
         content_html += f"<p><strong>Timestamp (BRT):</strong> {ts.strftime('%Y-%m-%d %H:%M %Z')}</p>\n"
         content_html += "</div>"
         content.text = content_html
-
-        # Prepare RSS item dict
         rss_items.append({
             'title': price_text,
             'link': f"https://finance.yahoo.com/quote/{SYMBOL}",
@@ -197,10 +196,10 @@ def write_rss(rss_items, now_brt):
     rss_parts.append(f"<title>{channel_title}</title>")
     rss_parts.append(f"<link>{channel_link}</link>")
     rss_parts.append(f"<description>{channel_desc}</description>")
+    # Use BRT-aware datetime for lastBuildDate
     rss_parts.append(f"<lastBuildDate>{format_datetime(now_brt)}</lastBuildDate>")
     rss_parts.append(f"<generator>fetch_stock_feed.py (custom)</generator>")
     rss_parts.append(f"<image><url>{FEED_ICON}</url><title>{channel_title}</title><link>{channel_link}</link></image>")
-
     for it in rss_items:
         rss_parts.append('<item>')
         rss_parts.append(f"<title><![CDATA[{it['title']}]]></title>")
@@ -209,7 +208,6 @@ def write_rss(rss_items, now_brt):
         rss_parts.append(f"<pubDate>{it['pubDate']}</pubDate>")
         rss_parts.append(f"<description><![CDATA[{it['description']}]]></description>")
         rss_parts.append('</item>')
-
     rss_parts.append('</channel>')
     rss_parts.append('</rss>')
     return '\n'.join(rss_parts)
@@ -244,9 +242,7 @@ def main():
     with open('docs/feed.rss', 'w', encoding='utf-8') as f:
         f.write(rss_text)
     print('Wrote docs/feed.atom and docs/feed.rss')
-    # regenerate index
-    index_html = f"""<!DOCTYPE html>
-<html lang=\"en\">\n<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>{FEED_TITLE}</title><link rel=\"icon\" type=\"image/png\" href=\"OCGN.png\" /></head><body><h1>{FEED_TITLE}</h1><p>{FEED_SUBTITLE}</p><p><a href=\"feed.atom\">Atom feed</a> | <a href=\"feed.rss\">RSS2 feed</a></p></body></html>"""
+    index_html = f"""<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>{FEED_TITLE}</title><link rel=\"icon\" type=\"image/png\" href=\"OCGN.png\" /></head><body><h1>{FEED_TITLE}</h1><p>{FEED_SUBTITLE}</p><p><a href=\"feed.atom\">Atom feed</a> | <a href=\"feed.rss\">RSS2 feed</a></p></body></html>"""
     with open('docs/index.html', 'w', encoding='utf-8') as f:
         f.write(index_html)
     print('Index written')
