@@ -5,7 +5,7 @@
   <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self"/>
   <link href="https://cm-fy.github.io/ocgn-stock-feed/" rel="alternate" type="text/html"/>
   <id>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</id>
-  <updated>2025-12-19T20:22:19.642762-03:00</updated>
+  <updated>2025-12-19T20:52:00.930246-03:00</updated>
   <author>
     <name>OCGN Stock Feed Bot</name>
   </author>
@@ -15,7 +15,211 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-2000</id>
+    <id>ocgn-20251219-2100-ocgn</id>
+    <published>2025-12-19T21:00:00-03:00</published>
+    <updated>2025-12-19T21:00:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.43 (-0.04, -2.72%) at 21:00 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.43&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 21:00 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.43</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2055-ocgn</id>
+    <published>2025-12-19T20:55:00-03:00</published>
+    <updated>2025-12-19T20:55:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.43 (-0.04, -2.72%) at 20:55 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.43&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:55 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.43</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2050-ocgn</id>
+    <published>2025-12-19T20:50:00-03:00</published>
+    <updated>2025-12-19T20:50:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.43 (-0.04, -2.72%) at 20:50 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.43&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:50 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.43</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2045-ocgn</id>
+    <published>2025-12-19T20:45:00-03:00</published>
+    <updated>2025-12-19T20:45:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.43 (-0.04, -2.72%) at 20:45 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.43&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:45 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.43</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2040-ocgn</id>
+    <published>2025-12-19T20:40:00-03:00</published>
+    <updated>2025-12-19T20:40:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.43 (-0.04, -2.70%) at 20:40 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.43&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:40 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.44</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2035-ocgn</id>
+    <published>2025-12-19T20:35:00-03:00</published>
+    <updated>2025-12-19T20:35:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.44 (-0.03, -2.15%) at 20:35 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.44&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:35 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.44</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2030-ocgn</id>
+    <published>2025-12-19T20:30:00-03:00</published>
+    <updated>2025-12-19T20:30:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.44 (-0.03, -2.15%) at 20:30 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.44&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:30 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.44</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2025-ocgn</id>
+    <published>2025-12-19T20:25:00-03:00</published>
+    <updated>2025-12-19T20:25:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.44 (-0.03, -2.15%) at 20:25 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.44&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:25 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.44</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2020-ocgn</id>
+    <published>2025-12-19T20:20:00-03:00</published>
+    <updated>2025-12-19T20:20:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.44 (-0.03, -2.15%) at 20:20 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.44&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:20 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.43</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2015-ocgn</id>
+    <published>2025-12-19T20:15:00-03:00</published>
+    <updated>2025-12-19T20:15:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.43 (-0.04, -2.72%) at 20:15 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.43&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:15 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.43</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2010-ocgn</id>
+    <published>2025-12-19T20:10:00-03:00</published>
+    <updated>2025-12-19T20:10:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.43 (-0.04, -2.70%) at 20:10 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.43&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:10 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.43</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2005-ocgn</id>
+    <published>2025-12-19T20:05:00-03:00</published>
+    <updated>2025-12-19T20:05:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.43 (-0.04, -2.70%) at 20:05 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.43&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.47&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2025-12-19 20:05 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.43</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20251219-2000-ocgn</id>
     <published>2025-12-19T20:00:00-03:00</published>
     <updated>2025-12-19T20:00:00-03:00</updated>
     <author>
@@ -32,7 +236,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1955</id>
+    <id>ocgn-20251219-1955-ocgn</id>
     <published>2025-12-19T19:55:00-03:00</published>
     <updated>2025-12-19T19:55:00-03:00</updated>
     <author>
@@ -49,7 +253,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1950</id>
+    <id>ocgn-20251219-1950-ocgn</id>
     <published>2025-12-19T19:50:00-03:00</published>
     <updated>2025-12-19T19:50:00-03:00</updated>
     <author>
@@ -66,7 +270,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1945</id>
+    <id>ocgn-20251219-1945-ocgn</id>
     <published>2025-12-19T19:45:00-03:00</published>
     <updated>2025-12-19T19:45:00-03:00</updated>
     <author>
@@ -83,7 +287,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1940</id>
+    <id>ocgn-20251219-1940-ocgn</id>
     <published>2025-12-19T19:40:00-03:00</published>
     <updated>2025-12-19T19:40:00-03:00</updated>
     <author>
@@ -100,7 +304,7 @@
   <entry>
     <title>OCGN: $1.44</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1935</id>
+    <id>ocgn-20251219-1935-ocgn</id>
     <published>2025-12-19T19:35:00-03:00</published>
     <updated>2025-12-19T19:35:00-03:00</updated>
     <author>
@@ -117,7 +321,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1930</id>
+    <id>ocgn-20251219-1930-ocgn</id>
     <published>2025-12-19T19:30:00-03:00</published>
     <updated>2025-12-19T19:30:00-03:00</updated>
     <author>
@@ -134,7 +338,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1925</id>
+    <id>ocgn-20251219-1925-ocgn</id>
     <published>2025-12-19T19:25:00-03:00</published>
     <updated>2025-12-19T19:25:00-03:00</updated>
     <author>
@@ -151,7 +355,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1920</id>
+    <id>ocgn-20251219-1920-ocgn</id>
     <published>2025-12-19T19:20:00-03:00</published>
     <updated>2025-12-19T19:20:00-03:00</updated>
     <author>
@@ -168,7 +372,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1915</id>
+    <id>ocgn-20251219-1915-ocgn</id>
     <published>2025-12-19T19:15:00-03:00</published>
     <updated>2025-12-19T19:15:00-03:00</updated>
     <author>
@@ -185,7 +389,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1910</id>
+    <id>ocgn-20251219-1910-ocgn</id>
     <published>2025-12-19T19:10:00-03:00</published>
     <updated>2025-12-19T19:10:00-03:00</updated>
     <author>
@@ -202,7 +406,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1905</id>
+    <id>ocgn-20251219-1905-ocgn</id>
     <published>2025-12-19T19:05:00-03:00</published>
     <updated>2025-12-19T19:05:00-03:00</updated>
     <author>
@@ -219,7 +423,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1900</id>
+    <id>ocgn-20251219-1900-ocgn</id>
     <published>2025-12-19T19:00:00-03:00</published>
     <updated>2025-12-19T19:00:00-03:00</updated>
     <author>
@@ -236,7 +440,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1855</id>
+    <id>ocgn-20251219-1855-ocgn</id>
     <published>2025-12-19T18:55:00-03:00</published>
     <updated>2025-12-19T18:55:00-03:00</updated>
     <author>
@@ -253,7 +457,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1850</id>
+    <id>ocgn-20251219-1850-ocgn</id>
     <published>2025-12-19T18:50:00-03:00</published>
     <updated>2025-12-19T18:50:00-03:00</updated>
     <author>
@@ -270,7 +474,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1845</id>
+    <id>ocgn-20251219-1845-ocgn</id>
     <published>2025-12-19T18:45:00-03:00</published>
     <updated>2025-12-19T18:45:00-03:00</updated>
     <author>
@@ -287,7 +491,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1840</id>
+    <id>ocgn-20251219-1840-ocgn</id>
     <published>2025-12-19T18:40:00-03:00</published>
     <updated>2025-12-19T18:40:00-03:00</updated>
     <author>
@@ -304,7 +508,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1835</id>
+    <id>ocgn-20251219-1835-ocgn</id>
     <published>2025-12-19T18:35:00-03:00</published>
     <updated>2025-12-19T18:35:00-03:00</updated>
     <author>
@@ -321,7 +525,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1830</id>
+    <id>ocgn-20251219-1830-ocgn</id>
     <published>2025-12-19T18:30:00-03:00</published>
     <updated>2025-12-19T18:30:00-03:00</updated>
     <author>
@@ -338,7 +542,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1825</id>
+    <id>ocgn-20251219-1825-ocgn</id>
     <published>2025-12-19T18:25:00-03:00</published>
     <updated>2025-12-19T18:25:00-03:00</updated>
     <author>
@@ -355,7 +559,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1820</id>
+    <id>ocgn-20251219-1820-ocgn</id>
     <published>2025-12-19T18:20:00-03:00</published>
     <updated>2025-12-19T18:20:00-03:00</updated>
     <author>
@@ -372,7 +576,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1815</id>
+    <id>ocgn-20251219-1815-ocgn</id>
     <published>2025-12-19T18:15:00-03:00</published>
     <updated>2025-12-19T18:15:00-03:00</updated>
     <author>
@@ -389,7 +593,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1810</id>
+    <id>ocgn-20251219-1810-ocgn</id>
     <published>2025-12-19T18:10:00-03:00</published>
     <updated>2025-12-19T18:10:00-03:00</updated>
     <author>
@@ -406,7 +610,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1805</id>
+    <id>ocgn-20251219-1805-ocgn</id>
     <published>2025-12-19T18:05:00-03:00</published>
     <updated>2025-12-19T18:05:00-03:00</updated>
     <author>
@@ -423,7 +627,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1800</id>
+    <id>ocgn-20251219-1800-ocgn</id>
     <published>2025-12-19T18:00:00-03:00</published>
     <updated>2025-12-19T18:00:00-03:00</updated>
     <author>
@@ -440,7 +644,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1755</id>
+    <id>ocgn-20251219-1755-ocgn</id>
     <published>2025-12-19T17:55:00-03:00</published>
     <updated>2025-12-19T17:55:00-03:00</updated>
     <author>
@@ -457,7 +661,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1750</id>
+    <id>ocgn-20251219-1750-ocgn</id>
     <published>2025-12-19T17:50:00-03:00</published>
     <updated>2025-12-19T17:50:00-03:00</updated>
     <author>
@@ -474,7 +678,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1745</id>
+    <id>ocgn-20251219-1745-ocgn</id>
     <published>2025-12-19T17:45:00-03:00</published>
     <updated>2025-12-19T17:45:00-03:00</updated>
     <author>
@@ -491,7 +695,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1740</id>
+    <id>ocgn-20251219-1740-ocgn</id>
     <published>2025-12-19T17:40:00-03:00</published>
     <updated>2025-12-19T17:40:00-03:00</updated>
     <author>
@@ -508,7 +712,7 @@
   <entry>
     <title>OCGN: $1.41</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1735</id>
+    <id>ocgn-20251219-1735-ocgn</id>
     <published>2025-12-19T17:35:00-03:00</published>
     <updated>2025-12-19T17:35:00-03:00</updated>
     <author>
@@ -525,7 +729,7 @@
   <entry>
     <title>OCGN: $1.41</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1730</id>
+    <id>ocgn-20251219-1730-ocgn</id>
     <published>2025-12-19T17:30:00-03:00</published>
     <updated>2025-12-19T17:30:00-03:00</updated>
     <author>
@@ -542,7 +746,7 @@
   <entry>
     <title>OCGN: $1.41</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1725</id>
+    <id>ocgn-20251219-1725-ocgn</id>
     <published>2025-12-19T17:25:00-03:00</published>
     <updated>2025-12-19T17:25:00-03:00</updated>
     <author>
@@ -559,7 +763,7 @@
   <entry>
     <title>OCGN: $1.41</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1720</id>
+    <id>ocgn-20251219-1720-ocgn</id>
     <published>2025-12-19T17:20:00-03:00</published>
     <updated>2025-12-19T17:20:00-03:00</updated>
     <author>
@@ -576,7 +780,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1715</id>
+    <id>ocgn-20251219-1715-ocgn</id>
     <published>2025-12-19T17:15:00-03:00</published>
     <updated>2025-12-19T17:15:00-03:00</updated>
     <author>
@@ -593,7 +797,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1710</id>
+    <id>ocgn-20251219-1710-ocgn</id>
     <published>2025-12-19T17:10:00-03:00</published>
     <updated>2025-12-19T17:10:00-03:00</updated>
     <author>
@@ -610,7 +814,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1705</id>
+    <id>ocgn-20251219-1705-ocgn</id>
     <published>2025-12-19T17:05:00-03:00</published>
     <updated>2025-12-19T17:05:00-03:00</updated>
     <author>
@@ -627,7 +831,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1700</id>
+    <id>ocgn-20251219-1700-ocgn</id>
     <published>2025-12-19T17:00:00-03:00</published>
     <updated>2025-12-19T17:00:00-03:00</updated>
     <author>
@@ -644,7 +848,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1655</id>
+    <id>ocgn-20251219-1655-ocgn</id>
     <published>2025-12-19T16:55:00-03:00</published>
     <updated>2025-12-19T16:55:00-03:00</updated>
     <author>
@@ -661,7 +865,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1650</id>
+    <id>ocgn-20251219-1650-ocgn</id>
     <published>2025-12-19T16:50:00-03:00</published>
     <updated>2025-12-19T16:50:00-03:00</updated>
     <author>
@@ -678,7 +882,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1645</id>
+    <id>ocgn-20251219-1645-ocgn</id>
     <published>2025-12-19T16:45:00-03:00</published>
     <updated>2025-12-19T16:45:00-03:00</updated>
     <author>
@@ -695,7 +899,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1640</id>
+    <id>ocgn-20251219-1640-ocgn</id>
     <published>2025-12-19T16:40:00-03:00</published>
     <updated>2025-12-19T16:40:00-03:00</updated>
     <author>
@@ -712,7 +916,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1635</id>
+    <id>ocgn-20251219-1635-ocgn</id>
     <published>2025-12-19T16:35:00-03:00</published>
     <updated>2025-12-19T16:35:00-03:00</updated>
     <author>
@@ -729,7 +933,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1630</id>
+    <id>ocgn-20251219-1630-ocgn</id>
     <published>2025-12-19T16:30:00-03:00</published>
     <updated>2025-12-19T16:30:00-03:00</updated>
     <author>
@@ -746,7 +950,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1625</id>
+    <id>ocgn-20251219-1625-ocgn</id>
     <published>2025-12-19T16:25:00-03:00</published>
     <updated>2025-12-19T16:25:00-03:00</updated>
     <author>
@@ -763,7 +967,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1620</id>
+    <id>ocgn-20251219-1620-ocgn</id>
     <published>2025-12-19T16:20:00-03:00</published>
     <updated>2025-12-19T16:20:00-03:00</updated>
     <author>
@@ -780,7 +984,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1615</id>
+    <id>ocgn-20251219-1615-ocgn</id>
     <published>2025-12-19T16:15:00-03:00</published>
     <updated>2025-12-19T16:15:00-03:00</updated>
     <author>
@@ -797,7 +1001,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1610</id>
+    <id>ocgn-20251219-1610-ocgn</id>
     <published>2025-12-19T16:10:00-03:00</published>
     <updated>2025-12-19T16:10:00-03:00</updated>
     <author>
@@ -814,7 +1018,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1605</id>
+    <id>ocgn-20251219-1605-ocgn</id>
     <published>2025-12-19T16:05:00-03:00</published>
     <updated>2025-12-19T16:05:00-03:00</updated>
     <author>
@@ -831,7 +1035,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1600</id>
+    <id>ocgn-20251219-1600-ocgn</id>
     <published>2025-12-19T16:00:00-03:00</published>
     <updated>2025-12-19T16:00:00-03:00</updated>
     <author>
@@ -848,7 +1052,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1555</id>
+    <id>ocgn-20251219-1555-ocgn</id>
     <published>2025-12-19T15:55:00-03:00</published>
     <updated>2025-12-19T15:55:00-03:00</updated>
     <author>
@@ -865,7 +1069,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1550</id>
+    <id>ocgn-20251219-1550-ocgn</id>
     <published>2025-12-19T15:50:00-03:00</published>
     <updated>2025-12-19T15:50:00-03:00</updated>
     <author>
@@ -882,7 +1086,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1545</id>
+    <id>ocgn-20251219-1545-ocgn</id>
     <published>2025-12-19T15:45:00-03:00</published>
     <updated>2025-12-19T15:45:00-03:00</updated>
     <author>
@@ -899,7 +1103,7 @@
   <entry>
     <title>OCGN: $1.39</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1540</id>
+    <id>ocgn-20251219-1540-ocgn</id>
     <published>2025-12-19T15:40:00-03:00</published>
     <updated>2025-12-19T15:40:00-03:00</updated>
     <author>
@@ -916,7 +1120,7 @@
   <entry>
     <title>OCGN: $1.40</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1535</id>
+    <id>ocgn-20251219-1535-ocgn</id>
     <published>2025-12-19T15:35:00-03:00</published>
     <updated>2025-12-19T15:35:00-03:00</updated>
     <author>
@@ -933,7 +1137,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1530</id>
+    <id>ocgn-20251219-1530-ocgn</id>
     <published>2025-12-19T15:30:00-03:00</published>
     <updated>2025-12-19T15:30:00-03:00</updated>
     <author>
@@ -950,7 +1154,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1525</id>
+    <id>ocgn-20251219-1525-ocgn</id>
     <published>2025-12-19T15:25:00-03:00</published>
     <updated>2025-12-19T15:25:00-03:00</updated>
     <author>
@@ -967,7 +1171,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1520</id>
+    <id>ocgn-20251219-1520-ocgn</id>
     <published>2025-12-19T15:20:00-03:00</published>
     <updated>2025-12-19T15:20:00-03:00</updated>
     <author>
@@ -984,7 +1188,7 @@
   <entry>
     <title>OCGN: $1.44</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1515</id>
+    <id>ocgn-20251219-1515-ocgn</id>
     <published>2025-12-19T15:15:00-03:00</published>
     <updated>2025-12-19T15:15:00-03:00</updated>
     <author>
@@ -1001,7 +1205,7 @@
   <entry>
     <title>OCGN: $1.44</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1510</id>
+    <id>ocgn-20251219-1510-ocgn</id>
     <published>2025-12-19T15:10:00-03:00</published>
     <updated>2025-12-19T15:10:00-03:00</updated>
     <author>
@@ -1018,7 +1222,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1505</id>
+    <id>ocgn-20251219-1505-ocgn</id>
     <published>2025-12-19T15:05:00-03:00</published>
     <updated>2025-12-19T15:05:00-03:00</updated>
     <author>
@@ -1035,7 +1239,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1500</id>
+    <id>ocgn-20251219-1500-ocgn</id>
     <published>2025-12-19T15:00:00-03:00</published>
     <updated>2025-12-19T15:00:00-03:00</updated>
     <author>
@@ -1052,7 +1256,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1455</id>
+    <id>ocgn-20251219-1455-ocgn</id>
     <published>2025-12-19T14:55:00-03:00</published>
     <updated>2025-12-19T14:55:00-03:00</updated>
     <author>
@@ -1069,7 +1273,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1450</id>
+    <id>ocgn-20251219-1450-ocgn</id>
     <published>2025-12-19T14:50:00-03:00</published>
     <updated>2025-12-19T14:50:00-03:00</updated>
     <author>
@@ -1086,7 +1290,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1445</id>
+    <id>ocgn-20251219-1445-ocgn</id>
     <published>2025-12-19T14:45:00-03:00</published>
     <updated>2025-12-19T14:45:00-03:00</updated>
     <author>
@@ -1103,7 +1307,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1440</id>
+    <id>ocgn-20251219-1440-ocgn</id>
     <published>2025-12-19T14:40:00-03:00</published>
     <updated>2025-12-19T14:40:00-03:00</updated>
     <author>
@@ -1120,7 +1324,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1435</id>
+    <id>ocgn-20251219-1435-ocgn</id>
     <published>2025-12-19T14:35:00-03:00</published>
     <updated>2025-12-19T14:35:00-03:00</updated>
     <author>
@@ -1137,7 +1341,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1430</id>
+    <id>ocgn-20251219-1430-ocgn</id>
     <published>2025-12-19T14:30:00-03:00</published>
     <updated>2025-12-19T14:30:00-03:00</updated>
     <author>
@@ -1154,7 +1358,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1425</id>
+    <id>ocgn-20251219-1425-ocgn</id>
     <published>2025-12-19T14:25:00-03:00</published>
     <updated>2025-12-19T14:25:00-03:00</updated>
     <author>
@@ -1171,7 +1375,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1420</id>
+    <id>ocgn-20251219-1420-ocgn</id>
     <published>2025-12-19T14:20:00-03:00</published>
     <updated>2025-12-19T14:20:00-03:00</updated>
     <author>
@@ -1188,7 +1392,7 @@
   <entry>
     <title>OCGN: $1.44</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1415</id>
+    <id>ocgn-20251219-1415-ocgn</id>
     <published>2025-12-19T14:15:00-03:00</published>
     <updated>2025-12-19T14:15:00-03:00</updated>
     <author>
@@ -1205,7 +1409,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1410</id>
+    <id>ocgn-20251219-1410-ocgn</id>
     <published>2025-12-19T14:10:00-03:00</published>
     <updated>2025-12-19T14:10:00-03:00</updated>
     <author>
@@ -1222,7 +1426,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1405</id>
+    <id>ocgn-20251219-1405-ocgn</id>
     <published>2025-12-19T14:05:00-03:00</published>
     <updated>2025-12-19T14:05:00-03:00</updated>
     <author>
@@ -1239,7 +1443,7 @@
   <entry>
     <title>OCGN: $1.44</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1400</id>
+    <id>ocgn-20251219-1400-ocgn</id>
     <published>2025-12-19T14:00:00-03:00</published>
     <updated>2025-12-19T14:00:00-03:00</updated>
     <author>
@@ -1256,7 +1460,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1355</id>
+    <id>ocgn-20251219-1355-ocgn</id>
     <published>2025-12-19T13:55:00-03:00</published>
     <updated>2025-12-19T13:55:00-03:00</updated>
     <author>
@@ -1273,7 +1477,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1350</id>
+    <id>ocgn-20251219-1350-ocgn</id>
     <published>2025-12-19T13:50:00-03:00</published>
     <updated>2025-12-19T13:50:00-03:00</updated>
     <author>
@@ -1290,7 +1494,7 @@
   <entry>
     <title>OCGN: $1.44</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1345</id>
+    <id>ocgn-20251219-1345-ocgn</id>
     <published>2025-12-19T13:45:00-03:00</published>
     <updated>2025-12-19T13:45:00-03:00</updated>
     <author>
@@ -1307,7 +1511,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1340</id>
+    <id>ocgn-20251219-1340-ocgn</id>
     <published>2025-12-19T13:40:00-03:00</published>
     <updated>2025-12-19T13:40:00-03:00</updated>
     <author>
@@ -1324,7 +1528,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1335</id>
+    <id>ocgn-20251219-1335-ocgn</id>
     <published>2025-12-19T13:35:00-03:00</published>
     <updated>2025-12-19T13:35:00-03:00</updated>
     <author>
@@ -1341,7 +1545,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1330</id>
+    <id>ocgn-20251219-1330-ocgn</id>
     <published>2025-12-19T13:30:00-03:00</published>
     <updated>2025-12-19T13:30:00-03:00</updated>
     <author>
@@ -1358,7 +1562,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1325</id>
+    <id>ocgn-20251219-1325-ocgn</id>
     <published>2025-12-19T13:25:00-03:00</published>
     <updated>2025-12-19T13:25:00-03:00</updated>
     <author>
@@ -1375,7 +1579,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1320</id>
+    <id>ocgn-20251219-1320-ocgn</id>
     <published>2025-12-19T13:20:00-03:00</published>
     <updated>2025-12-19T13:20:00-03:00</updated>
     <author>
@@ -1392,7 +1596,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1315</id>
+    <id>ocgn-20251219-1315-ocgn</id>
     <published>2025-12-19T13:15:00-03:00</published>
     <updated>2025-12-19T13:15:00-03:00</updated>
     <author>
@@ -1409,7 +1613,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1310</id>
+    <id>ocgn-20251219-1310-ocgn</id>
     <published>2025-12-19T13:10:00-03:00</published>
     <updated>2025-12-19T13:10:00-03:00</updated>
     <author>
@@ -1426,7 +1630,7 @@
   <entry>
     <title>OCGN: $1.43</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1305</id>
+    <id>ocgn-20251219-1305-ocgn</id>
     <published>2025-12-19T13:05:00-03:00</published>
     <updated>2025-12-19T13:05:00-03:00</updated>
     <author>
@@ -1443,7 +1647,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1300</id>
+    <id>ocgn-20251219-1300-ocgn</id>
     <published>2025-12-19T13:00:00-03:00</published>
     <updated>2025-12-19T13:00:00-03:00</updated>
     <author>
@@ -1460,7 +1664,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1255</id>
+    <id>ocgn-20251219-1255-ocgn</id>
     <published>2025-12-19T12:55:00-03:00</published>
     <updated>2025-12-19T12:55:00-03:00</updated>
     <author>
@@ -1477,7 +1681,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1250</id>
+    <id>ocgn-20251219-1250-ocgn</id>
     <published>2025-12-19T12:50:00-03:00</published>
     <updated>2025-12-19T12:50:00-03:00</updated>
     <author>
@@ -1494,7 +1698,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1245</id>
+    <id>ocgn-20251219-1245-ocgn</id>
     <published>2025-12-19T12:45:00-03:00</published>
     <updated>2025-12-19T12:45:00-03:00</updated>
     <author>
@@ -1511,7 +1715,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1240</id>
+    <id>ocgn-20251219-1240-ocgn</id>
     <published>2025-12-19T12:40:00-03:00</published>
     <updated>2025-12-19T12:40:00-03:00</updated>
     <author>
@@ -1528,7 +1732,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1235</id>
+    <id>ocgn-20251219-1235-ocgn</id>
     <published>2025-12-19T12:35:00-03:00</published>
     <updated>2025-12-19T12:35:00-03:00</updated>
     <author>
@@ -1545,7 +1749,7 @@
   <entry>
     <title>OCGN: $1.41</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1230</id>
+    <id>ocgn-20251219-1230-ocgn</id>
     <published>2025-12-19T12:30:00-03:00</published>
     <updated>2025-12-19T12:30:00-03:00</updated>
     <author>
@@ -1562,7 +1766,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1225</id>
+    <id>ocgn-20251219-1225-ocgn</id>
     <published>2025-12-19T12:25:00-03:00</published>
     <updated>2025-12-19T12:25:00-03:00</updated>
     <author>
@@ -1579,7 +1783,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1220</id>
+    <id>ocgn-20251219-1220-ocgn</id>
     <published>2025-12-19T12:20:00-03:00</published>
     <updated>2025-12-19T12:20:00-03:00</updated>
     <author>
@@ -1596,7 +1800,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1215</id>
+    <id>ocgn-20251219-1215-ocgn</id>
     <published>2025-12-19T12:15:00-03:00</published>
     <updated>2025-12-19T12:15:00-03:00</updated>
     <author>
@@ -1613,7 +1817,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1210</id>
+    <id>ocgn-20251219-1210-ocgn</id>
     <published>2025-12-19T12:10:00-03:00</published>
     <updated>2025-12-19T12:10:00-03:00</updated>
     <author>
@@ -1630,7 +1834,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1205</id>
+    <id>ocgn-20251219-1205-ocgn</id>
     <published>2025-12-19T12:05:00-03:00</published>
     <updated>2025-12-19T12:05:00-03:00</updated>
     <author>
@@ -1647,7 +1851,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1200</id>
+    <id>ocgn-20251219-1200-ocgn</id>
     <published>2025-12-19T12:00:00-03:00</published>
     <updated>2025-12-19T12:00:00-03:00</updated>
     <author>
@@ -1664,7 +1868,7 @@
   <entry>
     <title>OCGN: $1.46</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1155</id>
+    <id>ocgn-20251219-1155-ocgn</id>
     <published>2025-12-19T11:55:00-03:00</published>
     <updated>2025-12-19T11:55:00-03:00</updated>
     <author>
@@ -1681,7 +1885,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1150</id>
+    <id>ocgn-20251219-1150-ocgn</id>
     <published>2025-12-19T11:50:00-03:00</published>
     <updated>2025-12-19T11:50:00-03:00</updated>
     <author>
@@ -1698,7 +1902,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1145</id>
+    <id>ocgn-20251219-1145-ocgn</id>
     <published>2025-12-19T11:45:00-03:00</published>
     <updated>2025-12-19T11:45:00-03:00</updated>
     <author>
@@ -1715,7 +1919,7 @@
   <entry>
     <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1140</id>
+    <id>ocgn-20251219-1140-ocgn</id>
     <published>2025-12-19T11:40:00-03:00</published>
     <updated>2025-12-19T11:40:00-03:00</updated>
     <author>
@@ -1732,7 +1936,7 @@
   <entry>
     <title>OCGN: $1.41</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1135</id>
+    <id>ocgn-20251219-1135-ocgn</id>
     <published>2025-12-19T11:35:00-03:00</published>
     <updated>2025-12-19T11:35:00-03:00</updated>
     <author>
@@ -1749,7 +1953,7 @@
   <entry>
     <title>OCGN: $1.42</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1130</id>
+    <id>ocgn-20251219-1130-ocgn</id>
     <published>2025-12-19T11:30:00-03:00</published>
     <updated>2025-12-19T11:30:00-03:00</updated>
     <author>
@@ -1766,7 +1970,7 @@
   <entry>
     <title>OCGN: $1.46</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1125</id>
+    <id>ocgn-20251219-1125-ocgn</id>
     <published>2025-12-19T11:25:00-03:00</published>
     <updated>2025-12-19T11:25:00-03:00</updated>
     <author>
@@ -1783,7 +1987,7 @@
   <entry>
     <title>OCGN: $1.50</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1120</id>
+    <id>ocgn-20251219-1120-ocgn</id>
     <published>2025-12-19T11:20:00-03:00</published>
     <updated>2025-12-19T11:20:00-03:00</updated>
     <author>
@@ -1800,7 +2004,7 @@
   <entry>
     <title>OCGN: $1.48</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1115</id>
+    <id>ocgn-20251219-1115-ocgn</id>
     <published>2025-12-19T11:15:00-03:00</published>
     <updated>2025-12-19T11:15:00-03:00</updated>
     <author>
@@ -1817,7 +2021,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1110</id>
+    <id>ocgn-20251219-1110-ocgn</id>
     <published>2025-12-19T11:10:00-03:00</published>
     <updated>2025-12-19T11:10:00-03:00</updated>
     <author>
@@ -1834,7 +2038,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1105</id>
+    <id>ocgn-20251219-1105-ocgn</id>
     <published>2025-12-19T11:05:00-03:00</published>
     <updated>2025-12-19T11:05:00-03:00</updated>
     <author>
@@ -1851,7 +2055,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1100</id>
+    <id>ocgn-20251219-1100-ocgn</id>
     <published>2025-12-19T11:00:00-03:00</published>
     <updated>2025-12-19T11:00:00-03:00</updated>
     <author>
@@ -1868,7 +2072,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1055</id>
+    <id>ocgn-20251219-1055-ocgn</id>
     <published>2025-12-19T10:55:00-03:00</published>
     <updated>2025-12-19T10:55:00-03:00</updated>
     <author>
@@ -1885,7 +2089,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1050</id>
+    <id>ocgn-20251219-1050-ocgn</id>
     <published>2025-12-19T10:50:00-03:00</published>
     <updated>2025-12-19T10:50:00-03:00</updated>
     <author>
@@ -1902,7 +2106,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1045</id>
+    <id>ocgn-20251219-1045-ocgn</id>
     <published>2025-12-19T10:45:00-03:00</published>
     <updated>2025-12-19T10:45:00-03:00</updated>
     <author>
@@ -1919,7 +2123,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1040</id>
+    <id>ocgn-20251219-1040-ocgn</id>
     <published>2025-12-19T10:40:00-03:00</published>
     <updated>2025-12-19T10:40:00-03:00</updated>
     <author>
@@ -1936,7 +2140,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1035</id>
+    <id>ocgn-20251219-1035-ocgn</id>
     <published>2025-12-19T10:35:00-03:00</published>
     <updated>2025-12-19T10:35:00-03:00</updated>
     <author>
@@ -1953,7 +2157,7 @@
   <entry>
     <title>OCGN: $1.48</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1030</id>
+    <id>ocgn-20251219-1030-ocgn</id>
     <published>2025-12-19T10:30:00-03:00</published>
     <updated>2025-12-19T10:30:00-03:00</updated>
     <author>
@@ -1970,7 +2174,7 @@
   <entry>
     <title>OCGN: $1.48</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1025</id>
+    <id>ocgn-20251219-1025-ocgn</id>
     <published>2025-12-19T10:25:00-03:00</published>
     <updated>2025-12-19T10:25:00-03:00</updated>
     <author>
@@ -1987,7 +2191,7 @@
   <entry>
     <title>OCGN: $1.50</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1020</id>
+    <id>ocgn-20251219-1020-ocgn</id>
     <published>2025-12-19T10:20:00-03:00</published>
     <updated>2025-12-19T10:20:00-03:00</updated>
     <author>
@@ -2004,7 +2208,7 @@
   <entry>
     <title>OCGN: $1.51</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1015</id>
+    <id>ocgn-20251219-1015-ocgn</id>
     <published>2025-12-19T10:15:00-03:00</published>
     <updated>2025-12-19T10:15:00-03:00</updated>
     <author>
@@ -2021,7 +2225,7 @@
   <entry>
     <title>OCGN: $1.51</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1010</id>
+    <id>ocgn-20251219-1010-ocgn</id>
     <published>2025-12-19T10:10:00-03:00</published>
     <updated>2025-12-19T10:10:00-03:00</updated>
     <author>
@@ -2038,7 +2242,7 @@
   <entry>
     <title>OCGN: $1.50</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1005</id>
+    <id>ocgn-20251219-1005-ocgn</id>
     <published>2025-12-19T10:05:00-03:00</published>
     <updated>2025-12-19T10:05:00-03:00</updated>
     <author>
@@ -2055,7 +2259,7 @@
   <entry>
     <title>OCGN: $1.50</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-1000</id>
+    <id>ocgn-20251219-1000-ocgn</id>
     <published>2025-12-19T10:00:00-03:00</published>
     <updated>2025-12-19T10:00:00-03:00</updated>
     <author>
@@ -2072,7 +2276,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0955</id>
+    <id>ocgn-20251219-0955-ocgn</id>
     <published>2025-12-19T09:55:00-03:00</published>
     <updated>2025-12-19T09:55:00-03:00</updated>
     <author>
@@ -2089,7 +2293,7 @@
   <entry>
     <title>OCGN: $1.49</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0950</id>
+    <id>ocgn-20251219-0950-ocgn</id>
     <published>2025-12-19T09:50:00-03:00</published>
     <updated>2025-12-19T09:50:00-03:00</updated>
     <author>
@@ -2106,7 +2310,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0945</id>
+    <id>ocgn-20251219-0945-ocgn</id>
     <published>2025-12-19T09:45:00-03:00</published>
     <updated>2025-12-19T09:45:00-03:00</updated>
     <author>
@@ -2123,7 +2327,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0940</id>
+    <id>ocgn-20251219-0940-ocgn</id>
     <published>2025-12-19T09:40:00-03:00</published>
     <updated>2025-12-19T09:40:00-03:00</updated>
     <author>
@@ -2140,7 +2344,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0935</id>
+    <id>ocgn-20251219-0935-ocgn</id>
     <published>2025-12-19T09:35:00-03:00</published>
     <updated>2025-12-19T09:35:00-03:00</updated>
     <author>
@@ -2157,7 +2361,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0930</id>
+    <id>ocgn-20251219-0930-ocgn</id>
     <published>2025-12-19T09:30:00-03:00</published>
     <updated>2025-12-19T09:30:00-03:00</updated>
     <author>
@@ -2174,7 +2378,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0925</id>
+    <id>ocgn-20251219-0925-ocgn</id>
     <published>2025-12-19T09:25:00-03:00</published>
     <updated>2025-12-19T09:25:00-03:00</updated>
     <author>
@@ -2191,7 +2395,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0920</id>
+    <id>ocgn-20251219-0920-ocgn</id>
     <published>2025-12-19T09:20:00-03:00</published>
     <updated>2025-12-19T09:20:00-03:00</updated>
     <author>
@@ -2208,7 +2412,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0915</id>
+    <id>ocgn-20251219-0915-ocgn</id>
     <published>2025-12-19T09:15:00-03:00</published>
     <updated>2025-12-19T09:15:00-03:00</updated>
     <author>
@@ -2225,7 +2429,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0910</id>
+    <id>ocgn-20251219-0910-ocgn</id>
     <published>2025-12-19T09:10:00-03:00</published>
     <updated>2025-12-19T09:10:00-03:00</updated>
     <author>
@@ -2242,7 +2446,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0905</id>
+    <id>ocgn-20251219-0905-ocgn</id>
     <published>2025-12-19T09:05:00-03:00</published>
     <updated>2025-12-19T09:05:00-03:00</updated>
     <author>
@@ -2259,7 +2463,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0900</id>
+    <id>ocgn-20251219-0900-ocgn</id>
     <published>2025-12-19T09:00:00-03:00</published>
     <updated>2025-12-19T09:00:00-03:00</updated>
     <author>
@@ -2276,7 +2480,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0855</id>
+    <id>ocgn-20251219-0855-ocgn</id>
     <published>2025-12-19T08:55:00-03:00</published>
     <updated>2025-12-19T08:55:00-03:00</updated>
     <author>
@@ -2293,7 +2497,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0850</id>
+    <id>ocgn-20251219-0850-ocgn</id>
     <published>2025-12-19T08:50:00-03:00</published>
     <updated>2025-12-19T08:50:00-03:00</updated>
     <author>
@@ -2310,7 +2514,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0845</id>
+    <id>ocgn-20251219-0845-ocgn</id>
     <published>2025-12-19T08:45:00-03:00</published>
     <updated>2025-12-19T08:45:00-03:00</updated>
     <author>
@@ -2327,7 +2531,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0840</id>
+    <id>ocgn-20251219-0840-ocgn</id>
     <published>2025-12-19T08:40:00-03:00</published>
     <updated>2025-12-19T08:40:00-03:00</updated>
     <author>
@@ -2344,7 +2548,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0835</id>
+    <id>ocgn-20251219-0835-ocgn</id>
     <published>2025-12-19T08:35:00-03:00</published>
     <updated>2025-12-19T08:35:00-03:00</updated>
     <author>
@@ -2361,7 +2565,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0830</id>
+    <id>ocgn-20251219-0830-ocgn</id>
     <published>2025-12-19T08:30:00-03:00</published>
     <updated>2025-12-19T08:30:00-03:00</updated>
     <author>
@@ -2378,7 +2582,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0825</id>
+    <id>ocgn-20251219-0825-ocgn</id>
     <published>2025-12-19T08:25:00-03:00</published>
     <updated>2025-12-19T08:25:00-03:00</updated>
     <author>
@@ -2395,7 +2599,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0820</id>
+    <id>ocgn-20251219-0820-ocgn</id>
     <published>2025-12-19T08:20:00-03:00</published>
     <updated>2025-12-19T08:20:00-03:00</updated>
     <author>
@@ -2412,7 +2616,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0815</id>
+    <id>ocgn-20251219-0815-ocgn</id>
     <published>2025-12-19T08:15:00-03:00</published>
     <updated>2025-12-19T08:15:00-03:00</updated>
     <author>
@@ -2429,7 +2633,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0810</id>
+    <id>ocgn-20251219-0810-ocgn</id>
     <published>2025-12-19T08:10:00-03:00</published>
     <updated>2025-12-19T08:10:00-03:00</updated>
     <author>
@@ -2446,7 +2650,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0805</id>
+    <id>ocgn-20251219-0805-ocgn</id>
     <published>2025-12-19T08:05:00-03:00</published>
     <updated>2025-12-19T08:05:00-03:00</updated>
     <author>
@@ -2463,7 +2667,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0800</id>
+    <id>ocgn-20251219-0800-ocgn</id>
     <published>2025-12-19T08:00:00-03:00</published>
     <updated>2025-12-19T08:00:00-03:00</updated>
     <author>
@@ -2480,7 +2684,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0755</id>
+    <id>ocgn-20251219-0755-ocgn</id>
     <published>2025-12-19T07:55:00-03:00</published>
     <updated>2025-12-19T07:55:00-03:00</updated>
     <author>
@@ -2497,7 +2701,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0750</id>
+    <id>ocgn-20251219-0750-ocgn</id>
     <published>2025-12-19T07:50:00-03:00</published>
     <updated>2025-12-19T07:50:00-03:00</updated>
     <author>
@@ -2514,7 +2718,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0745</id>
+    <id>ocgn-20251219-0745-ocgn</id>
     <published>2025-12-19T07:45:00-03:00</published>
     <updated>2025-12-19T07:45:00-03:00</updated>
     <author>
@@ -2531,7 +2735,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0740</id>
+    <id>ocgn-20251219-0740-ocgn</id>
     <published>2025-12-19T07:40:00-03:00</published>
     <updated>2025-12-19T07:40:00-03:00</updated>
     <author>
@@ -2548,7 +2752,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0735</id>
+    <id>ocgn-20251219-0735-ocgn</id>
     <published>2025-12-19T07:35:00-03:00</published>
     <updated>2025-12-19T07:35:00-03:00</updated>
     <author>
@@ -2565,7 +2769,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0730</id>
+    <id>ocgn-20251219-0730-ocgn</id>
     <published>2025-12-19T07:30:00-03:00</published>
     <updated>2025-12-19T07:30:00-03:00</updated>
     <author>
@@ -2582,7 +2786,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0725</id>
+    <id>ocgn-20251219-0725-ocgn</id>
     <published>2025-12-19T07:25:00-03:00</published>
     <updated>2025-12-19T07:25:00-03:00</updated>
     <author>
@@ -2599,7 +2803,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0720</id>
+    <id>ocgn-20251219-0720-ocgn</id>
     <published>2025-12-19T07:20:00-03:00</published>
     <updated>2025-12-19T07:20:00-03:00</updated>
     <author>
@@ -2616,7 +2820,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0715</id>
+    <id>ocgn-20251219-0715-ocgn</id>
     <published>2025-12-19T07:15:00-03:00</published>
     <updated>2025-12-19T07:15:00-03:00</updated>
     <author>
@@ -2633,7 +2837,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0710</id>
+    <id>ocgn-20251219-0710-ocgn</id>
     <published>2025-12-19T07:10:00-03:00</published>
     <updated>2025-12-19T07:10:00-03:00</updated>
     <author>
@@ -2650,7 +2854,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0705</id>
+    <id>ocgn-20251219-0705-ocgn</id>
     <published>2025-12-19T07:05:00-03:00</published>
     <updated>2025-12-19T07:05:00-03:00</updated>
     <author>
@@ -2667,7 +2871,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0700</id>
+    <id>ocgn-20251219-0700-ocgn</id>
     <published>2025-12-19T07:00:00-03:00</published>
     <updated>2025-12-19T07:00:00-03:00</updated>
     <author>
@@ -2684,7 +2888,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0655</id>
+    <id>ocgn-20251219-0655-ocgn</id>
     <published>2025-12-19T06:55:00-03:00</published>
     <updated>2025-12-19T06:55:00-03:00</updated>
     <author>
@@ -2701,7 +2905,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0650</id>
+    <id>ocgn-20251219-0650-ocgn</id>
     <published>2025-12-19T06:50:00-03:00</published>
     <updated>2025-12-19T06:50:00-03:00</updated>
     <author>
@@ -2718,7 +2922,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0645</id>
+    <id>ocgn-20251219-0645-ocgn</id>
     <published>2025-12-19T06:45:00-03:00</published>
     <updated>2025-12-19T06:45:00-03:00</updated>
     <author>
@@ -2735,7 +2939,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0640</id>
+    <id>ocgn-20251219-0640-ocgn</id>
     <published>2025-12-19T06:40:00-03:00</published>
     <updated>2025-12-19T06:40:00-03:00</updated>
     <author>
@@ -2752,7 +2956,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0635</id>
+    <id>ocgn-20251219-0635-ocgn</id>
     <published>2025-12-19T06:35:00-03:00</published>
     <updated>2025-12-19T06:35:00-03:00</updated>
     <author>
@@ -2769,7 +2973,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0630</id>
+    <id>ocgn-20251219-0630-ocgn</id>
     <published>2025-12-19T06:30:00-03:00</published>
     <updated>2025-12-19T06:30:00-03:00</updated>
     <author>
@@ -2786,7 +2990,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0625</id>
+    <id>ocgn-20251219-0625-ocgn</id>
     <published>2025-12-19T06:25:00-03:00</published>
     <updated>2025-12-19T06:25:00-03:00</updated>
     <author>
@@ -2803,7 +3007,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0620</id>
+    <id>ocgn-20251219-0620-ocgn</id>
     <published>2025-12-19T06:20:00-03:00</published>
     <updated>2025-12-19T06:20:00-03:00</updated>
     <author>
@@ -2820,7 +3024,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0615</id>
+    <id>ocgn-20251219-0615-ocgn</id>
     <published>2025-12-19T06:15:00-03:00</published>
     <updated>2025-12-19T06:15:00-03:00</updated>
     <author>
@@ -2837,7 +3041,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0610</id>
+    <id>ocgn-20251219-0610-ocgn</id>
     <published>2025-12-19T06:10:00-03:00</published>
     <updated>2025-12-19T06:10:00-03:00</updated>
     <author>
@@ -2854,7 +3058,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0605</id>
+    <id>ocgn-20251219-0605-ocgn</id>
     <published>2025-12-19T06:05:00-03:00</published>
     <updated>2025-12-19T06:05:00-03:00</updated>
     <author>
@@ -2871,7 +3075,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0600</id>
+    <id>ocgn-20251219-0600-ocgn</id>
     <published>2025-12-19T06:00:00-03:00</published>
     <updated>2025-12-19T06:00:00-03:00</updated>
     <author>
@@ -2888,7 +3092,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0555</id>
+    <id>ocgn-20251219-0555-ocgn</id>
     <published>2025-12-19T05:55:00-03:00</published>
     <updated>2025-12-19T05:55:00-03:00</updated>
     <author>
@@ -2905,7 +3109,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0550</id>
+    <id>ocgn-20251219-0550-ocgn</id>
     <published>2025-12-19T05:50:00-03:00</published>
     <updated>2025-12-19T05:50:00-03:00</updated>
     <author>
@@ -2922,7 +3126,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0545</id>
+    <id>ocgn-20251219-0545-ocgn</id>
     <published>2025-12-19T05:45:00-03:00</published>
     <updated>2025-12-19T05:45:00-03:00</updated>
     <author>
@@ -2939,7 +3143,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0540</id>
+    <id>ocgn-20251219-0540-ocgn</id>
     <published>2025-12-19T05:40:00-03:00</published>
     <updated>2025-12-19T05:40:00-03:00</updated>
     <author>
@@ -2956,7 +3160,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0535</id>
+    <id>ocgn-20251219-0535-ocgn</id>
     <published>2025-12-19T05:35:00-03:00</published>
     <updated>2025-12-19T05:35:00-03:00</updated>
     <author>
@@ -2973,7 +3177,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0530</id>
+    <id>ocgn-20251219-0530-ocgn</id>
     <published>2025-12-19T05:30:00-03:00</published>
     <updated>2025-12-19T05:30:00-03:00</updated>
     <author>
@@ -2990,7 +3194,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0525</id>
+    <id>ocgn-20251219-0525-ocgn</id>
     <published>2025-12-19T05:25:00-03:00</published>
     <updated>2025-12-19T05:25:00-03:00</updated>
     <author>
@@ -3007,7 +3211,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0520</id>
+    <id>ocgn-20251219-0520-ocgn</id>
     <published>2025-12-19T05:20:00-03:00</published>
     <updated>2025-12-19T05:20:00-03:00</updated>
     <author>
@@ -3024,7 +3228,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0515</id>
+    <id>ocgn-20251219-0515-ocgn</id>
     <published>2025-12-19T05:15:00-03:00</published>
     <updated>2025-12-19T05:15:00-03:00</updated>
     <author>
@@ -3041,7 +3245,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0510</id>
+    <id>ocgn-20251219-0510-ocgn</id>
     <published>2025-12-19T05:10:00-03:00</published>
     <updated>2025-12-19T05:10:00-03:00</updated>
     <author>
@@ -3058,7 +3262,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0505</id>
+    <id>ocgn-20251219-0505-ocgn</id>
     <published>2025-12-19T05:05:00-03:00</published>
     <updated>2025-12-19T05:05:00-03:00</updated>
     <author>
@@ -3075,7 +3279,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0500</id>
+    <id>ocgn-20251219-0500-ocgn</id>
     <published>2025-12-19T05:00:00-03:00</published>
     <updated>2025-12-19T05:00:00-03:00</updated>
     <author>
@@ -3092,7 +3296,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0455</id>
+    <id>ocgn-20251219-0455-ocgn</id>
     <published>2025-12-19T04:55:00-03:00</published>
     <updated>2025-12-19T04:55:00-03:00</updated>
     <author>
@@ -3109,7 +3313,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0450</id>
+    <id>ocgn-20251219-0450-ocgn</id>
     <published>2025-12-19T04:50:00-03:00</published>
     <updated>2025-12-19T04:50:00-03:00</updated>
     <author>
@@ -3126,7 +3330,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0445</id>
+    <id>ocgn-20251219-0445-ocgn</id>
     <published>2025-12-19T04:45:00-03:00</published>
     <updated>2025-12-19T04:45:00-03:00</updated>
     <author>
@@ -3143,7 +3347,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0440</id>
+    <id>ocgn-20251219-0440-ocgn</id>
     <published>2025-12-19T04:40:00-03:00</published>
     <updated>2025-12-19T04:40:00-03:00</updated>
     <author>
@@ -3160,7 +3364,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0435</id>
+    <id>ocgn-20251219-0435-ocgn</id>
     <published>2025-12-19T04:35:00-03:00</published>
     <updated>2025-12-19T04:35:00-03:00</updated>
     <author>
@@ -3177,7 +3381,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0430</id>
+    <id>ocgn-20251219-0430-ocgn</id>
     <published>2025-12-19T04:30:00-03:00</published>
     <updated>2025-12-19T04:30:00-03:00</updated>
     <author>
@@ -3194,7 +3398,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0425</id>
+    <id>ocgn-20251219-0425-ocgn</id>
     <published>2025-12-19T04:25:00-03:00</published>
     <updated>2025-12-19T04:25:00-03:00</updated>
     <author>
@@ -3211,7 +3415,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0420</id>
+    <id>ocgn-20251219-0420-ocgn</id>
     <published>2025-12-19T04:20:00-03:00</published>
     <updated>2025-12-19T04:20:00-03:00</updated>
     <author>
@@ -3228,7 +3432,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0415</id>
+    <id>ocgn-20251219-0415-ocgn</id>
     <published>2025-12-19T04:15:00-03:00</published>
     <updated>2025-12-19T04:15:00-03:00</updated>
     <author>
@@ -3245,7 +3449,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0410</id>
+    <id>ocgn-20251219-0410-ocgn</id>
     <published>2025-12-19T04:10:00-03:00</published>
     <updated>2025-12-19T04:10:00-03:00</updated>
     <author>
@@ -3262,7 +3466,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0405</id>
+    <id>ocgn-20251219-0405-ocgn</id>
     <published>2025-12-19T04:05:00-03:00</published>
     <updated>2025-12-19T04:05:00-03:00</updated>
     <author>
@@ -3279,7 +3483,7 @@
   <entry>
     <title>OCGN: $1.47</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20251219-0400</id>
+    <id>ocgn-20251219-0400-ocgn</id>
     <published>2025-12-19T04:00:00-03:00</published>
     <updated>2025-12-19T04:00:00-03:00</updated>
     <author>
