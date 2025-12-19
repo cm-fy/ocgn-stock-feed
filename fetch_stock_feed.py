@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """
 Fetch OCGN stock data and generate an Atom feed (docs/feed.atom) and index page.
-This version adds <icon> and <logo> elements to the Atom feed so readers can show an icon.
-It will also copy an existing repository OCGN.png into docs/ so GitHub Pages serves it.
-The feed includes extra metadata (subtitle, generator, alternate link) and entry-level author/summary
-so it behaves more like a conventional feed.
+This version fetches 1m history, resamples to 5m, builds a full ET trading-window (04:00-20:00 ET) with 192 entries
+and copies OCGN.png into docs/ so GitHub Pages serves it.
 """
 import os
 import shutil
 import datetime as dt
+from zoneinfo import ZoneInfo
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
@@ -25,16 +24,22 @@ FEED_SUBTITLE = "Near-real-time OCGN (Ocugen Inc.) stock price updates (includin
 FEED_AUTHOR = "OCGN Stock Feed Bot"
 SYMBOL = "OCGN"
 
+# How many entries to include across the full 04:00-20:00 ET window at 5-minute cadence
+ENTRIES_IN_FULL_WINDOW = 192  # 16 hours * 12 samples/hour
+
 ATOM_NS = "http://www.w3.org/2005/Atom"
 ET.register_namespace('', ATOM_NS)
 
+ET_TZ = ZoneInfo('UTC')
+LOCAL_TZ = ZoneInfo('America/New_York')
+
 
 def fetch_ocgn_data():
-    """Return info dict and recent history DataFrame for OCGN using yfinance."""
+    """Return info dict and recent history DataFrame for OCGN using yfinance (1m resolution)."""
     try:
         t = yf.Ticker(SYMBOL)
         info = t.info if hasattr(t, 'info') else {}
-        # Get last 2 days with 1m resolution if possible
+        # Get last 2 days with 1m resolution including pre/post market
         hist = t.history(period="2d", interval="1m", prepost=True)
         return info, hist
     except Exception as e:
@@ -42,8 +47,15 @@ def fetch_ocgn_data():
         return {}, pd.DataFrame()
 
 
+def build_full_window_index(date_et: dt.date):
+    """Return a DatetimeIndex in ET for the full 04:00-20:00 window at 5-minute cadence for the given date."""
+    start = dt.datetime.combine(date_et, dt.time(4, 0), tzinfo=LOCAL_TZ)
+    end = dt.datetime.combine(date_et, dt.time(20, 0), tzinfo=LOCAL_TZ)
+    return pd.date_range(start=start, end=end, freq='5T')
+
+
 def generate_atom_feed(info, hist):
-    """Build an ElementTree Element for the Atom feed including icon/logo and extra metadata."""
+    """Build an ElementTree Element for the Atom feed including icon/logo and full-window entries."""
     feed = ET.Element(ET.QName(ATOM_NS, 'feed'))
 
     # Basic feed metadata
@@ -67,7 +79,7 @@ def generate_atom_feed(info, hist):
     feed_id.text = FEED_URL
 
     updated = ET.SubElement(feed, ET.QName(ATOM_NS, 'updated'))
-    updated.text = dt.datetime.utcnow().isoformat() + "Z"
+    updated.text = dt.datetime.utcnow().replace(tzinfo=ET_TZ).isoformat()
 
     author = ET.SubElement(feed, ET.QName(ATOM_NS, 'author'))
     name = ET.SubElement(author, ET.QName(ATOM_NS, 'name'))
@@ -82,68 +94,121 @@ def generate_atom_feed(info, hist):
     icon_el.text = FEED_ICON
 
     logo_el = ET.SubElement(feed, ET.QName(ATOM_NS, 'logo'))
-    logo_el.text = FEED_ICON  # some clients prefer logo
+    logo_el.text = FEED_ICON
 
-    # Create an entry with latest data
-    entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
+    # Prepare history: ensure tz-aware index and resample to 5-minute buckets
+    df = hist.copy()
+    if not df.empty:
+        # Make sure index has tzinfo; yfinance often returns tz-aware index
+        if df.index.tz is None:
+            # assume UTC if no tz provided
+            df = df.tz_localize('UTC')
+        # Convert to ET local time for windowing
+        df = df.tz_convert(LOCAL_TZ)
 
-    # Extract latest price info from history if available
-    latest_price = None
+        # Use the Close column if present
+        if 'Close' in df.columns:
+            price_series = df['Close']
+        elif 'close' in df.columns:
+            price_series = df['close']
+        else:
+            # try to find a close-like column
+            price_series = df.iloc[:, 0]
+
+        # Resample to 5-minute using last available observation in each bucket
+        price_5m = price_series.resample('5T').last()
+        # Forward-fill small gaps so the full window has values where possible
+        price_5m = price_5m.ffill()
+    else:
+        price_5m = pd.Series(dtype=float)
+
+    # Determine target date in ET to build the full window
+    now_et = dt.datetime.now(LOCAL_TZ)
+    target_date = now_et.date()
+
+    full_index = build_full_window_index(target_date)
+
+    # Reindex price_5m to the full window (index in ET), keeping UTC-aware index for outputs
+    if not price_5m.empty:
+        # price_5m index is ET tz-aware; reindex
+        price_5m = price_5m.reindex(full_index, method='ffill')
+    else:
+        # create empty series indexed by full_index
+        price_5m = pd.Series([None] * len(full_index), index=full_index)
+
+    # For previous close, attempt to find last close prior to start of window
     previous_close = None
-    market_state = "UNKNOWN"
-    latest_ts = dt.datetime.utcnow()
+    try:
+        if not hist.empty and 'Close' in hist.columns:
+            # Use hist in UTC, convert to ET for comparison
+            hist_utc = hist.copy()
+            if hist_utc.index.tz is None:
+                hist_utc = hist_utc.tz_localize('UTC')
+            hist_et = hist_utc.tz_convert(LOCAL_TZ)
+            # find last close before 04:00 ET of target_date
+            start_et = dt.datetime.combine(target_date, dt.time(4, 0), tzinfo=LOCAL_TZ)
+            prev_vals = hist_et[hist_et.index < start_et]
+            if not prev_vals.empty and 'Close' in prev_vals.columns:
+                previous_close = prev_vals['Close'].iloc[-1]
+    except Exception:
+        previous_close = None
 
-    if not hist.empty:
-        try:
-            latest_row = hist.iloc[-1]
-            latest_price = latest_row.get('Close') if 'Close' in latest_row else latest_row.get('close', None)
-            # previous close: last market close value (rough approach)
-            if 'Close' in hist and len(hist) > 1:
-                previous_close = hist['Close'].ffill().iloc[-2]
-            latest_ts = latest_row.name.tz_convert(None) if hasattr(latest_row.name, 'tzinfo') else latest_row.name
-            market_state = info.get('marketState', 'UNKNOWN') if isinstance(info, dict) else 'UNKNOWN'
-        except Exception as e:
-            print(f"Warning extracting latest data: {e}")
+    # Build entries for each timestamp in full_index (most recent first per Atom convention)
+    for ts in reversed(full_index):
+        price = price_5m.get(ts, None)
+        # Compose entry
+        entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
 
-    # Entry elements
-    title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
-    price_text = f"{SYMBOL}: ${latest_price:.2f}" if latest_price is not None else f"{SYMBOL}: N/A"
-    title_entry.text = price_text
+        title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
+        price_text = f"{SYMBOL}: ${price:.2f}" if price is not None and not pd.isna(price) else f"{SYMBOL}: N/A"
+        title_entry.text = price_text
 
-    link = ET.SubElement(entry, ET.QName(ATOM_NS, 'link'))
-    link.set('href', f"https://finance.yahoo.com/quote/{SYMBOL}")
-    link.set('rel', 'alternate')
-    link.set('type', 'text/html')
+        link = ET.SubElement(entry, ET.QName(ATOM_NS, 'link'))
+        link.set('href', f"https://finance.yahoo.com/quote/{SYMBOL}")
+        link.set('rel', 'alternate')
+        link.set('type', 'text/html')
 
-    entry_id = ET.SubElement(entry, ET.QName(ATOM_NS, 'id'))
-    entry_id.text = f"ocgn-{dt.datetime.utcnow().isoformat()}Z"
+        entry_id = ET.SubElement(entry, ET.QName(ATOM_NS, 'id'))
+        entry_id.text = f"ocgn-{ts.strftime('%Y%m%d-%H%M')}-{SYMBOL.lower()}"
 
-    entry_updated = ET.SubElement(entry, ET.QName(ATOM_NS, 'updated'))
-    entry_updated.text = dt.datetime.utcnow().isoformat() + "Z"
+        # published and updated timestamps in UTC
+        ts_utc = ts.astimezone(ET_TZ)
+        published = ET.SubElement(entry, ET.QName(ATOM_NS, 'published'))
+        published.text = ts_utc.isoformat()
 
-    # Entry author
-    entry_author = ET.SubElement(entry, ET.QName(ATOM_NS, 'author'))
-    entry_author_name = ET.SubElement(entry_author, ET.QName(ATOM_NS, 'name'))
-    entry_author_name.text = FEED_AUTHOR
+        entry_updated = ET.SubElement(entry, ET.QName(ATOM_NS, 'updated'))
+        entry_updated.text = ts_utc.isoformat()
 
-    # Entry summary (short plain-text summary for compatibility)
-    summary = ET.SubElement(entry, ET.QName(ATOM_NS, 'summary'))
-    summary.text = f"{SYMBOL} price update: {price_text} (state: {market_state})"
+        # Entry author
+        entry_author = ET.SubElement(entry, ET.QName(ATOM_NS, 'author'))
+        entry_author_name = ET.SubElement(entry_author, ET.QName(ATOM_NS, 'name'))
+        entry_author_name.text = FEED_AUTHOR
 
-    content = ET.SubElement(entry, ET.QName(ATOM_NS, 'content'))
-    content.set('type', 'html')
+        # Entry summary
+        summary = ET.SubElement(entry, ET.QName(ATOM_NS, 'summary'))
+        if price is not None and not pd.isna(price):
+            if previous_close is not None:
+                change = price - previous_close
+                pct = (change / previous_close * 100) if previous_close else 0
+                summary.text = f"{SYMBOL} {price:.2f} ({change:+.2f}, {pct:+.2f}%) at {ts.strftime('%H:%M %Z')}."
+            else:
+                summary.text = f"{SYMBOL} {price:.2f} at {ts.strftime('%H:%M %Z')}"
+        else:
+            summary.text = f"{SYMBOL} price unavailable at {ts.strftime('%H:%M %Z')}"
 
-    # Build HTML content
-    content_html = "<div>\n"
-    content_html += f"<h2>{SYMBOL} Stock Price Update</h2>\n"
-    if latest_price is not None:
-        content_html += f"<p><strong>Current Price:</strong> ${latest_price:.2f}</p>\n"
-    if previous_close is not None:
-        content_html += f"<p><strong>Previous Close:</strong> ${previous_close:.2f}</p>\n"
-    content_html += f"<p><strong>Market State:</strong> {market_state}</p>\n"
-    content_html += f"<p><strong>Last Updated:</strong> {latest_ts}</p>\n"
-    content_html += "</div>"
-    content.text = content_html
+        content = ET.SubElement(entry, ET.QName(ATOM_NS, 'content'))
+        content.set('type', 'html')
+        content_html = "<div>\n"
+        content_html += f"<h2>{SYMBOL} Stock Price Update</h2>\n"
+        if price is not None and not pd.isna(price):
+            content_html += f"<p><strong>Price:</strong> ${price:.2f}</p>\n"
+        else:
+            content_html += f"<p><strong>Price:</strong> N/A</p>\n"
+        if previous_close is not None:
+            content_html += f"<p><strong>Previous Close:</strong> ${previous_close:.2f}</p>\n"
+        content_html += f"<p><strong>Timestamp (ET):</strong> {ts.strftime('%Y-%m-%d %H:%M %Z')}</p>\n"
+        content_html += "</div>"
+        content.text = content_html
 
     return feed
 
@@ -166,7 +231,7 @@ def ensure_icon_is_deployed():
             shutil.copyfile(src, dst)
             print(f"Copied {src} -> {dst} so it will be deployed to Pages")
         else:
-            print(f"Note: {src} not found in repo root; skipping copy. If you want an icon, add OCGN.png at repo root or put the image in docs_.")
+            print(f"Note: {src} not found in repo root; skipping copy. If you want an icon, add OCGN.png at repo root or put the image in docs/.")
     except Exception as e:
         print(f"Warning: could not copy icon file: {e}")
 
