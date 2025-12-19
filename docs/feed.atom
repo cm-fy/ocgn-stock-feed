@@ -5,7 +5,7 @@
   <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self"/>
   <link href="https://cm-fy.github.io/ocgn-stock-feed/" rel="alternate" type="text/html"/>
   <id>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</id>
-  <updated>2025-12-19T21:47:17.619764Z</updated>
+  <updated>2025-12-19T22:03:08.007494Z</updated>
   <author>
     <name>OCGN Stock Feed Bot</name>
   </author>
@@ -13,20 +13,20 @@
   <icon>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</icon>
   <logo>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</logo>
   <entry>
-    <title>OCGN: $1.42</title>
+    <title>OCGN: $1.45</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-2025-12-19T21:47:17.620052Z</id>
-    <updated>2025-12-19T21:47:17.620057Z</updated>
+    <id>ocgn-2025-12-19T22:03:08.007840Z</id>
+    <updated>2025-12-19T22:03:08.007847Z</updated>
     <author>
       <name>OCGN Stock Feed Bot</name>
     </author>
-    <summary>OCGN price update: OCGN: $1.42 (state: POST)</summary>
+    <summary>OCGN price update: OCGN: $1.45 (state: POST)</summary>
     <content type="html">&lt;div&gt;
 &lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Current Price:&lt;/strong&gt; $1.42&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.42&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Current Price:&lt;/strong&gt; $1.45&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.45&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Market State:&lt;/strong&gt; POST&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Last Updated:&lt;/strong&gt; 2025-12-19 21:26:00&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Last Updated:&lt;/strong&gt; 2025-12-19 21:54:56&lt;/p&gt;
 &lt;/div&gt;</content>
   </entry>
 </feed>
