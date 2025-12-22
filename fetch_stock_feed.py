@@ -36,6 +36,10 @@ ET.register_namespace('', ATOM_NS)
 BRT = ZoneInfo('America/Sao_Paulo')
 UTC = ZoneInfo('UTC')
 
+# RSS/Atom behavior
+MAX_RSS_ITEMS = 50  # limit RSS/Atom items emitted to avoid client notification floods on first fetch
+ET_ZONE = ZoneInfo('America/New_York')
+
 
 def fetch_ocgn_data():
     try:
@@ -151,12 +155,26 @@ def generate_atom_and_rss(info, hist):
     # Build RSS channel items list
     rss_items = []
 
-    # Build entries (newest-first)
-    for ts in reversed(full_index):
+    # Build a filtered list of timestamps where the price changed (avoid emitting long series of identical prices)
+    emitted = []
+    last_price = None
+    for ts in full_index:
         price = price_5m.get(ts, None)
+        if price is None or pd.isna(price):
+            continue
+        # Only emit when price changes compared to last emitted price
+        if last_price is None or price != last_price:
+            emitted.append((ts, price))
+            last_price = price
+
+    # Keep only the most recent MAX_RSS_ITEMS
+    emitted = emitted[-MAX_RSS_ITEMS:]
+
+    # Build Atom entries and RSS items from emitted list (newest-first in feed)
+    for ts, price in reversed(emitted):
         entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
         title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
-        price_text = f"{SYMBOL}: ${price:.2f}" if price is not None and not pd.isna(price) else f"{SYMBOL}: N/A"
+        price_text = f"{SYMBOL}: ${price:.2f}"
         title_entry.text = price_text
         link = ET.SubElement(entry, ET.QName(ATOM_NS, 'link'))
         link.set('href', f"https://finance.yahoo.com/quote/{SYMBOL}")
@@ -164,7 +182,7 @@ def generate_atom_and_rss(info, hist):
         link.set('type', 'text/html')
         entry_id = ET.SubElement(entry, ET.QName(ATOM_NS, 'id'))
         entry_id.text = f"ocgn-{ts.strftime('%Y%m%d-%H%M')}-{SYMBOL.lower()}"
-        # published/updated in BRT
+        # published/updated in BRT (keep Atom in BRT)
         published = ET.SubElement(entry, ET.QName(ATOM_NS, 'published'))
         published.text = ts.isoformat()
         entry_updated = ET.SubElement(entry, ET.QName(ATOM_NS, 'updated'))
@@ -173,34 +191,30 @@ def generate_atom_and_rss(info, hist):
         entry_author_name = ET.SubElement(entry_author, ET.QName(ATOM_NS, 'name'))
         entry_author_name.text = FEED_AUTHOR
         summary = ET.SubElement(entry, ET.QName(ATOM_NS, 'summary'))
-        if price is not None and not pd.isna(price):
-            if previous_close is not None:
-                change = price - previous_close
-                pct = (change / previous_close * 100) if previous_close else 0
-                summary.text = f"{SYMBOL} {price:.2f} ({change:+.2f}, {pct:+.2f}%) at {ts.strftime('%H:%M %Z')}"
-            else:
-                summary.text = f"{SYMBOL} {price:.2f} at {ts.strftime('%H:%M %Z')}"
+        if previous_close is not None:
+            change = price - previous_close
+            pct = (change / previous_close * 100) if previous_close else 0
+            summary.text = f"{SYMBOL} {price:.2f} ({change:+.2f}, {pct:+.2f}%) at {ts.strftime('%H:%M %Z')}"
         else:
-            summary.text = f"{SYMBOL} price unavailable at {ts.strftime('%H:%M %Z')}"
+            summary.text = f"{SYMBOL} {price:.2f} at {ts.strftime('%H:%M %Z')}"
         content = ET.SubElement(entry, ET.QName(ATOM_NS, 'content'))
         content.set('type', 'html')
         content_html = "<div>\n"
         content_html += f"<h2>{SYMBOL} Stock Price Update</h2>\n"
-        if price is not None and not pd.isna(price):
-            content_html += f"<p><strong>Price:</strong> ${price:.2f}</p>\n"
-        else:
-            content_html += f"<p><strong>Price:</strong> N/A</p>\n"
+        content_html += f"<p><strong>Price:</strong> ${price:.2f}</p>\n"
         if previous_close is not None:
             content_html += f"<p><strong>Previous Close:</strong> ${previous_close:.2f}</p>\n"
         content_html += f"<p><strong>Timestamp (BRT):</strong> {ts.strftime('%Y-%m-%d %H:%M %Z')}</p>\n"
         content_html += "</div>"
         content.text = content_html
 
+        # For RSS, use ET timezone for pubDate (convert ts to ET_ZONE)
+        pubdate_et = ts.astimezone(ET_ZONE)
         rss_items.append({
             'title': price_text,
             'link': f"https://finance.yahoo.com/quote/{SYMBOL}",
             'guid': entry_id.text,
-            'pubDate': format_datetime(ts),
+            'pubDate': format_datetime(pubdate_et),
             'description': content_html
         })
 
