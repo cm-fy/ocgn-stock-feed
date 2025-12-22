@@ -2,11 +2,8 @@ name: Update OCGN Stock Feed
 
 on:
   schedule:
-    # Run every 15 minutes (as required)
-    # Note: This is frequent but necessary for near real-time updates
-    # including pre-market, regular hours, and after-hours trading
-    - cron: '*/15 * * * *'
-      - cron: '*/15 * * * 1-5'
+    # Run every 15 minutes, Monday through Friday only
+    - cron: '*/15 * * * 1-5'
   workflow_dispatch: # Allow manual trigger
   push:
     branches:
