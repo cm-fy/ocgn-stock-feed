@@ -4,11 +4,23 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Mon, 22 Dec 2025 17:51:14 -0300</lastBuildDate>
+<lastBuildDate>Mon, 22 Dec 2025 18:07:05 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
 <item>
-<title><![CDATA[OCGN: $1.48 (-0.02, -1.34% vs 1h ago) [17:50 -03]]]></title>
+<title><![CDATA[OCGN: $1.50 (+0.01, +0.58% vs 1h ago) [17:55 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20251222-1755-ocgn</guid>
+<pubDate>Mon, 22 Dec 2025 15:55:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.50</p>
+<p><strong>Previous Close:</strong> $1.43</p>
+<p><strong>Timestamp (BRT):</strong> 2025-12-22 17:55 -03</p>
+</div><br/><small>Published: 17:55 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.48 (-0.02, -1.02% vs 1h ago) [17:50 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20251222-1750-ocgn</guid>
 <pubDate>Mon, 22 Dec 2025 15:50:00 -0500</pubDate>
@@ -594,18 +606,6 @@
 <p><strong>Previous Close:</strong> $1.43</p>
 <p><strong>Timestamp (BRT):</strong> 2025-12-22 12:45 -03</p>
 </div><br/><small>Published: 12:45 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.43 (-0.01, -0.71% vs 1h ago) [12:40 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20251222-1240-ocgn</guid>
-<pubDate>Mon, 22 Dec 2025 10:40:00 -0500</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.43</p>
-<p><strong>Previous Close:</strong> $1.43</p>
-<p><strong>Timestamp (BRT):</strong> 2025-12-22 12:40 -03</p>
-</div><br/><small>Published: 12:40 -03</small>]]></description>
 </item>
 </channel>
 </rss>
