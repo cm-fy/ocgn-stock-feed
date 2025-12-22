@@ -155,6 +155,7 @@ def generate_atom_and_rss(info, hist):
     # Build RSS channel items list
     rss_items = []
 
+
     # Build a filtered list of timestamps where the price changed (avoid emitting long series of identical prices)
     emitted = []
     last_price = None
@@ -170,8 +171,12 @@ def generate_atom_and_rss(info, hist):
     # Keep only the most recent MAX_RSS_ITEMS
     emitted = emitted[-MAX_RSS_ITEMS:]
 
+    # Precompute a mapping from timestamp to price for quick lookup
+    price_lookup = {ts: price_5m.get(ts, None) for ts in full_index}
+
     # Build Atom entries and RSS items from emitted list (newest-first in feed)
     for ts, price in reversed(emitted):
+        # --- Atom entry (unchanged) ---
         entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
         title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
         price_text = f"{SYMBOL}: ${price:.2f}"
@@ -208,14 +213,38 @@ def generate_atom_and_rss(info, hist):
         content_html += "</div>"
         content.text = content_html
 
+        # --- RSS item (add 1h diff) ---
         # For RSS, use ET timezone for pubDate (convert ts to ET_ZONE)
         pubdate_et = ts.astimezone(ET_ZONE)
+
+        # Find price from 1 hour ago (if available)
+        ts_1h_ago = ts - pd.Timedelta(hours=1)
+        price_1h_ago = None
+        # Find the closest earlier or equal timestamp in full_index
+        idxs = [i for i, t in enumerate(full_index) if t <= ts_1h_ago]
+        if idxs:
+            ts_prev = full_index[max(idxs)]
+            price_1h_ago = price_lookup.get(ts_prev, None)
+        # Compute diff and percent
+        diff_str = ""
+        if price_1h_ago is not None and not pd.isna(price_1h_ago):
+            diff = price - price_1h_ago
+            pct = (diff / price_1h_ago * 100) if price_1h_ago else 0
+            diff_str = f" ({diff:+.2f}, {pct:+.2f}% vs 1h ago)"
+
+        # Add published time to title for clarity
+        published_str = ts.strftime('%H:%M %Z')
+        rss_title = f"{SYMBOL}: ${price:.2f}{diff_str} [{published_str}]"
+
+        # Add published time to description as well
+        rss_desc = content_html + f"<br/><small>Published: {published_str}</small>"
+
         rss_items.append({
-            'title': price_text,
+            'title': rss_title,
             'link': f"https://finance.yahoo.com/quote/{SYMBOL}",
             'guid': entry_id.text,
             'pubDate': format_datetime(pubdate_et),
-            'description': content_html
+            'description': rss_desc
         })
 
     return feed, rss_items, now_brt
