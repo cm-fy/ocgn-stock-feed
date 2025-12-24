@@ -39,6 +39,11 @@ jobs:
       - name: Fetch OCGN stock data and generate feed
         run: python fetch_stock_feed.py
 
+      - name: Show emitted item count (from generated file)
+        run: |
+          echo "== Emitted items in docs/feed.rss =="
+          grep -c "<item>" docs/feed.rss || true
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
