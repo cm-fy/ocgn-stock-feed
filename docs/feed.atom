@@ -5,11 +5,7 @@
   <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self"/>
   <link href="https://cm-fy.github.io/ocgn-stock-feed/" rel="alternate" type="text/html"/>
   <id>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</id>
-<<<<<<< HEAD
-  <updated>2025-12-24T09:00:20.251627-03:00</updated>
-=======
-  <updated>2025-12-24T08:57:13.459905-03:00</updated>
->>>>>>> origin/main
+  <updated>2025-12-24T09:02:12.904553-03:00</updated>
   <author>
     <name>OCGN Stock Feed Bot</name>
   </author>
