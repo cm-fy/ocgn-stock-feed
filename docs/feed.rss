@@ -4,7 +4,11 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
+<<<<<<< HEAD
 <lastBuildDate>Wed, 24 Dec 2025 09:00:20 -0300</lastBuildDate>
+=======
+<lastBuildDate>Wed, 24 Dec 2025 08:57:13 -0300</lastBuildDate>
+>>>>>>> origin/main
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
 <item>
