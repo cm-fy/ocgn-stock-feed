@@ -4,9 +4,33 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Tue, 30 Dec 2025 17:25:28 -0300</lastBuildDate>
+<lastBuildDate>Tue, 30 Dec 2025 17:37:12 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
+<item>
+<title><![CDATA[OCGN: $1.39 (-0.01, -0.72% vs 1h ago) [17:35 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20251230-1735-ocgn</guid>
+<pubDate>Tue, 30 Dec 2025 15:35:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.39</p>
+<p><strong>Previous Close:</strong> $1.46</p>
+<p><strong>Timestamp (BRT):</strong> 2025-12-30 17:35 -03</p>
+</div><br/><small>Published: 17:35 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.39 (-0.01, -0.37% vs 1h ago) [17:30 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20251230-1730-ocgn</guid>
+<pubDate>Tue, 30 Dec 2025 15:30:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.39</p>
+<p><strong>Previous Close:</strong> $1.46</p>
+<p><strong>Timestamp (BRT):</strong> 2025-12-30 17:30 -03</p>
+</div><br/><small>Published: 17:30 -03</small>]]></description>
+</item>
 <item>
 <title><![CDATA[OCGN: $1.38 (-0.02, -1.25% vs 1h ago) [17:25 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
@@ -582,30 +606,6 @@
 <p><strong>Previous Close:</strong> $1.46</p>
 <p><strong>Timestamp (BRT):</strong> 2025-12-30 12:30 -03</p>
 </div><br/><small>Published: 12:30 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.44 (-0.04, -3.00% vs 1h ago) [12:25 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20251230-1225-ocgn</guid>
-<pubDate>Tue, 30 Dec 2025 10:25:00 -0500</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.44</p>
-<p><strong>Previous Close:</strong> $1.46</p>
-<p><strong>Timestamp (BRT):</strong> 2025-12-30 12:25 -03</p>
-</div><br/><small>Published: 12:25 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.43 (-0.04, -2.42% vs 1h ago) [12:15 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20251230-1215-ocgn</guid>
-<pubDate>Tue, 30 Dec 2025 10:15:00 -0500</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.43</p>
-<p><strong>Previous Close:</strong> $1.46</p>
-<p><strong>Timestamp (BRT):</strong> 2025-12-30 12:15 -03</p>
-</div><br/><small>Published: 12:15 -03</small>]]></description>
 </item>
 </channel>
 </rss>
