@@ -5,13 +5,30 @@
   <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self"/>
   <link href="https://cm-fy.github.io/ocgn-stock-feed/" rel="alternate" type="text/html"/>
   <id>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</id>
-  <updated>2026-01-05T20:47:43.773242-03:00</updated>
+  <updated>2026-01-05T20:54:03.891854-03:00</updated>
   <author>
     <name>OCGN Stock Feed Bot</name>
   </author>
   <generator>fetch_stock_feed.py (custom)</generator>
   <icon>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</icon>
   <logo>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</logo>
+  <entry>
+    <title>OCGN: $1.45</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20260105-2050-ocgn</id>
+    <published>2026-01-05T20:50:00-03:00</published>
+    <updated>2026-01-05T20:50:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.45 (+0.07, +5.07%) at 20:50 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.45&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.38&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-01-05 20:50 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>OCGN: $1.46</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
@@ -21,7 +38,7 @@
     <author>
       <name>OCGN Stock Feed Bot</name>
     </author>
-    <summary>OCGN 1.46 (+0.08, +5.78%) at 20:45 -03</summary>
+    <summary>OCGN 1.46 (+0.08, +5.80%) at 20:45 -03</summary>
     <content type="html">&lt;div&gt;
 &lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.46&lt;/p&gt;
@@ -843,23 +860,6 @@
 &lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.35&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.38&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-01-05 15:25 -03&lt;/p&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>OCGN: $1.36</title>
-    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20260105-1515-ocgn</id>
-    <published>2026-01-05T15:15:00-03:00</published>
-    <updated>2026-01-05T15:15:00-03:00</updated>
-    <author>
-      <name>OCGN Stock Feed Bot</name>
-    </author>
-    <summary>OCGN 1.36 (-0.02, -1.81%) at 15:15 -03</summary>
-    <content type="html">&lt;div&gt;
-&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.36&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.38&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-01-05 15:15 -03&lt;/p&gt;
 &lt;/div&gt;</content>
   </entry>
 </feed>
