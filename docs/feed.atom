@@ -5,13 +5,47 @@
   <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self"/>
   <link href="https://cm-fy.github.io/ocgn-stock-feed/" rel="alternate" type="text/html"/>
   <id>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</id>
-  <updated>2026-01-06T12:07:42.283142-03:00</updated>
+  <updated>2026-01-06T12:19:34.573295-03:00</updated>
   <author>
     <name>OCGN Stock Feed Bot</name>
   </author>
   <generator>fetch_stock_feed.py (custom)</generator>
   <icon>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</icon>
   <logo>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</logo>
+  <entry>
+    <title>OCGN: $1.58</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20260106-1215-ocgn</id>
+    <published>2026-01-06T12:15:00-03:00</published>
+    <updated>2026-01-06T12:15:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.58 (+0.13, +8.64%) at 12:15 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.58&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.45&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-01-06 12:15 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>OCGN: $1.58</title>
+    <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
+    <id>ocgn-20260106-1210-ocgn</id>
+    <published>2026-01-06T12:10:00-03:00</published>
+    <updated>2026-01-06T12:10:00-03:00</updated>
+    <author>
+      <name>OCGN Stock Feed Bot</name>
+    </author>
+    <summary>OCGN 1.58 (+0.13, +8.66%) at 12:10 -03</summary>
+    <content type="html">&lt;div&gt;
+&lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.58&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.45&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-01-06 12:10 -03&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>OCGN: $1.57</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
@@ -21,7 +55,7 @@
     <author>
       <name>OCGN Stock Feed Bot</name>
     </author>
-    <summary>OCGN 1.57 (+0.12, +8.44%) at 12:05 -03</summary>
+    <summary>OCGN 1.57 (+0.12, +8.25%) at 12:05 -03</summary>
     <content type="html">&lt;div&gt;
 &lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.57&lt;/p&gt;
@@ -81,7 +115,7 @@
 &lt;/div&gt;</content>
   </entry>
   <entry>
-    <title>OCGN: $1.51</title>
+    <title>OCGN: $1.50</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
     <id>ocgn-20260106-1145-ocgn</id>
     <published>2026-01-06T11:45:00-03:00</published>
@@ -89,16 +123,16 @@
     <author>
       <name>OCGN Stock Feed Bot</name>
     </author>
-    <summary>OCGN 1.51 (+0.06, +4.46%) at 11:45 -03</summary>
+    <summary>OCGN 1.50 (+0.05, +3.52%) at 11:45 -03</summary>
     <content type="html">&lt;div&gt;
 &lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.51&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.50&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.45&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-01-06 11:45 -03&lt;/p&gt;
 &lt;/div&gt;</content>
   </entry>
   <entry>
-    <title>OCGN: $1.49</title>
+    <title>OCGN: $1.48</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
     <id>ocgn-20260106-1140-ocgn</id>
     <published>2026-01-06T11:40:00-03:00</published>
@@ -106,10 +140,10 @@
     <author>
       <name>OCGN Stock Feed Bot</name>
     </author>
-    <summary>OCGN 1.49 (+0.04, +2.74%) at 11:40 -03</summary>
+    <summary>OCGN 1.48 (+0.03, +2.05%) at 11:40 -03</summary>
     <content type="html">&lt;div&gt;
 &lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.49&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.48&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $1.45&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-01-06 11:40 -03&lt;/p&gt;
 &lt;/div&gt;</content>
