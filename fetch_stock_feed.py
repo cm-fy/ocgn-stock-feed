@@ -108,6 +108,14 @@ def build_full_window_index(date_brt: dt.date):
     return pd.date_range(start=start, end=end, freq=RESAMPLE_FREQ)
 
 
+def floor_to_5min(ts: dt.datetime) -> dt.datetime:
+    # Floor a timezone-aware datetime to the nearest lower 5-minute boundary.
+    if ts.tzinfo is None:
+        raise ValueError('floor_to_5min requires a timezone-aware datetime')
+    minute = (ts.minute // 5) * 5
+    return ts.replace(minute=minute, second=0, microsecond=0)
+
+
 def price_series_from_hist(hist_df: pd.DataFrame) -> pd.Series:
     """Return a timezone-aware price series (indexed in BRT) robustly.
     Prefer 'Close' column; if absent, pick the first numeric column.
@@ -138,16 +146,23 @@ def generate_atom_and_rss(info, hist):
     # Prepare price series
     price_series = price_series_from_hist(hist)
 
-    # Determine today's window first and then restrict price_series to it
+    # Determine today's window and restrict to <= now (avoid generating future timestamps)
     now_brt = dt.datetime.now(BRT)
     target_date = now_brt.date()
-    full_index = build_full_window_index(target_date)
+    window_start = dt.datetime.combine(target_date, dt.time(START_HOUR, 0), tzinfo=BRT)
+    window_end = dt.datetime.combine(target_date, dt.time(END_HOUR, 0), tzinfo=BRT)
+    effective_end = min(window_end, floor_to_5min(now_brt))
+    if effective_end < window_start:
+        full_index = pd.DatetimeIndex([])
+    else:
+        full_index = pd.date_range(start=window_start, end=effective_end, freq=RESAMPLE_FREQ)
 
     # Discard historic data from previous days so we don't accidentally carry
     # yesterday's after-hours price into today's pre-market window.
     try:
-        start_of_window = full_index[0]
-        price_series = price_series[price_series.index >= start_of_window]
+        if len(full_index) > 0:
+            start_of_window = full_index[0]
+            price_series = price_series[price_series.index >= start_of_window]
     except Exception:
         pass
 
@@ -241,15 +256,16 @@ def generate_atom_and_rss(info, hist):
 
     # Build a filtered list of timestamps where the price changed (avoid emitting long series of identical prices)
     emitted = []
-    last_price = None
+    last_price_rounded = None
     for ts in full_index:
         price = price_5m.get(ts, None)
         if price is None or pd.isna(price):
             continue
-        # Only emit when price changes compared to last emitted price
-        if last_price is None or price != last_price:
+        # Compare prices rounded to cents to avoid tiny float differences causing repeats
+        price_r = round(float(price), 2)
+        if last_price_rounded is None or price_r != last_price_rounded:
             emitted.append((ts, price))
-            last_price = price
+            last_price_rounded = price_r
 
     # Keep only the most recent MAX_RSS_ITEMS
     emitted = emitted[-MAX_RSS_ITEMS:]
