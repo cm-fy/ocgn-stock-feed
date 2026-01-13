@@ -5,7 +5,7 @@
   <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self"/>
   <link href="https://cm-fy.github.io/ocgn-stock-feed/" rel="alternate" type="text/html"/>
   <id>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</id>
-  <updated>2026-01-13T16:53:16.608358-03:00</updated>
+  <updated>2026-01-13T16:59:27.422075-03:00</updated>
   <author>
     <name>OCGN Stock Feed Bot</name>
   </author>
@@ -21,7 +21,7 @@
     <author>
       <name>OCGN Stock Feed Bot</name>
     </author>
-    <summary>OCGN 1.89 (+0.10, +5.65%) at 16:50 -03</summary>
+    <summary>OCGN 1.89 (+0.10, +5.85%) at 16:50 -03</summary>
     <content type="html">&lt;div&gt;
 &lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $1.89&lt;/p&gt;
