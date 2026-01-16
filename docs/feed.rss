@@ -4,17 +4,41 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Fri, 16 Jan 2026 18:08:43 -0300</lastBuildDate>
+<lastBuildDate>Fri, 16 Jan 2026 18:20:54 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
 <item>
-<title><![CDATA[OCGN: $1.74 (+0.02, +1.03% vs 1h ago) [18:05 -03]]]></title>
+<title><![CDATA[OCGN: $1.73 (+0.01, +0.42% vs 1h ago) [18:15 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1815-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 16:15:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.73</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 18:15 -03</p>
+</div><br/><small>Published: 18:15 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.69 (-0.04, -2.03% vs 1h ago) [18:10 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1810-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 16:10:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.69</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 18:10 -03</p>
+</div><br/><small>Published: 18:10 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.73 (+0.01, +0.58% vs 1h ago) [18:05 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1805-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 16:05:00 -0500</pubDate>
 <description><![CDATA[<div>
 <h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.74</p>
+<p><strong>Price:</strong> $1.73</p>
 <p><strong>Previous Close:</strong> $1.63</p>
 <p><strong>Timestamp (BRT):</strong> 2026-01-16 18:05 -03</p>
 </div><br/><small>Published: 18:05 -03</small>]]></description>
