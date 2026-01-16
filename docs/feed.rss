@@ -4,9 +4,21 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Fri, 16 Jan 2026 15:51:31 -0300</lastBuildDate>
+<lastBuildDate>Fri, 16 Jan 2026 16:01:31 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
+<item>
+<title><![CDATA[OCGN: $1.73 (-0.01, -0.63% vs 1h ago) [16:00 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1600-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 14:00:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.73</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 16:00 -03</p>
+</div><br/><small>Published: 16:00 -03</small>]]></description>
+</item>
 <item>
 <title><![CDATA[OCGN: $1.74 (-0.03, -1.70% vs 1h ago) [15:15 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
@@ -308,7 +320,7 @@
 </div><br/><small>Published: 12:30 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.82 (+0.13, +7.40% vs 1h ago) [12:25 -03]]]></title>
+<title><![CDATA[OCGN: $1.82 (+0.14, +8.04% vs 1h ago) [12:25 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1225-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 10:25:00 -0500</pubDate>
@@ -320,7 +332,7 @@
 </div><br/><small>Published: 12:25 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.83 (+0.14, +7.99% vs 1h ago) [12:20 -03]]]></title>
+<title><![CDATA[OCGN: $1.83 (+0.15, +8.63% vs 1h ago) [12:20 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1220-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 10:20:00 -0500</pubDate>
@@ -332,7 +344,7 @@
 </div><br/><small>Published: 12:20 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.81 (+0.12, +7.10% vs 1h ago) [12:15 -03]]]></title>
+<title><![CDATA[OCGN: $1.81 (+0.14, +8.38% vs 1h ago) [12:15 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1215-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 10:15:00 -0500</pubDate>
@@ -344,7 +356,7 @@
 </div><br/><small>Published: 12:15 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.79 (+0.10, +6.21% vs 1h ago) [12:05 -03]]]></title>
+<title><![CDATA[OCGN: $1.79 (+0.12, +6.86% vs 1h ago) [12:05 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1205-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 10:05:00 -0500</pubDate>
@@ -356,7 +368,7 @@
 </div><br/><small>Published: 12:05 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.76 (+0.07, +4.07% vs 1h ago) [12:00 -03]]]></title>
+<title><![CDATA[OCGN: $1.76 (+0.09, +5.31% vs 1h ago) [12:00 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1200-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 10:00:00 -0500</pubDate>
@@ -368,7 +380,7 @@
 </div><br/><small>Published: 12:00 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.71 (+0.02, +0.91% vs 1h ago) [11:55 -03]]]></title>
+<title><![CDATA[OCGN: $1.71 (+0.05, +2.73% vs 1h ago) [11:55 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1155-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 09:55:00 -0500</pubDate>
@@ -380,7 +392,7 @@
 </div><br/><small>Published: 11:55 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.68 (-0.01, -0.44% vs 1h ago) [11:50 -03]]]></title>
+<title><![CDATA[OCGN: $1.68 (+0.02, +1.36% vs 1h ago) [11:50 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1150-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 09:50:00 -0500</pubDate>
@@ -392,7 +404,7 @@
 </div><br/><small>Published: 11:50 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.69 (+0.00, +0.00% vs 1h ago) [11:45 -03]]]></title>
+<title><![CDATA[OCGN: $1.69 (+0.02, +1.20% vs 1h ago) [11:45 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1145-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 09:45:00 -0500</pubDate>
@@ -404,7 +416,7 @@
 </div><br/><small>Published: 11:45 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.67 (-0.02, -0.92% vs 1h ago) [11:40 -03]]]></title>
+<title><![CDATA[OCGN: $1.67 (-0.01, -0.31% vs 1h ago) [11:40 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1140-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 09:40:00 -0500</pubDate>
@@ -416,7 +428,7 @@
 </div><br/><small>Published: 11:40 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.65 (-0.04, -2.07% vs 1h ago) [11:35 -03]]]></title>
+<title><![CDATA[OCGN: $1.65 (-0.03, -1.98% vs 1h ago) [11:35 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1135-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 09:35:00 -0500</pubDate>
@@ -428,7 +440,7 @@
 </div><br/><small>Published: 11:35 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.66 (-0.03, -1.59% vs 1h ago) [11:30 -03]]]></title>
+<title><![CDATA[OCGN: $1.66 (-0.01, -0.41% vs 1h ago) [11:30 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260116-1130-ocgn</guid>
 <pubDate>Fri, 16 Jan 2026 09:30:00 -0500</pubDate>
@@ -440,16 +452,160 @@
 </div><br/><small>Published: 11:30 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.69 [06:45 -03]]]></title>
+<title><![CDATA[OCGN: $1.68 (+0.00, +0.00% vs 1h ago) [11:20 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260116-0645-ocgn</guid>
-<pubDate>Fri, 16 Jan 2026 04:45:00 -0500</pubDate>
+<guid>ocgn-20260116-1120-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 09:20:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.68</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 11:20 -03</p>
+</div><br/><small>Published: 11:20 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.67 (-0.00, -0.01% vs 1h ago) [11:10 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1110-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 09:10:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.67</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 11:10 -03</p>
+</div><br/><small>Published: 11:10 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.68 (-0.01, -0.61% vs 1h ago) [11:05 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1105-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 09:05:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.68</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 11:05 -03</p>
+</div><br/><small>Published: 11:05 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.67 (+0.00, +0.00% vs 1h ago) [11:00 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1100-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 09:00:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.67</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 11:00 -03</p>
+</div><br/><small>Published: 11:00 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.66 (-0.02, -1.19% vs 1h ago) [10:50 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1050-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:50:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.66</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:50 -03</p>
+</div><br/><small>Published: 10:50 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.67 (-0.01, -0.60% vs 1h ago) [10:45 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1045-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:45:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.67</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:45 -03</p>
+</div><br/><small>Published: 10:45 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.68 (-0.00, -0.02% vs 1h ago) [10:40 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1040-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:40:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.68</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:40 -03</p>
+</div><br/><small>Published: 10:40 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.69 (+0.01, +0.50% vs 1h ago) [10:35 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1035-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:35:00 -0500</pubDate>
 <description><![CDATA[<div>
 <h2>OCGN Stock Price Update</h2>
 <p><strong>Price:</strong> $1.69</p>
 <p><strong>Previous Close:</strong> $1.63</p>
-<p><strong>Timestamp (BRT):</strong> 2026-01-16 06:45 -03</p>
-</div><br/><small>Published: 06:45 -03</small>]]></description>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:35 -03</p>
+</div><br/><small>Published: 10:35 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.67 (-0.01, -0.60% vs 1h ago) [10:30 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1030-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:30:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.67</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:30 -03</p>
+</div><br/><small>Published: 10:30 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.69 (+0.01, +0.50% vs 1h ago) [10:25 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1025-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:25:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.69</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:25 -03</p>
+</div><br/><small>Published: 10:25 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.68 (+0.00, +0.00% vs 1h ago) [10:15 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1015-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:15:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.68</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:15 -03</p>
+</div><br/><small>Published: 10:15 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.67 (-0.01, -0.59% vs 1h ago) [10:10 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1010-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:10:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.67</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:10 -03</p>
+</div><br/><small>Published: 10:10 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.69 (+0.01, +0.60% vs 1h ago) [10:05 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-1005-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 08:05:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.69</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 10:05 -03</p>
+</div><br/><small>Published: 10:05 -03</small>]]></description>
 </item>
 </channel>
 </rss>
