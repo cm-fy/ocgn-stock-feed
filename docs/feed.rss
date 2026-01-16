@@ -4,9 +4,45 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Fri, 16 Jan 2026 07:13:51 -0300</lastBuildDate>
+<lastBuildDate>Fri, 16 Jan 2026 07:27:34 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
+<item>
+<title><![CDATA[OCGN: $1.69 [07:25 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-0725-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 05:25:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.69</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 07:25 -03</p>
+</div><br/><small>Published: 07:25 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.69 [07:20 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-0720-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 05:20:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.69</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 07:20 -03</p>
+</div><br/><small>Published: 07:20 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.69 [07:15 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260116-0715-ocgn</guid>
+<pubDate>Fri, 16 Jan 2026 05:15:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.69</p>
+<p><strong>Previous Close:</strong> $1.63</p>
+<p><strong>Timestamp (BRT):</strong> 2026-01-16 07:15 -03</p>
+</div><br/><small>Published: 07:15 -03</small>]]></description>
+</item>
 <item>
 <title><![CDATA[OCGN: $1.69 [07:10 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
