@@ -29,7 +29,7 @@ SYMBOL = "OCGN"
 # Full-window parameters (BRT)
 START_HOUR = 4
 END_HOUR = 21  # inclusive end at 21:00 BRT
-RESAMPLE_FREQ = "5T"  # 5-minute buckets
+RESAMPLE_FREQ = "5min"  # 5-minute buckets
 ATOM_NS = "http://www.w3.org/2005/Atom"
 ET.register_namespace('', ATOM_NS)
 
