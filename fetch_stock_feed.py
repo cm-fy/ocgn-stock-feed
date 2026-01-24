@@ -29,7 +29,7 @@ SYMBOL = "OCGN"
 # Full-window parameters (BRT)
 START_HOUR = 4
 END_HOUR = 21  # inclusive end at 21:00 BRT
-RESAMPLE_FREQ = "5min"  # 5-minute buckets
+RESAMPLE_FREQ = "5min"  # 5-minute buckets (pandas 3 compatible)
 ATOM_NS = "http://www.w3.org/2005/Atom"
 ET.register_namespace('', ATOM_NS)
 
@@ -153,9 +153,8 @@ def generate_atom_and_rss(info, hist):
     window_end = dt.datetime.combine(target_date, dt.time(END_HOUR, 0), tzinfo=BRT)
     effective_end = min(window_end, floor_to_5min(now_brt))
     if effective_end < window_start:
-        # Before the trading window starts: build the full window so the
-        # previous-close fallback can populate the feed for pre-market readers
-        # (otherwise full_index is empty and no items are emitted).
+        # Restore original behavior: build the full trading window so pre-market
+        # runs produce the full pre-market series (previous-close fallback fills it).
         full_index = pd.date_range(start=window_start, end=window_end, freq=RESAMPLE_FREQ)
     else:
         full_index = pd.date_range(start=window_start, end=effective_end, freq=RESAMPLE_FREQ)
