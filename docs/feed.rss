@@ -4,9 +4,45 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Thu, 19 Feb 2026 14:12:49 -0300</lastBuildDate>
+<lastBuildDate>Thu, 19 Feb 2026 14:35:30 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
+<item>
+<title><![CDATA[OCGN: $1.56 (+0.00, +0.00% vs 1h ago) [14:35 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260219-1435-ocgn</guid>
+<pubDate>Thu, 19 Feb 2026 12:35:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.56</p>
+<p><strong>Previous Close:</strong> $1.48</p>
+<p><strong>Timestamp (BRT):</strong> 2026-02-19 14:35 -03</p>
+</div><br/><small>Published: 14:35 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.57 (+0.04, +2.28% vs 1h ago) [14:25 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260219-1425-ocgn</guid>
+<pubDate>Thu, 19 Feb 2026 12:25:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.57</p>
+<p><strong>Previous Close:</strong> $1.48</p>
+<p><strong>Timestamp (BRT):</strong> 2026-02-19 14:25 -03</p>
+</div><br/><small>Published: 14:25 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.56 (+0.03, +1.64% vs 1h ago) [14:15 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260219-1415-ocgn</guid>
+<pubDate>Thu, 19 Feb 2026 12:15:00 -0500</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.56</p>
+<p><strong>Previous Close:</strong> $1.48</p>
+<p><strong>Timestamp (BRT):</strong> 2026-02-19 14:15 -03</p>
+</div><br/><small>Published: 14:15 -03</small>]]></description>
+</item>
 <item>
 <title><![CDATA[OCGN: $1.55 (+0.01, +0.98% vs 1h ago) [14:05 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
