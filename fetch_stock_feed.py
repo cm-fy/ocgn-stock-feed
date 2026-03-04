@@ -15,6 +15,9 @@ from email.utils import format_datetime
 
 import yfinance as yf
 import pandas as pd
+import requests
+import re
+import json
 
 # Configuration
 FEED_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.atom"
@@ -47,6 +50,7 @@ EMIT_FALLBACK = os.environ.get('EMIT_FALLBACK', '1').lower() in ('1', 'true', 'y
 
 def fetch_ocgn_data():
     try:
+        overnight_price, overnight_time, overnight_src = fetch_ocgn_overnight_price(SYMBOL)
         t = yf.Ticker(SYMBOL)
         # Prefer get_info() because it includes `marketState` and extended-hours quote fields.
         try:
@@ -54,6 +58,12 @@ def fetch_ocgn_data():
         except Exception:
             info = t.info if hasattr(t, 'info') else {}
         hist = t.history(period="2d", interval="1m", prepost=True)
+        # Inject overnight price if found
+        if overnight_price is not None:
+            info["overnightMarketPrice"] = overnight_price
+            info["overnightMarketTime"] = overnight_time
+            info["marketState"] = "OVERNIGHT"
+            info["_overnightSource"] = overnight_src
         return info, hist
     except Exception as e:
         print(f"Error fetching data: {e}")
@@ -147,6 +157,39 @@ def price_series_from_hist(hist_df: pd.DataFrame) -> pd.Series:
         return df[numeric_cols[0]]
 
     return pd.Series(dtype=float)
+
+
+def fetch_ocgn_overnight_price(symbol="OCGN"):
+    """Try to get overnight price using yfinance fast_info, else fallback to Yahoo HTML/JSON parse."""
+    try:
+        import yfinance as yf
+        t = yf.Ticker(symbol)
+        # Try new fast_info property (if available)
+        overnight_price = getattr(getattr(t, "fast_info", None), "overnight_price", None)
+        overnight_time = getattr(getattr(t, "fast_info", None), "overnight_time", None)
+        if overnight_price is not None:
+            return float(overnight_price), overnight_time, "fast_info.overnight_price"
+    except Exception:
+        pass
+    # Fallback: parse Yahoo HTML/JSON
+    try:
+        url = f"https://finance.yahoo.com/quote/{symbol}"
+        headers = {"User-Agent": "Mozilla/5.0"}
+        resp = requests.get(url, headers=headers, timeout=10)
+        m = re.search(r'<script type="application/json" data-sveltekit-fetched[^>]*>(.*?)</script>', resp.text, re.DOTALL)
+        if m:
+            data = json.loads(m.group(1))
+            body = data.get("body")
+            if body:
+                q = json.loads(body)
+                result = q.get("quoteResponse", {}).get("result", [{}])[0]
+                price = result.get("overnightMarketPrice", {}).get("raw")
+                ts = result.get("overnightMarketTime", {}).get("raw")
+                if price is not None:
+                    return float(price), ts, "html.overnightMarketPrice"
+    except Exception:
+        pass
+    return None, None, None
 
 
 def generate_atom_and_rss(info, hist):
@@ -325,7 +368,6 @@ def generate_atom_and_rss(info, hist):
         if previous_close is not None:
             content_html += f"<p><strong>Previous Close:</strong> ${previous_close:.2f}</p>\n"
         content_html += f"<p><strong>Timestamp (BRT):</strong> {ts.strftime('%Y-%m-%d %H:%M %Z')}</p>\n"
-        # ...existing code...
         content_html += "</div>"
         content.text = content_html
 
