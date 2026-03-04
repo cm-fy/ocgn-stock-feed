@@ -1,1 +1,1 @@
-yfinance>=0.2.38
+yfinance @ git+https://github.com/ranaroussi/yfinance.git
