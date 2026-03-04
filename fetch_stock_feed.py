@@ -70,7 +70,14 @@ def pick_quote_price_and_time(info: dict):
 
     market_state = info.get('marketState')
     candidates = []
-    if market_state == 'PRE':
+    if market_state == 'OVERNIGHT':
+        candidates.extend([
+            ('overnightMarketPrice', 'overnightMarketTime'),
+            ('postMarketPrice', 'postMarketTime'),
+            ('regularMarketPrice', 'regularMarketTime'),
+            ('preMarketPrice', 'preMarketTime'),
+        ])
+    elif market_state == 'PRE':
         candidates.extend([
             ('preMarketPrice', 'preMarketTime'),
             ('regularMarketPrice', 'regularMarketTime'),
@@ -318,6 +325,7 @@ def generate_atom_and_rss(info, hist):
         if previous_close is not None:
             content_html += f"<p><strong>Previous Close:</strong> ${previous_close:.2f}</p>\n"
         content_html += f"<p><strong>Timestamp (BRT):</strong> {ts.strftime('%Y-%m-%d %H:%M %Z')}</p>\n"
+        # ...existing code...
         content_html += "</div>"
         content.text = content_html
 
