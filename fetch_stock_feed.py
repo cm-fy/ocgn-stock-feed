@@ -379,11 +379,17 @@ def generate_atom_and_rss(info, hist):
 
     # If the candle history is stale (common in extended hours), supplement with
     # the quote snapshot so the feed reflects the latest available Yahoo quote.
+    # Keep track of the quote timestamp and the source for annotation later.
     quote_price, quote_ts_utc, quote_src = pick_quote_price_and_time(info)
+    quote_dt_brt = None
+    quote_bucket = None
+    overnight_marker = info.get("_overnightSource")
     if quote_price is not None and quote_ts_utc is not None:
         try:
             quote_dt_brt = dt.datetime.fromtimestamp(quote_ts_utc, tz=UTC).astimezone(BRT)
             if quote_dt_brt >= full_index[0]:
+                # compute the 5‑minute bucket where this quote will land
+                quote_bucket = floor_to_5min(quote_dt_brt)
                 quote_point = pd.Series([quote_price], index=pd.DatetimeIndex([quote_dt_brt]))
                 price_series = pd.concat([price_series, quote_point]).sort_index()
                 price_series = price_series[~price_series.index.duplicated(keep='last')]
@@ -489,10 +495,15 @@ def generate_atom_and_rss(info, hist):
 
     # Build Atom entries and RSS items from emitted list (newest-first in feed)
     for ts, price in reversed(emitted):
+        # flag the title if this timestamp corresponds to an overnight quote
+        title_tag = ""
+        if overnight_marker and quote_bucket is not None and ts == quote_bucket:
+            # indicate overnight source in subject
+            title_tag = f" (overnight via {overnight_marker})"
         # --- Atom entry (unchanged) ---
         entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
         title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
-        price_text = f"{SYMBOL}: ${price:.2f}"
+        price_text = f"{SYMBOL}: ${price:.2f}{title_tag}"
         title_entry.text = price_text
         link = ET.SubElement(entry, ET.QName(ATOM_NS, 'link'))
         link.set('href', f"https://finance.yahoo.com/quote/{SYMBOL}")
@@ -547,7 +558,10 @@ def generate_atom_and_rss(info, hist):
 
         # Add published time to title for clarity
         published_str = ts.strftime('%H:%M %Z')
+        # attach the same overnight indicator as above, if applicable
         rss_title = f"{SYMBOL}: ${price:.2f}{diff_str} [{published_str}]"
+        if title_tag:
+            rss_title += title_tag
 
         # Add published time to description as well
         rss_desc = content_html + f"<br/><small>Published: {published_str}</small>"
