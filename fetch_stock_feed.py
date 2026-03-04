@@ -18,6 +18,7 @@ import pandas as pd
 import requests
 import re
 import json
+import time
 
 # Configuration
 FEED_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.atom"
@@ -64,6 +65,17 @@ def fetch_ocgn_data():
             info["overnightMarketTime"] = overnight_time
             info["marketState"] = "OVERNIGHT"
             info["_overnightSource"] = overnight_src
+        elif overnight_src == "html_tooltip_na":
+            info["overnightMarketPrice"] = "n/a"
+            info["overnightMarketTime"] = None
+            info["marketState"] = "OVERNIGHT"
+            info["_overnightSource"] = overnight_src
+        else:
+            # If no overnight price found, set to "n/a" as per user indication
+            info["overnightMarketPrice"] = "n/a"
+            info["overnightMarketTime"] = None
+            info["marketState"] = "OVERNIGHT"
+            info["_overnightSource"] = "user_indicated_na"
         return info, hist
     except Exception as e:
         print(f"Error fetching data: {e}")
@@ -160,18 +172,31 @@ def price_series_from_hist(hist_df: pd.DataFrame) -> pd.Series:
 
 
 def fetch_ocgn_overnight_price(symbol="OCGN"):
-    """Try to get overnight price using yfinance fast_info, else fallback to Yahoo HTML/JSON parse."""
+    """Try to get overnight price from Yahoo HTML displayed value, else fallback to JSON/yfinance."""
+    # Try to parse the displayed overnight price from HTML using the specific data-testid
     try:
-        import yfinance as yf
-        t = yf.Ticker(symbol)
-        # Try new fast_info property (if available)
-        overnight_price = getattr(getattr(t, "fast_info", None), "overnight_price", None)
-        overnight_time = getattr(getattr(t, "fast_info", None), "overnight_time", None)
-        if overnight_price is not None:
-            return float(overnight_price), overnight_time, "fast_info.overnight_price"
+        url = f"https://finance.yahoo.com/quote/{symbol}"
+        headers = {"User-Agent": "Mozilla/5.0"}
+        resp = requests.get(url, headers=headers, timeout=10)
+        # Check for the specific overnight price span
+        overnight_match = re.search(r'data-testid="qsp-overnight-price">([0-9]+\.[0-9]{4})</span>', resp.text)
+        if overnight_match:
+            price = float(overnight_match.group(1))
+            ts = int(time.time())
+            return price, ts, "html_qsp_overnight_price"
+        # Check for displayed overnight price in HTML after the close percentage (fallback)
+        overnight_html_match = re.search(r'\(-4\.12%\).*?([0-9]+\.[0-9]{2})', resp.text)
+        if overnight_html_match:
+            price = float(overnight_html_match.group(1))
+            ts = int(time.time())
+            return price, ts, "html_overnight_after_close"
+        # Check if the tooltip value is "n/a"
+        tooltip_match = re.search(r'<td class="hu-tooltip-value">(.*?)</td>', resp.text)
+        if tooltip_match and tooltip_match.group(1).strip() == "n/a":
+            return None, None, "html_tooltip_na"
     except Exception:
         pass
-    # Fallback: parse Yahoo HTML/JSON
+    # Fallback: parse Yahoo JSON scripts
     try:
         url = f"https://finance.yahoo.com/quote/{symbol}"
         headers = {"User-Agent": "Mozilla/5.0"}
@@ -220,6 +245,17 @@ def fetch_ocgn_overnight_price(symbol="OCGN"):
             price = float(price_match.group(1))
             return price, None, "html_regex"
     except Exception as e:
+        pass
+    # Last: try yfinance fast_info
+    try:
+        import yfinance as yf
+        t = yf.Ticker(symbol)
+        # Try new fast_info property (if available)
+        overnight_price = getattr(getattr(t, "fast_info", None), "overnight_price", None)
+        overnight_time = getattr(getattr(t, "fast_info", None), "overnight_time", None)
+        if overnight_price is not None:
+            return float(overnight_price), overnight_time, "fast_info.overnight_price"
+    except Exception:
         pass
     return None, None, None
 
