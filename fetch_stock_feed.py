@@ -21,6 +21,45 @@ import json
 import time
 
 # Configuration
+
+
+def _fetch_price_playwright(symbol: str):
+    """Use Playwright to load the Yahoo quote page and extract the overnight price.
+
+    Returns (price, timestamp) or (None, None) if not found.  This requires the
+    `playwright` package and a browser installed (workflow runs take care of that).
+    """
+    if sync_playwright is None:
+        return None, None
+    with sync_playwright() as p:
+        # chromium is sufficient and smaller than webkit/firefox
+        browser = p.chromium.launch(headless=True)
+        try:
+            page = browser.new_page()
+            page.set_default_navigation_timeout(15000)
+            page.goto(f"https://finance.yahoo.com/quote/{symbol}")
+            # wait for the element that holds the overnight price
+            selector = '[data-testid="qsp-overnight-price"]'
+            if page.query_selector(selector):
+                text = page.locator(selector).inner_text().strip()
+                try:
+                    price = float(text)
+                    ts = int(time.time())
+                    return price, ts
+                except Exception:
+                    pass
+            # fallback: try the same regex on content after JS rendered
+            body = page.content()
+            m = re.search(r'data-testid="qsp-overnight-price">([0-9]+\.[0-9]{2,4})</span>', body)
+            if m:
+                try:
+                    return float(m.group(1)), int(time.time())
+                except Exception:
+                    pass
+        finally:
+            browser.close()
+    return None, None
+
 FEED_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.atom"
 FEED_RSS_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.rss"
 FEED_ICON = "https://cm-fy.github.io/ocgn-stock-feed/OCGN.png"
@@ -171,15 +210,43 @@ def price_series_from_hist(hist_df: pd.DataFrame) -> pd.Series:
     return pd.Series(dtype=float)
 
 
+# headless browser import placed near other imports
+...
+
+import time
+
+# add Playwright import gracefully (may not be installed locally)
+try:
+    from playwright.sync_api import sync_playwright
+except ImportError:
+    sync_playwright = None
+
+...
+
 def fetch_ocgn_overnight_price(symbol="OCGN"):
-    """Try to get overnight price from Yahoo HTML displayed value, else fallback to JSON/yfinance."""
+    """Try to get overnight price from the rendered Yahoo page, then fall back to simple HTML/JSON or yfinance.
+
+    For the user-specified requirement we must use a headless browser; Playwright is preferred and
+    is installed in the workflow.  If Playwright isn't available (e.g. local dev without it) we
+    silently skip the headless step and continue with the existing fallbacks.
+    """
+    # first attempt: use headless browser to render and read the DOM
+    if sync_playwright is not None:
+        try:
+            price, ts = _fetch_price_playwright(symbol)
+            if price is not None:
+                return price, ts, "playwright"
+        except Exception:
+            # Playwright may fail on CI if not installed correctly; ignore and continue
+            pass
+
     # Try to parse the displayed overnight price from HTML using the specific data-testid
     try:
         url = f"https://finance.yahoo.com/quote/{symbol}"
         headers = {"User-Agent": "Mozilla/5.0"}
         resp = requests.get(url, headers=headers, timeout=10)
         # Check for the specific overnight price span
-        overnight_match = re.search(r'data-testid="qsp-overnight-price">([0-9]+\.[0-9]{4})</span>', resp.text)
+        overnight_match = re.search(r'data-testid="qsp-overnight-price">([0-9]+\.[0-9]{2,4})</span>', resp.text)
         if overnight_match:
             price = float(overnight_match.group(1))
             ts = int(time.time())

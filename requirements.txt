@@ -1,1 +1,5 @@
 yfinance @ git+https://github.com/ranaroussi/yfinance.git
+pandas
+requests
+playwright
+
