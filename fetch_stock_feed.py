@@ -32,32 +32,35 @@ def _fetch_price_playwright(symbol: str):
     if sync_playwright is None:
         return None, None
     with sync_playwright() as p:
-        # chromium is sufficient and smaller than webkit/firefox
+        print("playwright: launching browser")
         browser = p.chromium.launch(headless=True)
         try:
             page = browser.new_page()
-            page.set_default_navigation_timeout(15000)
+            page.set_default_navigation_timeout(30000)
             page.goto(f"https://finance.yahoo.com/quote/{symbol}")
-            # wait for the element that holds the overnight price
             selector = '[data-testid="qsp-overnight-price"]'
-            if page.query_selector(selector):
+            try:
+                page.wait_for_selector(selector, timeout=20000)
                 text = page.locator(selector).inner_text().strip()
-                try:
-                    price = float(text)
-                    ts = int(time.time())
-                    return price, ts
-                except Exception:
-                    pass
-            # fallback: try the same regex on content after JS rendered
+                print(f"playwright: found selector text='{text}'")
+                price = float(text)
+                ts = int(time.time())
+                return price, ts
+            except Exception as err:
+                print(f"playwright: selector not found or parse failed: {err}")
+            # fallback: regex on rendered content
             body = page.content()
             m = re.search(r'data-testid="qsp-overnight-price">([0-9]+\.[0-9]{2,4})</span>', body)
             if m:
                 try:
-                    return float(m.group(1)), int(time.time())
-                except Exception:
-                    pass
+                    pval = float(m.group(1))
+                    print(f"playwright: regex fallback price={pval}")
+                    return pval, int(time.time())
+                except Exception as err:
+                    print(f"playwright: regex parse failed: {err}")
         finally:
             browser.close()
+    return None, None
     return None, None
 
 FEED_URL = "https://cm-fy.github.io/ocgn-stock-feed/feed.atom"
