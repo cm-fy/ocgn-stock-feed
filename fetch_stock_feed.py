@@ -405,8 +405,22 @@ def generate_atom_and_rss(info, hist):
     # Reindex price_5m to the full window (index in BRT)
     if not price_5m.empty:
         price_5m = price_5m.reindex(full_index, method='ffill')
+        # if we only have a single quote point and no historical data, fill
+        # earlier slots with the previous close (if available) so the feed
+        # isn't empty before the quote.  This also ensures fallback logic
+        # later has more than one nonempty value to chew on.
+        if previous_close is not None:
+            # locate the first non-null index
+            first_valid = price_5m.first_valid_index()
+            if first_valid is not None and first_valid > full_index[0]:
+                price_5m.loc[:first_valid] = price_5m.loc[:first_valid].fillna(previous_close)
     else:
-        price_5m = pd.Series([None] * len(full_index), index=full_index)
+        # no price points at all; if we know the previous close, populate the
+        # entire window with it so readers see something sensible
+        if previous_close is not None:
+            price_5m = pd.Series([previous_close] * len(full_index), index=full_index)
+        else:
+            price_5m = pd.Series([None] * len(full_index), index=full_index)
 
     # Precompute a mapping from timestamp to price for quick lookup
     price_lookup = {ts: price_5m.get(ts, None) for ts in full_index}
@@ -462,10 +476,13 @@ def generate_atom_and_rss(info, hist):
 
     # Fallback: if only one or zero emitted items but the full window contains
     # multiple non-NaN slots (flat market / holiday / pre-market), emit the
-    # last MAX_RSS_ITEMS slots so readers still get a sensible feed.
+    # last MAX_RSS_ITEMS slots so readers still get a sensible feed.  We also
+    # trigger when the window has exactly one nonempty slot but the window
+    # length exceeds one, allowing previous-close-backed series to be
+    # expanded instead of producing a lone item.
     if EMIT_FALLBACK and len(emitted) <= 1:
         nonempty = [(ts, price_lookup.get(ts)) for ts in full_index if price_lookup.get(ts) is not None and not pd.isna(price_lookup.get(ts))]
-        if len(nonempty) > 1:
+        if len(nonempty) > 1 or (len(nonempty) == 1 and len(full_index) > 1):
             emitted = nonempty[-MAX_RSS_ITEMS:]
 
     # price_lookup already computed above
