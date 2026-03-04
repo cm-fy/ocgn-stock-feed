@@ -176,18 +176,50 @@ def fetch_ocgn_overnight_price(symbol="OCGN"):
         url = f"https://finance.yahoo.com/quote/{symbol}"
         headers = {"User-Agent": "Mozilla/5.0"}
         resp = requests.get(url, headers=headers, timeout=10)
-        m = re.search(r'<script type="application/json" data-sveltekit-fetched[^>]*>(.*?)</script>', resp.text, re.DOTALL)
-        if m:
-            data = json.loads(m.group(1))
-            body = data.get("body")
-            if body:
-                q = json.loads(body)
-                result = q.get("quoteResponse", {}).get("result", [{}])[0]
-                price = result.get("overnightMarketPrice", {}).get("raw")
-                ts = result.get("overnightMarketTime", {}).get("raw")
-                if price is not None:
-                    return float(price), ts, "html.overnightMarketPrice"
-    except Exception:
+        matches = re.findall(r'<script type="application/json" data-sveltekit-fetched[^>]*>(.*?)</script>', resp.text, re.DOTALL)
+        for match in matches:
+            try:
+                data = json.loads(match)
+                body = data.get("body")
+                if body and isinstance(body, str):
+                    q = json.loads(body)
+                    if "quoteResponse" in q:
+                        result = q.get("quoteResponse", {}).get("result", [{}])[0]
+                        # Try multiple price keys since Yahoo structure may vary
+                        price_keys_to_try = [
+                            ("overnightMarketPrice", "overnightMarketTime"),
+                            ("preMarketPrice", "preMarketTime"),
+                            ("postMarketPrice", "postMarketTime"),
+                            ("regularMarketPrice", "regularMarketTime"),
+                            ("currentPrice", None),
+                        ]
+                        for price_key, time_key in price_keys_to_try:
+                            if price_key in result:
+                                if isinstance(result[price_key], dict):
+                                    price = result[price_key].get("raw")
+                                else:
+                                    price = result[price_key]
+                                if price is not None:
+                                    ts = None
+                                    if time_key and time_key in result:
+                                        if isinstance(result[time_key], dict):
+                                            ts = result[time_key].get("raw")
+                                        else:
+                                            ts = result[time_key]
+                                    return float(price), ts, f"html.{price_key}"
+            except Exception:
+                continue
+        # If no script had quoteResponse, fallback to HTML parsing
+        fin_match = re.search(r'<fin-streamer[^>]*data-field="(regularMarketPrice|postMarketPrice|preMarketPrice|overnightMarketPrice)"[^>]*>([0-9]+\.[0-9]{2})</fin-streamer>', resp.text)
+        if fin_match:
+            price = float(fin_match.group(2))
+            return price, None, f"html_fin.{fin_match.group(1)}"
+        # Last fallback: search for any price in HTML
+        price_match = re.search(r'([0-9]+\.[0-9]{2})', resp.text)
+        if price_match:
+            price = float(price_match.group(1))
+            return price, None, "html_regex"
+    except Exception as e:
         pass
     return None, None, None
 
