@@ -409,15 +409,21 @@ def generate_atom_and_rss(info, hist):
     # Determine today's window and restrict to <= now (avoid generating future timestamps)
     now_brt = dt.datetime.now(BRT)
     target_date = now_brt.date()
-    window_start = dt.datetime.combine(target_date, dt.time(START_HOUR, 0), tzinfo=BRT)
-    window_end = dt.datetime.combine(target_date, dt.time(END_HOUR, 0), tzinfo=BRT)
-    effective_end = min(window_end, floor_to_5min(now_brt))
-    if effective_end < window_start:
-        # Restore original behavior: build the full trading window so pre-market
-        # runs produce the full pre-market series (previous-close fallback fills it).
-        full_index = pd.date_range(start=window_start, end=window_end, freq=RESAMPLE_FREQ)
-    else:
+    if info.get('marketState') == 'OVERNIGHT':
+        window_start = dt.datetime.combine(target_date, dt.time(21, 0), tzinfo=BRT) - pd.Timedelta(days=1)
+        window_end = dt.datetime.combine(target_date, dt.time(4, 0), tzinfo=BRT)
+        effective_end = min(window_end, floor_to_5min(now_brt))
         full_index = pd.date_range(start=window_start, end=effective_end, freq=RESAMPLE_FREQ)
+    else:
+        window_start = dt.datetime.combine(target_date, dt.time(START_HOUR, 0), tzinfo=BRT)
+        window_end = dt.datetime.combine(target_date, dt.time(END_HOUR, 0), tzinfo=BRT)
+        effective_end = min(window_end, floor_to_5min(now_brt))
+        if effective_end < window_start:
+            # Restore original behavior: build the full trading window so pre-market
+            # runs produce the full pre-market series (previous-close fallback fills it).
+            full_index = pd.date_range(start=window_start, end=window_end, freq=RESAMPLE_FREQ)
+        else:
+            full_index = pd.date_range(start=window_start, end=effective_end, freq=RESAMPLE_FREQ)
 
     # Discard historic data from previous days so we don't accidentally carry
     # yesterday's after-hours price into today's pre-market window.
@@ -563,6 +569,13 @@ def generate_atom_and_rss(info, hist):
         if len(nonempty) > 1 or (len(nonempty) == 1 and len(full_index) > 1):
             emitted = nonempty[-MAX_RSS_ITEMS:]
 
+    # Ensure the latest quote is included if it's not already
+    if quote_bucket is not None and quote_price is not None:
+        if not any(t == quote_bucket for t, p in emitted):
+            emitted.append((quote_bucket, quote_price))
+            emitted.sort(key=lambda x: x[0])
+            emitted = emitted[-MAX_RSS_ITEMS:]
+
     # price_lookup already computed above
 
     # Build Atom entries and RSS items from emitted list (newest-first in feed)
@@ -576,9 +589,6 @@ def generate_atom_and_rss(info, hist):
         entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
         title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
         price_text = f"{SYMBOL}: ${price:.2f}{title_tag}"
-        # Add (overnight) if market state is overnight
-        if info.get('marketState') == 'OVERNIGHT':
-            price_text += " (overnight)"
         title_entry.text = price_text
         link = ET.SubElement(entry, ET.QName(ATOM_NS, 'link'))
         link.set('href', f"https://finance.yahoo.com/quote/{SYMBOL}")
@@ -637,9 +647,6 @@ def generate_atom_and_rss(info, hist):
         rss_title = f"{SYMBOL}: ${price:.2f}{diff_str} [{published_str}]"
         if title_tag:
             rss_title += title_tag
-        # Add (overnight) if market state is overnight
-        if info.get('marketState') == 'OVERNIGHT':
-            rss_title += " (overnight)"
 
         # Add published time to description as well
         rss_desc = content_html + f"<br/><small>Published: {published_str}</small>"
