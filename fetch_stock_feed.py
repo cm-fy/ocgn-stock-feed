@@ -160,7 +160,7 @@ def fetch_ocgn_data():
             info = t.info if hasattr(t, 'info') else {}
         hist = t.history(period="2d", interval="1m", prepost=True)
         # Inject overnight price if found
-        if overnight_price is not None:
+        if overnight_price is not None and overnight_time is not None and time.time() - overnight_time < 3600 * 12:  # within 12 hours
             info["overnightMarketPrice"] = overnight_price
             info["overnightMarketTime"] = overnight_time
             info["marketState"] = "OVERNIGHT"
@@ -168,14 +168,14 @@ def fetch_ocgn_data():
         elif overnight_src == "html_tooltip_na":
             info["overnightMarketPrice"] = "n/a"
             info["overnightMarketTime"] = None
-            info["marketState"] = "OVERNIGHT"
-            info["_overnightSource"] = overnight_src
+            # Do not override marketState
+            # info["_overnightSource"] = overnight_src  # remove
         else:
             # If no overnight price found, set to "n/a" as per user indication
             info["overnightMarketPrice"] = "n/a"
             info["overnightMarketTime"] = None
-            info["marketState"] = "OVERNIGHT"
-            info["_overnightSource"] = "user_indicated_na"
+            # Do not override marketState
+            # info["_overnightSource"] = "user_indicated_na"  # remove
         return info, hist
     except Exception as e:
         print(f"Error fetching data: {e}")
@@ -395,7 +395,7 @@ def fetch_ocgn_overnight_price(symbol="OCGN"):
         # Try new fast_info property (if available)
         overnight_price = getattr(getattr(t, "fast_info", None), "overnight_price", None)
         overnight_time = getattr(getattr(t, "fast_info", None), "overnight_time", None)
-        if overnight_price is not None:
+        if overnight_price is not None and overnight_time is not None and time.time() - overnight_time < 3600 * 12:
             return float(overnight_price), overnight_time, "fast_info.overnight_price"
     except Exception:
         pass
