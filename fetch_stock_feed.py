@@ -576,6 +576,9 @@ def generate_atom_and_rss(info, hist):
         entry = ET.SubElement(feed, ET.QName(ATOM_NS, 'entry'))
         title_entry = ET.SubElement(entry, ET.QName(ATOM_NS, 'title'))
         price_text = f"{SYMBOL}: ${price:.2f}{title_tag}"
+        # Add (overnight) if market state is overnight
+        if info.get('marketState') == 'OVERNIGHT':
+            price_text += " (overnight)"
         title_entry.text = price_text
         link = ET.SubElement(entry, ET.QName(ATOM_NS, 'link'))
         link.set('href', f"https://finance.yahoo.com/quote/{SYMBOL}")
@@ -634,6 +637,9 @@ def generate_atom_and_rss(info, hist):
         rss_title = f"{SYMBOL}: ${price:.2f}{diff_str} [{published_str}]"
         if title_tag:
             rss_title += title_tag
+        # Add (overnight) if market state is overnight
+        if info.get('marketState') == 'OVERNIGHT':
+            rss_title += " (overnight)"
 
         # Add published time to description as well
         rss_desc = content_html + f"<br/><small>Published: {published_str}</small>"

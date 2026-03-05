@@ -4,11 +4,11 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Thu, 05 Mar 2026 02:36:11 -0300</lastBuildDate>
+<lastBuildDate>Thu, 05 Mar 2026 02:54:40 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [21:00 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [21:00 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2100-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 19:00:00 -0500</pubDate>
@@ -20,7 +20,7 @@
 </div><br/><small>Published: 21:00 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:55 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:55 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2055-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:55:00 -0500</pubDate>
@@ -32,7 +32,7 @@
 </div><br/><small>Published: 20:55 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:50 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:50 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2050-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:50:00 -0500</pubDate>
@@ -44,7 +44,7 @@
 </div><br/><small>Published: 20:50 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:45 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:45 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2045-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:45:00 -0500</pubDate>
@@ -56,7 +56,7 @@
 </div><br/><small>Published: 20:45 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:40 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:40 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2040-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:40:00 -0500</pubDate>
@@ -68,7 +68,7 @@
 </div><br/><small>Published: 20:40 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:35 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:35 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2035-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:35:00 -0500</pubDate>
@@ -80,7 +80,7 @@
 </div><br/><small>Published: 20:35 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:30 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:30 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2030-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:30:00 -0500</pubDate>
@@ -92,7 +92,7 @@
 </div><br/><small>Published: 20:30 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:25 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:25 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2025-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:25:00 -0500</pubDate>
@@ -104,7 +104,7 @@
 </div><br/><small>Published: 20:25 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:20 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:20 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2020-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:20:00 -0500</pubDate>
@@ -116,7 +116,7 @@
 </div><br/><small>Published: 20:20 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:15 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:15 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2015-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:15:00 -0500</pubDate>
@@ -128,7 +128,7 @@
 </div><br/><small>Published: 20:15 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:10 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:10 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2010-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:10:00 -0500</pubDate>
@@ -140,7 +140,7 @@
 </div><br/><small>Published: 20:10 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:05 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:05 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2005-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:05:00 -0500</pubDate>
@@ -152,7 +152,7 @@
 </div><br/><small>Published: 20:05 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:00 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [20:00 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-2000-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 18:00:00 -0500</pubDate>
@@ -164,7 +164,7 @@
 </div><br/><small>Published: 20:00 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:55 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:55 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1955-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:55:00 -0500</pubDate>
@@ -176,7 +176,7 @@
 </div><br/><small>Published: 19:55 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:50 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:50 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1950-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:50:00 -0500</pubDate>
@@ -188,7 +188,7 @@
 </div><br/><small>Published: 19:50 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:45 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:45 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1945-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:45:00 -0500</pubDate>
@@ -200,7 +200,7 @@
 </div><br/><small>Published: 19:45 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:40 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:40 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1940-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:40:00 -0500</pubDate>
@@ -212,7 +212,7 @@
 </div><br/><small>Published: 19:40 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:35 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:35 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1935-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:35:00 -0500</pubDate>
@@ -224,7 +224,7 @@
 </div><br/><small>Published: 19:35 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:30 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:30 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1930-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:30:00 -0500</pubDate>
@@ -236,7 +236,7 @@
 </div><br/><small>Published: 19:30 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:25 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:25 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1925-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:25:00 -0500</pubDate>
@@ -248,7 +248,7 @@
 </div><br/><small>Published: 19:25 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:20 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:20 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1920-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:20:00 -0500</pubDate>
@@ -260,7 +260,7 @@
 </div><br/><small>Published: 19:20 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:15 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:15 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1915-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:15:00 -0500</pubDate>
@@ -272,7 +272,7 @@
 </div><br/><small>Published: 19:15 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:10 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:10 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1910-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:10:00 -0500</pubDate>
@@ -284,7 +284,7 @@
 </div><br/><small>Published: 19:10 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:05 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:05 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1905-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:05:00 -0500</pubDate>
@@ -296,7 +296,7 @@
 </div><br/><small>Published: 19:05 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:00 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [19:00 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1900-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 17:00:00 -0500</pubDate>
@@ -308,7 +308,7 @@
 </div><br/><small>Published: 19:00 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:55 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:55 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1855-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:55:00 -0500</pubDate>
@@ -320,7 +320,7 @@
 </div><br/><small>Published: 18:55 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:50 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:50 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1850-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:50:00 -0500</pubDate>
@@ -332,7 +332,7 @@
 </div><br/><small>Published: 18:50 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:45 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:45 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1845-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:45:00 -0500</pubDate>
@@ -344,7 +344,7 @@
 </div><br/><small>Published: 18:45 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:40 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:40 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1840-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:40:00 -0500</pubDate>
@@ -356,7 +356,7 @@
 </div><br/><small>Published: 18:40 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:35 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:35 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1835-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:35:00 -0500</pubDate>
@@ -368,7 +368,7 @@
 </div><br/><small>Published: 18:35 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:30 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:30 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1830-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:30:00 -0500</pubDate>
@@ -380,7 +380,7 @@
 </div><br/><small>Published: 18:30 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:25 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:25 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1825-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:25:00 -0500</pubDate>
@@ -392,7 +392,7 @@
 </div><br/><small>Published: 18:25 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:20 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:20 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1820-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:20:00 -0500</pubDate>
@@ -404,7 +404,7 @@
 </div><br/><small>Published: 18:20 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:15 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:15 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1815-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:15:00 -0500</pubDate>
@@ -416,7 +416,7 @@
 </div><br/><small>Published: 18:15 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:10 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:10 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1810-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:10:00 -0500</pubDate>
@@ -428,7 +428,7 @@
 </div><br/><small>Published: 18:10 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:05 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:05 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1805-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:05:00 -0500</pubDate>
@@ -440,7 +440,7 @@
 </div><br/><small>Published: 18:05 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:00 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [18:00 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1800-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 16:00:00 -0500</pubDate>
@@ -452,7 +452,7 @@
 </div><br/><small>Published: 18:00 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:55 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:55 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1755-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:55:00 -0500</pubDate>
@@ -464,7 +464,7 @@
 </div><br/><small>Published: 17:55 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:50 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:50 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1750-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:50:00 -0500</pubDate>
@@ -476,7 +476,7 @@
 </div><br/><small>Published: 17:50 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:45 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:45 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1745-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:45:00 -0500</pubDate>
@@ -488,7 +488,7 @@
 </div><br/><small>Published: 17:45 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:40 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:40 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1740-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:40:00 -0500</pubDate>
@@ -500,7 +500,7 @@
 </div><br/><small>Published: 17:40 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:35 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:35 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1735-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:35:00 -0500</pubDate>
@@ -512,7 +512,7 @@
 </div><br/><small>Published: 17:35 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:30 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:30 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1730-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:30:00 -0500</pubDate>
@@ -524,7 +524,7 @@
 </div><br/><small>Published: 17:30 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:25 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:25 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1725-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:25:00 -0500</pubDate>
@@ -536,7 +536,7 @@
 </div><br/><small>Published: 17:25 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:20 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:20 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1720-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:20:00 -0500</pubDate>
@@ -548,7 +548,7 @@
 </div><br/><small>Published: 17:20 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:15 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:15 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1715-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:15:00 -0500</pubDate>
@@ -560,7 +560,7 @@
 </div><br/><small>Published: 17:15 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:10 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:10 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1710-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:10:00 -0500</pubDate>
@@ -572,7 +572,7 @@
 </div><br/><small>Published: 17:10 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:05 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:05 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1705-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:05:00 -0500</pubDate>
@@ -584,7 +584,7 @@
 </div><br/><small>Published: 17:05 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:00 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [17:00 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1700-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 15:00:00 -0500</pubDate>
@@ -596,7 +596,7 @@
 </div><br/><small>Published: 17:00 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [16:55 -03]]]></title>
+<title><![CDATA[OCGN: $1.95 (+0.00, +0.00% vs 1h ago) [16:55 -03] (overnight)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
 <guid>ocgn-20260305-1655-ocgn</guid>
 <pubDate>Thu, 05 Mar 2026 14:55:00 -0500</pubDate>
