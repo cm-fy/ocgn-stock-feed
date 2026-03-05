@@ -23,6 +23,64 @@ import time
 # Configuration
 
 
+def _fetch_price_stocktwits(symbol: str):
+    """Scrape the StockTwits symbol page for the current quoted price.
+
+    This is a very lightweight fetch that does *not* depend on JavaScript; the
+    HTML delivered by the server includes the price for the requested ticker
+    near the top.  We look for the first dollar amount appearing after the
+    "OCGN" marker, which avoids accidentally picking up prices from the
+    watchlist sidebar.
+
+    Returns (price, timestamp) or (None, None) if parsing fails (including
+    if the request is blocked with 403).
+    """
+    try:
+        url = f"https://stocktwits.com/symbol/{symbol}"
+        headers = {"User-Agent": "Mozilla/5.0"}
+        resp = requests.get(url, headers=headers, timeout=10)
+        if resp.status_code != 200:
+            return None, None
+        body = resp.text
+        idx = body.find(symbol)
+        if idx == -1:
+            idx = 0
+        snippet = body[idx:idx+5000]  # reasonable slice
+        m = re.search(r"\$(\d+\.\d{2})", snippet)
+        if m:
+            price = float(m.group(1))
+            return price, int(time.time())
+    except Exception:
+        pass
+    return None, None
+
+
+def _fetch_price_stocktwits_browser(symbol: str):
+    """Use Playwright to open StockTwits and extract the price.
+
+    Some sites (including StockTwits) block bare requests; using a headless
+    browser bypasses the 403 and executes JS if necessary.  The logic is
+    similar to the simple scrape above.
+    """
+    if sync_playwright is None:
+        return None, None
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            try:
+                page = browser.new_page()
+                page.goto(f"https://stocktwits.com/symbol/{symbol}", timeout=30000)
+                body = page.content()
+                m = re.search(r"\$(\d+\.\d{2})", body)
+                if m:
+                    return float(m.group(1)), int(time.time())
+            finally:
+                browser.close()
+    except Exception:
+        pass
+    return None, None
+
+
 def _fetch_price_playwright(symbol: str):
     """Use Playwright to load the Yahoo quote page and extract the overnight price.
 
@@ -227,13 +285,27 @@ except ImportError:
 ...
 
 def fetch_ocgn_overnight_price(symbol="OCGN"):
-    """Try to get overnight price from the rendered Yahoo page, then fall back to simple HTML/JSON or yfinance.
+    """Try to get overnight price from multiple sources, in priority order.
 
-    For the user-specified requirement we must use a headless browser; Playwright is preferred and
-    is installed in the workflow.  If Playwright isn't available (e.g. local dev without it) we
-    silently skip the headless step and continue with the existing fallbacks.
+    1. StockTwits page – sometimes more up‑to‑date than Yahoo's JSON
+    2. Playwright headless browser rendering of Yahoo quote page
+    3. Static HTML/regex fallbacks against Yahoo
+    4. Yahoo JSON scripts
+    5. yfinance (handled further up as default)
     """
-    # first attempt: use headless browser to render and read the DOM
+    # highest priority: attempt StockTwits HTTP scrape
+    price, ts = _fetch_price_stocktwits(symbol)
+    print(f"stocktwits simple returned {price}")
+    if price is not None:
+        return price, ts, "stocktwits"
+    # if the simple request was blocked or returned nothing, try headless
+    # browser because StockTwits often rejects bare requests with 403.
+    price, ts = _fetch_price_stocktwits_browser(symbol)
+    print(f"stocktwits browser returned {price}")
+    if price is not None:
+        return price, ts, "stocktwits_browser"
+
+    # next, use headless browser on Yahoo as before
     if sync_playwright is not None:
         try:
             price, ts = _fetch_price_playwright(symbol)
