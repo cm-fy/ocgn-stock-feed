@@ -176,6 +176,20 @@ def fetch_ocgn_data():
             info["overnightMarketTime"] = None
             # Do not override marketState
             # info["_overnightSource"] = "user_indicated_na"  # remove
+
+        # Correct marketState based on current ET time if yfinance is stale
+        now_et = dt.datetime.now(ET_ZONE)
+        hour_minute = now_et.hour + now_et.minute / 60.0
+        if 9.5 <= hour_minute <= 16.0:
+            info['marketState'] = 'REGULAR'
+        elif hour_minute < 9.5:
+            if hour_minute >= 4.0:
+                info['marketState'] = 'PRE'
+            else:
+                info['marketState'] = 'POST'
+        else:
+            info['marketState'] = 'POST'
+
         return info, hist
     except Exception as e:
         print(f"Error fetching data: {e}")
