@@ -19,6 +19,7 @@ import requests
 import re
 import json
 import time
+from bs4 import BeautifulSoup
 
 # Configuration
 
@@ -176,6 +177,27 @@ def fetch_ocgn_data():
             info["overnightMarketTime"] = None
             # Do not override marketState
             # info["_overnightSource"] = "user_indicated_na"  # remove
+
+        # Correct marketState based on current ET time if yfinance is stale
+        now_et = dt.datetime.now(ET_ZONE)
+        hour_minute = now_et.hour + now_et.minute / 60.0
+        if 9.5 <= hour_minute <= 16.0:
+            info['marketState'] = 'REGULAR'
+        elif hour_minute < 9.5:
+            if hour_minute >= 4.0:  # pre-market
+                info['marketState'] = 'PRE'
+            else:
+                info['marketState'] = 'POST'  # after-hours or overnight
+        else:
+            info['marketState'] = 'POST'
+
+        # Fetch current price if regular market
+        if info.get('marketState') == 'REGULAR':
+            current_price, current_time = fetch_current_price(SYMBOL)
+            if current_price is not None:
+                info['regularMarketPrice'] = current_price
+                info['regularMarketTime'] = current_time
+
         return info, hist
     except Exception as e:
         print(f"Error fetching data: {e}")
@@ -400,6 +422,22 @@ def fetch_ocgn_overnight_price(symbol="OCGN"):
     except Exception:
         pass
     return None, None, None
+
+
+def fetch_current_price(symbol):
+    """Fetch current regular market price from Yahoo Finance HTML."""
+    try:
+        url = f"https://finance.yahoo.com/quote/{symbol}"
+        headers = {"User-Agent": "Mozilla/5.0"}
+        resp = requests.get(url, headers=headers, timeout=10)
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        price_elem = soup.find('fin-streamer', {'data-field': 'regularMarketPrice'})
+        if price_elem:
+            price = float(price_elem.text.replace(',', ''))
+            return price, int(time.time())
+    except Exception:
+        pass
+    return None, None
 
 
 def generate_atom_and_rss(info, hist):
