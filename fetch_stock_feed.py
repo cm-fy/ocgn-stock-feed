@@ -149,9 +149,36 @@ ET_ZONE = ZoneInfo('America/New_York')
 EMIT_FALLBACK = os.environ.get('EMIT_FALLBACK', '1').lower() in ('1', 'true', 'yes')
 
 
+def get_market_session(now_et: dt.datetime | None = None) -> str:
+    """Return the expected market session in ET.
+
+    We only use scraped overnight prices during the true overnight window.
+    For pre-market, regular, and post-market, yfinance quote fields remain the
+    primary source of truth.
+    """
+    now_et = now_et or dt.datetime.now(ET_ZONE)
+    if now_et.tzinfo is None:
+        now_et = now_et.replace(tzinfo=ET_ZONE)
+    else:
+        now_et = now_et.astimezone(ET_ZONE)
+
+    minute_of_day = now_et.hour * 60 + now_et.minute
+    pre_open = 4 * 60
+    regular_open = 9 * 60 + 30
+    regular_close = 16 * 60
+    post_close = 20 * 60
+
+    if regular_open <= minute_of_day < regular_close:
+        return 'REGULAR'
+    if pre_open <= minute_of_day < regular_open:
+        return 'PRE'
+    if regular_close <= minute_of_day < post_close:
+        return 'POST'
+    return 'OVERNIGHT'
+
+
 def fetch_ocgn_data():
     try:
-        overnight_price, overnight_time, overnight_src = fetch_ocgn_overnight_price(SYMBOL)
         t = yf.Ticker(SYMBOL)
         # Prefer get_info() because it includes `marketState` and extended-hours quote fields.
         try:
@@ -159,36 +186,29 @@ def fetch_ocgn_data():
         except Exception:
             info = t.info if hasattr(t, 'info') else {}
         hist = t.history(period="2d", interval="1m", prepost=True)
-        # Inject overnight price if found
-        if overnight_price is not None and overnight_time is not None and time.time() - overnight_time < 3600 * 12:  # within 12 hours
-            info["overnightMarketPrice"] = overnight_price
-            info["overnightMarketTime"] = overnight_time
-            info["marketState"] = "OVERNIGHT"
-            info["_overnightSource"] = overnight_src
-        elif overnight_src == "html_tooltip_na":
-            info["overnightMarketPrice"] = "n/a"
-            info["overnightMarketTime"] = None
-            # Do not override marketState
-            # info["_overnightSource"] = overnight_src  # remove
-        else:
-            # If no overnight price found, set to "n/a" as per user indication
-            info["overnightMarketPrice"] = "n/a"
-            info["overnightMarketTime"] = None
-            # Do not override marketState
-            # info["_overnightSource"] = "user_indicated_na"  # remove
+        session = get_market_session()
+        info['_session'] = session
+        info['marketState'] = session
 
-        # Correct marketState based on current ET time if yfinance is stale
-        now_et = dt.datetime.now(ET_ZONE)
-        hour_minute = now_et.hour + now_et.minute / 60.0
-        if 9.5 <= hour_minute <= 16.0:
-            info['marketState'] = 'REGULAR'
-        elif hour_minute < 9.5:
-            if hour_minute >= 4.0:
-                info['marketState'] = 'PRE'
+        # Only scrape during the true overnight window. During PRE/REGULAR/POST,
+        # trust yfinance quote fields directly.
+        info.pop('_overnightSource', None)
+        if session == 'OVERNIGHT':
+            overnight_price, overnight_time, overnight_src = fetch_ocgn_overnight_price(SYMBOL)
+            if overnight_price is not None and overnight_time is not None and time.time() - overnight_time < 3600 * 12:
+                info['overnightMarketPrice'] = overnight_price
+                info['overnightMarketTime'] = overnight_time
+                info['_overnightSource'] = overnight_src
+            elif overnight_src == 'html_tooltip_na':
+                info['overnightMarketPrice'] = 'n/a'
+                info['overnightMarketTime'] = None
             else:
-                info['marketState'] = 'POST'
+                info['overnightMarketPrice'] = 'n/a'
+                info['overnightMarketTime'] = None
         else:
-            info['marketState'] = 'POST'
+            # Avoid stale overnight fields contaminating daytime selection.
+            info['overnightMarketPrice'] = info.get('overnightMarketPrice', 'n/a')
+            info['overnightMarketTime'] = info.get('overnightMarketTime')
 
         return info, hist
     except Exception as e:
@@ -204,7 +224,7 @@ def pick_quote_price_and_time(info: dict):
     if not isinstance(info, dict) or not info:
         return None, None, None
 
-    market_state = info.get('marketState')
+    market_state = info.get('_session') or info.get('marketState')
     candidates = []
     if market_state == 'OVERNIGHT':
         candidates.extend([
@@ -423,7 +443,7 @@ def generate_atom_and_rss(info, hist):
     # Determine today's window and restrict to <= now (avoid generating future timestamps)
     now_brt = dt.datetime.now(BRT)
     target_date = now_brt.date()
-    if info.get('marketState') == 'OVERNIGHT':
+    if (info.get('_session') or info.get('marketState')) == 'OVERNIGHT':
         window_start = dt.datetime.combine(target_date, dt.time(21, 0), tzinfo=BRT) - pd.Timedelta(days=1)
         window_end = dt.datetime.combine(target_date, dt.time(4, 0), tzinfo=BRT)
         effective_end = min(window_end, floor_to_5min(now_brt))

@@ -5,7 +5,7 @@
   <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self"/>
   <link href="https://cm-fy.github.io/ocgn-stock-feed/" rel="alternate" type="text/html"/>
   <id>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</id>
-  <updated>2026-03-06T17:16:21.987033-03:00</updated>
+  <updated>2026-03-06T17:19:27.245811-03:00</updated>
   <author>
     <name>OCGN Stock Feed Bot</name>
   </author>
@@ -13,7 +13,7 @@
   <icon>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</icon>
   <logo>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</logo>
   <entry>
-    <title>OCGN: $1.64 (overnight via html.preMarketPrice)</title>
+    <title>OCGN: $1.64</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
     <id>ocgn-20260306-1715-ocgn</id>
     <published>2026-03-06T17:15:00-03:00</published>
