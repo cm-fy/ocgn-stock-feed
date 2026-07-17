@@ -4,20 +4,68 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Fri, 17 Jul 2026 16:47:56 -0300</lastBuildDate>
+<lastBuildDate>Fri, 17 Jul 2026 17:37:18 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
 <item>
-<title><![CDATA[OCGN: $1.37 (+0.02, +1.44% vs 1h ago) [16:45 -03]]]></title>
+<title><![CDATA[OCGN: $1.37 (+0.00, +0.34% vs 1h ago) [17:30 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260717-1645-ocgn</guid>
-<pubDate>Fri, 17 Jul 2026 15:45:00 -0400</pubDate>
+<guid>ocgn-20260717-1730-ocgn</guid>
+<pubDate>Fri, 17 Jul 2026 16:30:00 -0400</pubDate>
 <description><![CDATA[<div>
 <h2>OCGN Stock Price Update</h2>
 <p><strong>Price:</strong> $1.37</p>
 <p><strong>Previous Close:</strong> $1.39</p>
-<p><strong>Timestamp (BRT):</strong> 2026-07-17 16:45 -03</p>
-</div><br/><small>Published: 16:45 -03</small>]]></description>
+<p><strong>Timestamp (BRT):</strong> 2026-07-17 17:30 -03</p>
+</div><br/><small>Published: 17:30 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.37 (+0.00, +0.35% vs 1h ago) [17:25 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260717-1725-ocgn</guid>
+<pubDate>Fri, 17 Jul 2026 16:25:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.37</p>
+<p><strong>Previous Close:</strong> $1.39</p>
+<p><strong>Timestamp (BRT):</strong> 2026-07-17 17:25 -03</p>
+</div><br/><small>Published: 17:25 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.36 (-0.01, -1.09% vs 1h ago) [17:15 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260717-1715-ocgn</guid>
+<pubDate>Fri, 17 Jul 2026 16:15:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.36</p>
+<p><strong>Previous Close:</strong> $1.39</p>
+<p><strong>Timestamp (BRT):</strong> 2026-07-17 17:15 -03</p>
+</div><br/><small>Published: 17:15 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.37 (+0.01, +0.73% vs 1h ago) [17:05 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260717-1705-ocgn</guid>
+<pubDate>Fri, 17 Jul 2026 16:05:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.37</p>
+<p><strong>Previous Close:</strong> $1.39</p>
+<p><strong>Timestamp (BRT):</strong> 2026-07-17 17:05 -03</p>
+</div><br/><small>Published: 17:05 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.36 (-0.01, -0.37% vs 1h ago) [17:00 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260717-1700-ocgn</guid>
+<pubDate>Fri, 17 Jul 2026 16:00:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.36</p>
+<p><strong>Previous Close:</strong> $1.39</p>
+<p><strong>Timestamp (BRT):</strong> 2026-07-17 17:00 -03</p>
+</div><br/><small>Published: 17:00 -03</small>]]></description>
 </item>
 <item>
 <title><![CDATA[OCGN: $1.37 (+0.01, +0.74% vs 1h ago) [16:40 -03]]]></title>
@@ -558,18 +606,6 @@
 <p><strong>Previous Close:</strong> $1.39</p>
 <p><strong>Timestamp (BRT):</strong> 2026-07-17 06:55 -03</p>
 </div><br/><small>Published: 06:55 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.39 [04:00 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260717-0400-ocgn</guid>
-<pubDate>Fri, 17 Jul 2026 03:00:00 -0400</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.39</p>
-<p><strong>Previous Close:</strong> $1.39</p>
-<p><strong>Timestamp (BRT):</strong> 2026-07-17 04:00 -03</p>
-</div><br/><small>Published: 04:00 -03</small>]]></description>
 </item>
 </channel>
 </rss>
