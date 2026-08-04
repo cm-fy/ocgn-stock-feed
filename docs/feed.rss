@@ -4,32 +4,32 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Tue, 04 Aug 2026 03:46:20 -0300</lastBuildDate>
+<lastBuildDate>Tue, 04 Aug 2026 06:30:16 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
 <item>
-<title><![CDATA[OCGN: $303.91 (+302.66, +24212.80% vs 1h ago) [03:45 -03] (overnight via stocktwits_browser)]]></title>
+<title><![CDATA[OCGN: $1.27 (+0.02, +1.60% vs 1h ago) [05:00 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260804-0345-ocgn</guid>
-<pubDate>Tue, 04 Aug 2026 02:45:00 -0400</pubDate>
+<guid>ocgn-20260804-0500-ocgn</guid>
+<pubDate>Tue, 04 Aug 2026 04:00:00 -0400</pubDate>
 <description><![CDATA[<div>
 <h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $303.91</p>
+<p><strong>Price:</strong> $1.27</p>
 <p><strong>Previous Close:</strong> $1.25</p>
-<p><strong>Timestamp (BRT):</strong> 2026-08-04 03:45 -03</p>
-</div><br/><small>Published: 03:45 -03</small>]]></description>
+<p><strong>Timestamp (BRT):</strong> 2026-08-04 05:00 -03</p>
+</div><br/><small>Published: 05:00 -03</small>]]></description>
 </item>
 <item>
-<title><![CDATA[OCGN: $1.25 [21:00 -03]]]></title>
+<title><![CDATA[OCGN: $1.25 [04:00 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260803-2100-ocgn</guid>
-<pubDate>Mon, 03 Aug 2026 20:00:00 -0400</pubDate>
+<guid>ocgn-20260804-0400-ocgn</guid>
+<pubDate>Tue, 04 Aug 2026 03:00:00 -0400</pubDate>
 <description><![CDATA[<div>
 <h2>OCGN Stock Price Update</h2>
 <p><strong>Price:</strong> $1.25</p>
 <p><strong>Previous Close:</strong> $1.25</p>
-<p><strong>Timestamp (BRT):</strong> 2026-08-03 21:00 -03</p>
-</div><br/><small>Published: 21:00 -03</small>]]></description>
+<p><strong>Timestamp (BRT):</strong> 2026-08-04 04:00 -03</p>
+</div><br/><small>Published: 04:00 -03</small>]]></description>
 </item>
 </channel>
 </rss>
