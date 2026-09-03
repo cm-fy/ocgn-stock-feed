@@ -4,20 +4,92 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Thu, 03 Sep 2026 18:55:14 -0300</lastBuildDate>
+<lastBuildDate>Thu, 03 Sep 2026 20:40:50 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
 <item>
-<title><![CDATA[OCGN: $1.35 (+0.00, +0.01% vs 1h ago) [18:45 -03]]]></title>
+<title><![CDATA[OCGN: $1.34 (-0.01, -0.73% vs 1h ago) [20:30 -03]]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260903-1845-ocgn</guid>
-<pubDate>Thu, 03 Sep 2026 17:45:00 -0400</pubDate>
+<guid>ocgn-20260903-2030-ocgn</guid>
+<pubDate>Thu, 03 Sep 2026 19:30:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.34</p>
+<p><strong>Previous Close:</strong> $1.34</p>
+<p><strong>Timestamp (BRT):</strong> 2026-09-03 20:30 -03</p>
+</div><br/><small>Published: 20:30 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.35 (+0.00, +0.00% vs 1h ago) [20:15 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260903-2015-ocgn</guid>
+<pubDate>Thu, 03 Sep 2026 19:15:00 -0400</pubDate>
 <description><![CDATA[<div>
 <h2>OCGN Stock Price Update</h2>
 <p><strong>Price:</strong> $1.35</p>
 <p><strong>Previous Close:</strong> $1.34</p>
-<p><strong>Timestamp (BRT):</strong> 2026-09-03 18:45 -03</p>
-</div><br/><small>Published: 18:45 -03</small>]]></description>
+<p><strong>Timestamp (BRT):</strong> 2026-09-03 20:15 -03</p>
+</div><br/><small>Published: 20:15 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.34 (-0.00, -0.01% vs 1h ago) [20:10 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260903-2010-ocgn</guid>
+<pubDate>Thu, 03 Sep 2026 19:10:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.34</p>
+<p><strong>Previous Close:</strong> $1.34</p>
+<p><strong>Timestamp (BRT):</strong> 2026-09-03 20:10 -03</p>
+</div><br/><small>Published: 20:10 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.35 (+0.00, +0.01% vs 1h ago) [19:40 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260903-1940-ocgn</guid>
+<pubDate>Thu, 03 Sep 2026 18:40:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.35</p>
+<p><strong>Previous Close:</strong> $1.34</p>
+<p><strong>Timestamp (BRT):</strong> 2026-09-03 19:40 -03</p>
+</div><br/><small>Published: 19:40 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.34 (-0.01, -0.70% vs 1h ago) [19:35 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260903-1935-ocgn</guid>
+<pubDate>Thu, 03 Sep 2026 18:35:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.34</p>
+<p><strong>Previous Close:</strong> $1.34</p>
+<p><strong>Timestamp (BRT):</strong> 2026-09-03 19:35 -03</p>
+</div><br/><small>Published: 19:35 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.35 (+0.01, +0.75% vs 1h ago) [19:15 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260903-1915-ocgn</guid>
+<pubDate>Thu, 03 Sep 2026 18:15:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.35</p>
+<p><strong>Previous Close:</strong> $1.34</p>
+<p><strong>Timestamp (BRT):</strong> 2026-09-03 19:15 -03</p>
+</div><br/><small>Published: 19:15 -03</small>]]></description>
+</item>
+<item>
+<title><![CDATA[OCGN: $1.34 (-0.01, -0.71% vs 1h ago) [19:05 -03]]]></title>
+<link>https://finance.yahoo.com/quote/OCGN</link>
+<guid>ocgn-20260903-1905-ocgn</guid>
+<pubDate>Thu, 03 Sep 2026 18:05:00 -0400</pubDate>
+<description><![CDATA[<div>
+<h2>OCGN Stock Price Update</h2>
+<p><strong>Price:</strong> $1.34</p>
+<p><strong>Previous Close:</strong> $1.34</p>
+<p><strong>Timestamp (BRT):</strong> 2026-09-03 19:05 -03</p>
+</div><br/><small>Published: 19:05 -03</small>]]></description>
 </item>
 <item>
 <title><![CDATA[OCGN: $1.35 (+0.01, +0.73% vs 1h ago) [18:35 -03]]]></title>
@@ -534,78 +606,6 @@
 <p><strong>Previous Close:</strong> $1.34</p>
 <p><strong>Timestamp (BRT):</strong> 2026-09-03 09:15 -03</p>
 </div><br/><small>Published: 09:15 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.34 (+0.02, +1.52% vs 1h ago) [09:05 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260903-0905-ocgn</guid>
-<pubDate>Thu, 03 Sep 2026 08:05:00 -0400</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.34</p>
-<p><strong>Previous Close:</strong> $1.34</p>
-<p><strong>Timestamp (BRT):</strong> 2026-09-03 09:05 -03</p>
-</div><br/><small>Published: 09:05 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.33 (+0.00, +0.00% vs 1h ago) [08:50 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260903-0850-ocgn</guid>
-<pubDate>Thu, 03 Sep 2026 07:50:00 -0400</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.33</p>
-<p><strong>Previous Close:</strong> $1.34</p>
-<p><strong>Timestamp (BRT):</strong> 2026-09-03 08:50 -03</p>
-</div><br/><small>Published: 08:50 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.34 (+0.01, +0.75% vs 1h ago) [08:20 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260903-0820-ocgn</guid>
-<pubDate>Thu, 03 Sep 2026 07:20:00 -0400</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.34</p>
-<p><strong>Previous Close:</strong> $1.34</p>
-<p><strong>Timestamp (BRT):</strong> 2026-09-03 08:20 -03</p>
-</div><br/><small>Published: 08:20 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.32 (-0.01, -0.75% vs 1h ago) [08:15 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260903-0815-ocgn</guid>
-<pubDate>Thu, 03 Sep 2026 07:15:00 -0400</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.32</p>
-<p><strong>Previous Close:</strong> $1.34</p>
-<p><strong>Timestamp (BRT):</strong> 2026-09-03 08:15 -03</p>
-</div><br/><small>Published: 08:15 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.34 (+0.01, +0.75% vs 1h ago) [08:10 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260903-0810-ocgn</guid>
-<pubDate>Thu, 03 Sep 2026 07:10:00 -0400</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.34</p>
-<p><strong>Previous Close:</strong> $1.34</p>
-<p><strong>Timestamp (BRT):</strong> 2026-09-03 08:10 -03</p>
-</div><br/><small>Published: 08:10 -03</small>]]></description>
-</item>
-<item>
-<title><![CDATA[OCGN: $1.32 (-0.01, -0.75% vs 1h ago) [08:05 -03]]]></title>
-<link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20260903-0805-ocgn</guid>
-<pubDate>Thu, 03 Sep 2026 07:05:00 -0400</pubDate>
-<description><![CDATA[<div>
-<h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $1.32</p>
-<p><strong>Previous Close:</strong> $1.34</p>
-<p><strong>Timestamp (BRT):</strong> 2026-09-03 08:05 -03</p>
-</div><br/><small>Published: 08:05 -03</small>]]></description>
 </item>
 </channel>
 </rss>
