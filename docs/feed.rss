@@ -4,20 +4,20 @@
 <title>OCGN Stock Price Feed</title>
 <link>https://cm-fy.github.io/ocgn-stock-feed/</link>
 <description>Near-real-time OCGN (Ocugen Inc.) stock price updates (including extended hours).</description>
-<lastBuildDate>Fri, 16 Oct 2026 21:00:06 -0300</lastBuildDate>
+<lastBuildDate>Sun, 18 Oct 2026 23:32:06 -0300</lastBuildDate>
 <generator>fetch_stock_feed.py (custom)</generator>
 <image><url>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</url><title>OCGN Stock Price Feed</title><link>https://cm-fy.github.io/ocgn-stock-feed/</link></image>
 <item>
-<title><![CDATA[OCGN: $342.75 [21:00 -03] (overnight via stocktwits_browser)]]></title>
+<title><![CDATA[OCGN: $345.01 [23:30 -03] (overnight via stocktwits_browser)]]></title>
 <link>https://finance.yahoo.com/quote/OCGN</link>
-<guid>ocgn-20261016-2100-ocgn</guid>
-<pubDate>Fri, 16 Oct 2026 20:00:00 -0400</pubDate>
+<guid>ocgn-20261018-2330-ocgn</guid>
+<pubDate>Sun, 18 Oct 2026 22:30:00 -0400</pubDate>
 <description><![CDATA[<div>
 <h2>OCGN Stock Price Update</h2>
-<p><strong>Price:</strong> $342.75</p>
-<p><strong>Previous Close:</strong> $0.83</p>
-<p><strong>Timestamp (BRT):</strong> 2026-10-16 21:00 -03</p>
-</div><br/><small>Published: 21:00 -03</small>]]></description>
+<p><strong>Price:</strong> $345.01</p>
+<p><strong>Previous Close:</strong> $0.80</p>
+<p><strong>Timestamp (BRT):</strong> 2026-10-18 23:30 -03</p>
+</div><br/><small>Published: 23:30 -03</small>]]></description>
 </item>
 </channel>
 </rss>
