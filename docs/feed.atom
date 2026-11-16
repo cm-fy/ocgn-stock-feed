@@ -5,7 +5,7 @@
   <link href="https://cm-fy.github.io/ocgn-stock-feed/feed.atom" rel="self"/>
   <link href="https://cm-fy.github.io/ocgn-stock-feed/" rel="alternate" type="text/html"/>
   <id>https://cm-fy.github.io/ocgn-stock-feed/feed.atom</id>
-  <updated>2026-11-14T00:39:55.056878-03:00</updated>
+  <updated>2026-11-16T00:57:47.741600-03:00</updated>
   <author>
     <name>OCGN Stock Feed Bot</name>
   </author>
@@ -13,28 +13,28 @@
   <icon>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</icon>
   <logo>https://cm-fy.github.io/ocgn-stock-feed/OCGN.png</logo>
   <entry>
-    <title>OCGN: $66861.08 (overnight via html.regularMarketPrice)</title>
+    <title>OCGN: $356.56 (overnight via stocktwits_browser)</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20261114-0035-ocgn</id>
-    <published>2026-11-14T00:35:00-03:00</published>
-    <updated>2026-11-14T00:35:00-03:00</updated>
+    <id>ocgn-20261116-0055-ocgn</id>
+    <published>2026-11-16T00:55:00-03:00</published>
+    <updated>2026-11-16T00:55:00-03:00</updated>
     <author>
       <name>OCGN Stock Feed Bot</name>
     </author>
-    <summary>OCGN 66861.08 (+66860.24, +7967140.23%) at 00:35 -03</summary>
+    <summary>OCGN 356.56 (+355.72, +42388.08%) at 00:55 -03</summary>
     <content type="html">&lt;div&gt;
 &lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $66861.08&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $356.56&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $0.84&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-11-14 00:35 -03&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-11-16 00:55 -03&lt;/p&gt;
 &lt;/div&gt;</content>
   </entry>
   <entry>
     <title>OCGN: $0.84</title>
     <link href="https://finance.yahoo.com/quote/OCGN" rel="alternate" type="text/html"/>
-    <id>ocgn-20261113-2100-ocgn</id>
-    <published>2026-11-13T21:00:00-03:00</published>
-    <updated>2026-11-13T21:00:00-03:00</updated>
+    <id>ocgn-20261115-2100-ocgn</id>
+    <published>2026-11-15T21:00:00-03:00</published>
+    <updated>2026-11-15T21:00:00-03:00</updated>
     <author>
       <name>OCGN Stock Feed Bot</name>
     </author>
@@ -43,7 +43,7 @@
 &lt;h2&gt;OCGN Stock Price Update&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $0.84&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Previous Close:&lt;/strong&gt; $0.84&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-11-13 21:00 -03&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timestamp (BRT):&lt;/strong&gt; 2026-11-15 21:00 -03&lt;/p&gt;
 &lt;/div&gt;</content>
   </entry>
 </feed>
